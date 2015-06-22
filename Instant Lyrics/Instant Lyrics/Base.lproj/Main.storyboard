@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,28 +15,60 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="260" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aw0-q6-WSj">
+                                <rect key="frame" x="-4" y="20" width="266" height="2"/>
+                            </progressView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Dq-g2-0E5">
+                                <rect key="frame" x="-4" y="456" width="268" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="XYZ-yn-U7Q"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" id="0R1-ru-dXC"/>
+                                </items>
+                            </toolbar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sk-uT-h54">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="-4" y="20" width="268" height="436"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="433" id="0UL-TT-lyH"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0UL-TT-lyH"/>
+                                    </mask>
+                                </variation>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2sk-uT-h54" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="1yS-9l-zUH"/>
-                            <constraint firstItem="2sk-uT-h54" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="MC9-JN-snz"/>
-                            <constraint firstItem="2sk-uT-h54" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NqB-KE-Giv"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2sk-uT-h54" secondAttribute="bottom" id="our-tw-I2O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2sk-uT-h54" secondAttribute="trailing" constant="-20" id="00H-k6-lYJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Dq-g2-0E5" secondAttribute="trailing" constant="-20" id="CNi-fu-6QN"/>
+                            <constraint firstItem="aw0-q6-WSj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="DOT-Kq-tut"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aw0-q6-WSj" secondAttribute="trailing" constant="-18" id="DaL-TF-tda"/>
+                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="GAh-Mz-tVE"/>
+                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="S5m-3K-TJF"/>
+                            <constraint firstItem="2sk-uT-h54" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="TMt-NR-QPP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Dq-g2-0E5" secondAttribute="trailing" constant="-20" id="iNN-B9-kZ1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Dq-g2-0E5" secondAttribute="bottom" id="oJn-6q-MJR"/>
+                            <constraint firstItem="2sk-uT-h54" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="sei-1R-lRh"/>
+                            <constraint firstItem="aw0-q6-WSj" firstAttribute="bottom" secondItem="2sk-uT-h54" secondAttribute="bottom" constant="-434" id="wca-JW-XiQ"/>
+                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="top" secondItem="aw0-q6-WSj" secondAttribute="bottom" constant="434" id="ydI-Gn-xbf"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="260" height="500"/>
                     <connections>
+                        <outlet property="progressView" destination="aw0-q6-WSj" id="sVv-9g-wJD"/>
                         <outlet property="webView" destination="2sk-uT-h54" id="A5b-OD-K3R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="141" y="357"/>
         </scene>
     </scenes>
 </document>
