@@ -11,4 +11,4 @@ Have lyrics you want on your screen in the blink of an eye
 * [tomtclai](https://github.com/tomtclai)
 
 #### License
-* [BSD](LICENSE.txt)
+* [BSD](License.txt)
