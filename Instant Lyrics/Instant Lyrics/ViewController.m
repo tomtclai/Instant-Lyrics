@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, nonatomic) NSURL *lastURL;
 @end
-NSString *const searchbarPlaceholder = @"Search";
+NSString *const searchbarPlaceholder = @"Search Lyrics";
 @implementation ViewController
 
 #pragma mark - UIView
@@ -78,11 +78,11 @@ NSString *const searchbarPlaceholder = @"Search";
     if ([_controller playbackState] != MPMusicPlaybackStatePlaying)
     {
         self.searchBar.placeholder = searchbarPlaceholder;
-        NSString *urlStr = [NSMutableString stringWithFormat:@"http://www.google.com/search?q="];
-        NSLog(@"%@",urlStr);
-        NSURL *url = [NSURL URLWithString:urlStr];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
+//        NSString *urlStr = [NSMutableString stringWithFormat:@"http://www.google.com/search?q="];
+//        NSLog(@"%@",urlStr);
+//        NSURL *url = [NSURL URLWithString:urlStr];
+//        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//        [self.webView loadRequest:request];
         return;
     }
     else {

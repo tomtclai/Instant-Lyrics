@@ -92,7 +92,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cLo-xb-xK4"/>
-                                    <barButtonItem image="Search-Music2" id="F7o-ah-QzT">
+                                    <barButtonItem image="Search-Music3" id="F7o-ah-QzT">
                                         <connections>
                                             <action selector="refresh:" destination="BYZ-38-t0r" id="ZP5-Ba-a7h"/>
                                         </connections>
@@ -180,8 +180,8 @@
     <resources>
         <image name="Back" width="21" height="21"/>
         <image name="Forward" width="21" height="21"/>
-        <image name="Safari" width="22" height="21"/>
+        <image name="Safari" width="21" height="21"/>
         <image name="Search" width="21" height="21"/>
-        <image name="Search-Music2" width="21" height="21"/>
+        <image name="Search-Music3" width="64" height="64"/>
     </resources>
 </document>
