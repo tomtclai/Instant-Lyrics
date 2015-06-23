@@ -18,20 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="260" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aw0-q6-WSj">
-                                <rect key="frame" x="-4" y="20" width="266" height="2"/>
-                            </progressView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Dq-g2-0E5">
-                                <rect key="frame" x="-4" y="456" width="268" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="XYZ-yn-U7Q"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="Item" id="0R1-ru-dXC"/>
-                                </items>
-                            </toolbar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sk-uT-h54">
-                                <rect key="frame" x="-4" y="20" width="268" height="436"/>
+                                <rect key="frame" x="0.0" y="64" width="260" height="392"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="433" id="0UL-TT-lyH"/>
@@ -42,33 +30,158 @@
                                     </mask>
                                 </variation>
                             </webView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZM-zY-2X8">
+                                <rect key="frame" x="0.0" y="0.0" width="260" height="64"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8zg-3H-nMF">
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="AoK-eH-VK9"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HnN-Ai-rSS">
+                                <rect key="frame" x="0.0" y="456" width="260" height="44"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eFj-aN-H17">
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="114" id="qdZ-86-4ql"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qdZ-86-4ql"/>
+                                    </mask>
+                                </variation>
+                            </visualEffectView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9p-Mt-V63">
+                                <rect key="frame" x="0.0" y="0.0" width="260" height="64"/>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="HOe-ig-AIt">
+                                <rect key="frame" x="0.0" y="20" width="260" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="c6h-Nt-47G"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Dq-g2-0E5">
+                                <rect key="frame" x="0.0" y="456" width="260" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="XYZ-yn-U7Q"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="fQY-By-Yh4"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem image="Back" id="df1-g7-7pW">
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="BYZ-38-t0r" id="7BN-Bx-E6G"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nIl-Hh-oQD"/>
+                                    <barButtonItem image="Forward" id="vdW-gT-6dL">
+                                        <connections>
+                                            <action selector="forwardButtonTapped:" destination="BYZ-38-t0r" id="YAf-NW-fRH"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="30Q-y7-EZG"/>
+                                    <barButtonItem image="Search" id="0R1-ru-dXC">
+                                        <connections>
+                                            <action selector="manualSearch:" destination="BYZ-38-t0r" id="xlN-VK-jnB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cLo-xb-xK4"/>
+                                    <barButtonItem image="Search-Music2" id="F7o-ah-QzT">
+                                        <connections>
+                                            <action selector="refresh:" destination="BYZ-38-t0r" id="ZP5-Ba-a7h"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WTo-Sz-BLJ"/>
+                                    <barButtonItem image="Safari" id="h9h-Pj-nLk">
+                                        <connections>
+                                            <action selector="actionButtonPressed:" destination="BYZ-38-t0r" id="V1i-My-9NE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fQY-By-Yh4"/>
+                                    </mask>
+                                </variation>
+                            </toolbar>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CH5-mB-jhC">
+                                <rect key="frame" x="0.0" y="62" width="260" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="2sk-uT-h54" secondAttribute="trailing" constant="-20" id="00H-k6-lYJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0Dq-g2-0E5" secondAttribute="trailing" constant="-20" id="CNi-fu-6QN"/>
-                            <constraint firstItem="aw0-q6-WSj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="DOT-Kq-tut"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aw0-q6-WSj" secondAttribute="trailing" constant="-18" id="DaL-TF-tda"/>
-                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="GAh-Mz-tVE"/>
-                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="S5m-3K-TJF"/>
-                            <constraint firstItem="2sk-uT-h54" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="TMt-NR-QPP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0Dq-g2-0E5" secondAttribute="trailing" constant="-20" id="iNN-B9-kZ1"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Dq-g2-0E5" secondAttribute="bottom" id="oJn-6q-MJR"/>
-                            <constraint firstItem="2sk-uT-h54" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="sei-1R-lRh"/>
-                            <constraint firstItem="aw0-q6-WSj" firstAttribute="bottom" secondItem="2sk-uT-h54" secondAttribute="bottom" constant="-434" id="wca-JW-XiQ"/>
-                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="top" secondItem="aw0-q6-WSj" secondAttribute="bottom" constant="434" id="ydI-Gn-xbf"/>
+                            <constraint firstItem="y9p-Mt-V63" firstAttribute="bottom" secondItem="HOe-ig-AIt" secondAttribute="bottom" id="48S-Za-ZtJ"/>
+                            <constraint firstItem="HnN-Ai-rSS" firstAttribute="top" secondItem="2sk-uT-h54" secondAttribute="bottom" id="7AQ-2m-JAE"/>
+                            <constraint firstItem="y9p-Mt-V63" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="97w-ZW-tii"/>
+                            <constraint firstItem="HnN-Ai-rSS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9QX-Qx-xCQ"/>
+                            <constraint firstItem="CH5-mB-jhC" firstAttribute="top" secondItem="y9p-Mt-V63" secondAttribute="top" id="AhB-qb-4io"/>
+                            <constraint firstItem="HOe-ig-AIt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B5L-L6-eji"/>
+                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="top" secondItem="2sk-uT-h54" secondAttribute="bottom" id="CS5-jN-7M2"/>
+                            <constraint firstItem="y9p-Mt-V63" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="CXi-yB-8Jm"/>
+                            <constraint firstItem="HnN-Ai-rSS" firstAttribute="width" secondItem="0Dq-g2-0E5" secondAttribute="width" id="FUn-Gp-drZ"/>
+                            <constraint firstItem="yZM-zY-2X8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="I81-Ha-Ugu"/>
+                            <constraint firstItem="yZM-zY-2X8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Jqj-Z0-I8T"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Dq-g2-0E5" secondAttribute="bottom" id="NF8-3I-bSI"/>
+                            <constraint firstItem="CH5-mB-jhC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Oz9-mH-RAS"/>
+                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RT5-4I-Got"/>
+                            <constraint firstItem="HnN-Ai-rSS" firstAttribute="height" secondItem="0Dq-g2-0E5" secondAttribute="height" id="S6a-xh-F6T"/>
+                            <constraint firstItem="CH5-mB-jhC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="TXl-XX-s8o"/>
+                            <constraint firstItem="yZM-zY-2X8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tga-vV-Mzg"/>
+                            <constraint firstItem="y9p-Mt-V63" firstAttribute="height" secondItem="HOe-ig-AIt" secondAttribute="height" id="YEQ-Dg-PpH"/>
+                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="top" secondItem="2sk-uT-h54" secondAttribute="bottom" id="YT4-Gr-5Ek"/>
+                            <constraint firstItem="HnN-Ai-rSS" firstAttribute="height" secondItem="0Dq-g2-0E5" secondAttribute="height" id="cKD-Pd-d4y"/>
+                            <constraint firstItem="y9p-Mt-V63" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ef5-Ew-YSq"/>
+                            <constraint firstItem="HOe-ig-AIt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hAM-jX-HRL"/>
+                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="top" secondItem="2sk-uT-h54" secondAttribute="bottom" id="hMT-Gy-9s4"/>
+                            <constraint firstItem="HOe-ig-AIt" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="i6p-7d-uIs"/>
+                            <constraint firstItem="CH5-mB-jhC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="iBb-mm-hJx"/>
+                            <constraint firstItem="2sk-uT-h54" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ivn-3V-vnj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HnN-Ai-rSS" secondAttribute="bottom" id="jQE-HI-0PG"/>
+                            <constraint firstItem="0Dq-g2-0E5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="kFB-GP-nd7"/>
+                            <constraint firstItem="CH5-mB-jhC" firstAttribute="bottom" secondItem="y9p-Mt-V63" secondAttribute="bottom" id="lhp-AX-ZdI"/>
+                            <constraint firstItem="2sk-uT-h54" firstAttribute="top" secondItem="yZM-zY-2X8" secondAttribute="bottom" id="mkD-AJ-afp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Dq-g2-0E5" secondAttribute="bottom" id="puA-ZL-9LS"/>
+                            <constraint firstItem="y9p-Mt-V63" firstAttribute="top" secondItem="HOe-ig-AIt" secondAttribute="top" id="qnE-R7-teY"/>
+                            <constraint firstItem="2sk-uT-h54" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="spi-io-d2S"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AhB-qb-4io"/>
+                                <exclude reference="TXl-XX-s8o"/>
+                                <exclude reference="YEQ-Dg-PpH"/>
+                                <exclude reference="qnE-R7-teY"/>
+                                <exclude reference="7AQ-2m-JAE"/>
+                                <exclude reference="S6a-xh-F6T"/>
+                            </mask>
+                        </variation>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="260" height="500"/>
                     <connections>
-                        <outlet property="progressView" destination="aw0-q6-WSj" id="sVv-9g-wJD"/>
+                        <outlet property="backButton" destination="df1-g7-7pW" id="6dF-kb-hIN"/>
+                        <outlet property="forwardButton" destination="vdW-gT-6dL" id="1KP-nY-fFV"/>
+                        <outlet property="progressView" destination="CH5-mB-jhC" id="eAC-5V-xux"/>
+                        <outlet property="searchBar" destination="HOe-ig-AIt" id="vS4-IZ-FrC"/>
+                        <outlet property="toolbar" destination="0Dq-g2-0E5" id="dcT-PS-y18"/>
                         <outlet property="webView" destination="2sk-uT-h54" id="A5b-OD-K3R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="357"/>
+            <point key="canvasLocation" x="326" y="393"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Back" width="21" height="21"/>
+        <image name="Forward" width="21" height="21"/>
+        <image name="Safari" width="21" height="21"/>
+        <image name="Search" width="21" height="21"/>
+        <image name="Search-Music2" width="21" height="21"/>
+    </resources>
 </document>

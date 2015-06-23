@@ -3,7 +3,7 @@
 //  Instant Lyrics
 //
 //  Created by Tom Lai on 6/21/15.
-//  Copyright © 2015 Tom. All rights reserved.
+//  Copyright © 2015 Tsz Chun Lai. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,5 +13,10 @@
 -(void)webViewDidFinishLoad:(nonnull UIWebView *)webView;
 -(void)swipeBack:(__nonnull UIScreenEdgePanGestureRecognizer *)regcognizer;
 -(void)swipeForward:(__nonnull UIScreenEdgePanGestureRecognizer *)regcognizer;
+typedef enum searchOptions
+{
+    SEARCH_OPTIONAL,
+    SEARCH_FORCED
+} searchOptions;
 @end
 

@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		774A9EFA1B38619500CAD689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 774A9EF91B38619500CAD689 /* main.m */; };
-		774A9EFD1B38619500CAD689 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 774A9EFC1B38619500CAD689 /* AppDelegate.m */; };
-		774A9F051B38619500CAD689 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A9F041B38619500CAD689 /* Assets.xcassets */; };
-		774A9F131B3861E100CAD689 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 774A9F101B3861E100CAD689 /* ViewController.m */; };
-		774A9F141B3861E100CAD689 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774A9F111B3861E100CAD689 /* Info.plist */; };
-		774A9F151B3861E100CAD689 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774A9F121B3861E100CAD689 /* ViewController.xib */; };
+		7774D7A11B37A40400DA0068 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A01B37A40400DA0068 /* main.m */; };
+		7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A31B37A40400DA0068 /* AppDelegate.m */; };
+		7774D7A71B37A40400DA0068 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A61B37A40400DA0068 /* ViewController.m */; };
+		7774D7AA1B37A40400DA0068 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7774D7A81B37A40400DA0068 /* Main.storyboard */; };
+		7774D7AC1B37A40400DA0068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7774D7AB1B37A40400DA0068 /* Assets.xcassets */; };
+		7774D7AF1B37A40400DA0068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7774D7AD1B37A40400DA0068 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		774A9EF51B38619500CAD689 /* Instant Lyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instant Lyrics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		774A9EF91B38619500CAD689 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		774A9EFB1B38619500CAD689 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		774A9EFC1B38619500CAD689 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		774A9F041B38619500CAD689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		774A9F091B38619500CAD689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		774A9F0F1B3861E100CAD689 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		774A9F101B3861E100CAD689 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		774A9F111B3861E100CAD689 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		774A9F121B3861E100CAD689 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		7774D79C1B37A40400DA0068 /* Instant Lyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instant Lyrics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7774D7A01B37A40400DA0068 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7774D7A21B37A40400DA0068 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7774D7A31B37A40400DA0068 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7774D7A51B37A40400DA0068 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7774D7A61B37A40400DA0068 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7774D7A91B37A40400DA0068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7774D7AB1B37A40400DA0068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7774D7AE1B37A40400DA0068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7774D7B01B37A40400DA0068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		774A9EF21B38619500CAD689 /* Frameworks */ = {
+		7774D7991B37A40400DA0068 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,42 +39,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		774A9EEC1B38619500CAD689 = {
+		7774D7931B37A40400DA0068 = {
 			isa = PBXGroup;
 			children = (
-				774A9EF71B38619500CAD689 /* Instant Lyrics */,
-				774A9EF61B38619500CAD689 /* Products */,
+				7774D79E1B37A40400DA0068 /* Instant Lyrics */,
+				7774D79D1B37A40400DA0068 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		774A9EF61B38619500CAD689 /* Products */ = {
+		7774D79D1B37A40400DA0068 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				774A9EF51B38619500CAD689 /* Instant Lyrics.app */,
+				7774D79C1B37A40400DA0068 /* Instant Lyrics.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		774A9EF71B38619500CAD689 /* Instant Lyrics */ = {
+		7774D79E1B37A40400DA0068 /* Instant Lyrics */ = {
 			isa = PBXGroup;
 			children = (
-				774A9EFB1B38619500CAD689 /* AppDelegate.h */,
-				774A9EFC1B38619500CAD689 /* AppDelegate.m */,
-				774A9F0F1B3861E100CAD689 /* ViewController.h */,
-				774A9F101B3861E100CAD689 /* ViewController.m */,
-				774A9F111B3861E100CAD689 /* Info.plist */,
-				774A9F121B3861E100CAD689 /* ViewController.xib */,
-				774A9F041B38619500CAD689 /* Assets.xcassets */,
-				774A9F091B38619500CAD689 /* Info.plist */,
-				774A9EF81B38619500CAD689 /* Supporting Files */,
+				7774D7A21B37A40400DA0068 /* AppDelegate.h */,
+				7774D7A31B37A40400DA0068 /* AppDelegate.m */,
+				7774D7A51B37A40400DA0068 /* ViewController.h */,
+				7774D7A61B37A40400DA0068 /* ViewController.m */,
+				7774D7A81B37A40400DA0068 /* Main.storyboard */,
+				7774D7AB1B37A40400DA0068 /* Assets.xcassets */,
+				7774D7AD1B37A40400DA0068 /* LaunchScreen.storyboard */,
+				7774D7B01B37A40400DA0068 /* Info.plist */,
+				7774D79F1B37A40400DA0068 /* Supporting Files */,
 			);
 			path = "Instant Lyrics";
 			sourceTree = "<group>";
 		};
-		774A9EF81B38619500CAD689 /* Supporting Files */ = {
+		7774D79F1B37A40400DA0068 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				774A9EF91B38619500CAD689 /* main.m */,
+				7774D7A01B37A40400DA0068 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -82,13 +82,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		774A9EF41B38619500CAD689 /* Instant Lyrics */ = {
+		7774D79B1B37A40400DA0068 /* Instant Lyrics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 774A9F0C1B38619500CAD689 /* Build configuration list for PBXNativeTarget "Instant Lyrics" */;
+			buildConfigurationList = 7774D7B31B37A40400DA0068 /* Build configuration list for PBXNativeTarget "Instant Lyrics" */;
 			buildPhases = (
-				774A9EF11B38619500CAD689 /* Sources */,
-				774A9EF21B38619500CAD689 /* Frameworks */,
-				774A9EF31B38619500CAD689 /* Resources */,
+				7774D7981B37A40400DA0068 /* Sources */,
+				7774D7991B37A40400DA0068 /* Frameworks */,
+				7774D79A1B37A40400DA0068 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -96,24 +96,24 @@
 			);
 			name = "Instant Lyrics";
 			productName = "Instant Lyrics";
-			productReference = 774A9EF51B38619500CAD689 /* Instant Lyrics.app */;
+			productReference = 7774D79C1B37A40400DA0068 /* Instant Lyrics.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		774A9EED1B38619500CAD689 /* Project object */ = {
+		7774D7941B37A40400DA0068 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Tom;
 				TargetAttributes = {
-					774A9EF41B38619500CAD689 = {
+					7774D79B1B37A40400DA0068 = {
 						CreatedOnToolsVersion = 7.0;
 					};
 				};
 			};
-			buildConfigurationList = 774A9EF01B38619500CAD689 /* Build configuration list for PBXProject "Instant Lyrics" */;
+			buildConfigurationList = 7774D7971B37A40400DA0068 /* Build configuration list for PBXProject "Instant Lyrics" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -121,44 +121,63 @@
 				en,
 				Base,
 			);
-			mainGroup = 774A9EEC1B38619500CAD689;
-			productRefGroup = 774A9EF61B38619500CAD689 /* Products */;
+			mainGroup = 7774D7931B37A40400DA0068;
+			productRefGroup = 7774D79D1B37A40400DA0068 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				774A9EF41B38619500CAD689 /* Instant Lyrics */,
+				7774D79B1B37A40400DA0068 /* Instant Lyrics */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		774A9EF31B38619500CAD689 /* Resources */ = {
+		7774D79A1B37A40400DA0068 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774A9F141B3861E100CAD689 /* Info.plist in Resources */,
-				774A9F151B3861E100CAD689 /* ViewController.xib in Resources */,
-				774A9F051B38619500CAD689 /* Assets.xcassets in Resources */,
+				7774D7AF1B37A40400DA0068 /* LaunchScreen.storyboard in Resources */,
+				7774D7AC1B37A40400DA0068 /* Assets.xcassets in Resources */,
+				7774D7AA1B37A40400DA0068 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		774A9EF11B38619500CAD689 /* Sources */ = {
+		7774D7981B37A40400DA0068 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774A9F131B3861E100CAD689 /* ViewController.m in Sources */,
-				774A9EFD1B38619500CAD689 /* AppDelegate.m in Sources */,
-				774A9EFA1B38619500CAD689 /* main.m in Sources */,
+				7774D7A71B37A40400DA0068 /* ViewController.m in Sources */,
+				7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */,
+				7774D7A11B37A40400DA0068 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		7774D7A81B37A40400DA0068 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7774D7A91B37A40400DA0068 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7774D7AD1B37A40400DA0068 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7774D7AE1B37A40400DA0068 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		774A9F0A1B38619500CAD689 /* Debug */ = {
+		7774D7B11B37A40400DA0068 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -201,7 +220,7 @@
 			};
 			name = Debug;
 		};
-		774A9F0B1B38619500CAD689 /* Release */ = {
+		7774D7B21B37A40400DA0068 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -238,7 +257,7 @@
 			};
 			name = Release;
 		};
-		774A9F0D1B38619500CAD689 /* Debug */ = {
+		7774D7B41B37A40400DA0068 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -247,10 +266,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Tsz-Chun-Lai.Instant-Lyrics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		774A9F0E1B38619500CAD689 /* Release */ = {
+		7774D7B51B37A40400DA0068 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -259,30 +279,32 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Tsz-Chun-Lai.Instant-Lyrics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		774A9EF01B38619500CAD689 /* Build configuration list for PBXProject "Instant Lyrics" */ = {
+		7774D7971B37A40400DA0068 /* Build configuration list for PBXProject "Instant Lyrics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				774A9F0A1B38619500CAD689 /* Debug */,
-				774A9F0B1B38619500CAD689 /* Release */,
+				7774D7B11B37A40400DA0068 /* Debug */,
+				7774D7B21B37A40400DA0068 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		774A9F0C1B38619500CAD689 /* Build configuration list for PBXNativeTarget "Instant Lyrics" */ = {
+		7774D7B31B37A40400DA0068 /* Build configuration list for PBXNativeTarget "Instant Lyrics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				774A9F0D1B38619500CAD689 /* Debug */,
-				774A9F0E1B38619500CAD689 /* Release */,
+				7774D7B41B37A40400DA0068 /* Debug */,
+				7774D7B51B37A40400DA0068 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 774A9EED1B38619500CAD689 /* Project object */;
+	rootObject = 7774D7941B37A40400DA0068 /* Project object */;
 }

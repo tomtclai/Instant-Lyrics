@@ -1,19 +1,17 @@
 //
 //  AppDelegate.h
-//  Empty Project
+//  Instant Lyrics
 //
-//  Created by Tsz Chun Lai on 2/15/15.
-//  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
+//  Created by Tom Lai on 6/21/15.
+//  Copyright © 2015 Tsz Chun Lai. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
-@class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) ViewController *viewController;
 
 @end
+

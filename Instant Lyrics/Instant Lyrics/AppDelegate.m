@@ -1,28 +1,24 @@
 //
 //  AppDelegate.m
-//  Empty Project
+//  Instant Lyrics
 //
-//  Created by Tsz Chun Lai on 2/15/15.
-//  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
+//  Created by Tom Lai on 6/21/15.
+//  Copyright © 2015 Tsz Chun Lai. All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-
 @interface AppDelegate ()
-
+@property (strong, nonatomic) ViewController* rootViewController;
 @end
 
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+
+
     return YES;
 }
 
