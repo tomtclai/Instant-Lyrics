@@ -152,10 +152,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="AhB-qb-4io"/>
-                                <exclude reference="TXl-XX-s8o"/>
                                 <exclude reference="YEQ-Dg-PpH"/>
                                 <exclude reference="qnE-R7-teY"/>
+                                <exclude reference="AhB-qb-4io"/>
+                                <exclude reference="TXl-XX-s8o"/>
                                 <exclude reference="7AQ-2m-JAE"/>
                                 <exclude reference="S6a-xh-F6T"/>
                             </mask>
@@ -180,7 +180,7 @@
     <resources>
         <image name="Back" width="21" height="21"/>
         <image name="Forward" width="21" height="21"/>
-        <image name="Safari" width="21" height="21"/>
+        <image name="Safari" width="22" height="21"/>
         <image name="Search" width="21" height="21"/>
         <image name="Search-Music2" width="21" height="21"/>
     </resources>
