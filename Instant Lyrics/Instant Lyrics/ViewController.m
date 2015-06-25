@@ -9,15 +9,16 @@
 #import "ViewController.h"
 @import MediaPlayer;
 @interface ViewController () <UIWebViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate>
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) MPMusicPlayerController *controller;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
-@property (strong, nonatomic) NSString *artistTitle;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) NSString *artistTitle;
 @property (strong, nonatomic) NSURL *lastURL;
+@property (strong, nonatomic) NSString *lastArtistTitle;
 @end
 NSString *const searchbarPlaceholder = @"Search Lyrics";
 @implementation ViewController
@@ -52,7 +53,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(loadSearch)
+                                             selector:@selector(searchLyrics)
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
     self.artistTitle = [[NSString alloc]init];
@@ -66,14 +67,15 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     [[self progressView] setAlpha:0];
     [[self progressView] setProgress:0];
     
-    [self loadSearchWithOptions:SEARCH_OPTIONAL];
+    [self searchLyricsWithOptions:SEARCH_OPTIONAL];
+    [self updateBackForwardButtons];
+}
 
-}
-- (void)loadSearch
+- (void)searchLyrics
 {
-    [self loadSearchWithOptions: SEARCH_OPTIONAL];
+    [self searchLyricsWithOptions: SEARCH_OPTIONAL];
 }
-- (void)loadSearchWithOptions:(searchOptions)options {
+- (void)searchLyricsWithOptions:(searchOptions)options {
     MPMediaItem *mediaItem = [_controller nowPlayingItem];
     if ([_controller playbackState] != MPMusicPlaybackStatePlaying)
     {
@@ -90,25 +92,24 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
         NSString* title = [mediaItem valueForKey:MPMediaItemPropertyTitle];
         self.artistTitle = [NSString stringWithFormat:@"%@ %@", artist, title];
         
-        //This query is same as last query, so don't reload.
+        //This query is same as last query, so don't search
         if (options == SEARCH_OPTIONAL &&
-            [self.searchBar.placeholder containsString:self.artistTitle])
+            [self.lastArtistTitle isEqualToString: self.artistTitle])
         {
             return;
         }
         
 
-        [self searchForLyrics];
+        [self searchLyricsHelper];
     }
 }
-- (void)searchForLyrics
+- (void)searchLyricsHelper
 {
     NSMutableString* query = [self.artistTitle mutableCopy];
-    if (![query containsString:@" Lyrics"])
+    if (![query containsString:@"Lyrics"] && ![query containsString:@"lyrics"])
     {
-        [query appendString:@" Lyrics"];
+        query = [NSMutableString stringWithFormat:@"Lyrics %@",query];
     };
-    self.searchBar.placeholder = query;
     NSMutableString *urlStr = [NSMutableString stringWithFormat:@"%@",
                                [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
@@ -128,6 +129,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
+    self.lastArtistTitle = self.artistTitle;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -185,7 +187,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
 - (IBAction)refresh:(id)sender
 {
-    [self loadSearchWithOptions:SEARCH_FORCED];
+    [self searchLyricsWithOptions:SEARCH_FORCED];
 }
 
 #pragma mark - action button
@@ -207,8 +209,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     if (buttonIndex == 1)
     {
         self.artistTitle = [NSString stringWithFormat:@"%@",[alertView textFieldAtIndex:0].text];
-        self.searchBar.placeholder= self.artistTitle;
-        [self searchForLyrics];
+        [self searchLyricsHelper];
     }
 }
 #pragma mark - back button
@@ -234,17 +235,21 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 #pragma mark - search bar
 - (void)searchBarTextDidBeginEditing:(nonnull UISearchBar *)searchBar
 {
-    if ([searchBar.placeholder isEqualToString:searchbarPlaceholder]) return;
-    searchBar.text = searchBar.placeholder;
 }
 - (void)searchBarSearchButtonClicked:(nonnull UISearchBar *)searchBar
 {
     self.artistTitle = [NSString stringWithFormat:@"%@",searchBar.text];
     self.searchBar.text = self.artistTitle;
-    [self searchForLyrics];
-    searchBar.placeholder = searchBar.text;
+    [self searchLyricsHelper];
     searchBar.text = @"";
     [searchBar resignFirstResponder];
 
+}
+#pragma mark - dealloc
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationWillEnterForegroundNotification
+                                                  object:nil];
 }
 @end
