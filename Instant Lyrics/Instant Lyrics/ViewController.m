@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
-@property (strong, nonatomic) NSString *artistTitle;
+@property (strong, nonatomic) NSMutableString *artistTitle;
 @property (strong, nonatomic) NSURL *lastURL;
 @property (strong, nonatomic) NSString *lastArtistTitle;
 @end
@@ -60,7 +60,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
                                              selector:@selector(searchLyrics)
                                                  name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                                                object:nil];
-    self.artistTitle = [[NSString alloc]init];
+    self.artistTitle = [[NSMutableString alloc]init];
     self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchBar.translucent = YES;
     self.searchBar.delegate=self;
@@ -84,18 +84,15 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     if ([_MPcontroller playbackState] != MPMusicPlaybackStatePlaying)
     {
         self.searchBar.placeholder = searchbarPlaceholder;
-//        NSString *urlStr = [NSMutableString stringWithFormat:@"http://www.google.com/search?q="];
-//        NSLog(@"%@",urlStr);
-//        NSURL *url = [NSURL URLWithString:urlStr];
-//        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//        [self.webView loadRequest:request];
+        if (self.lastURL) [self loadURL:self.lastURL];
         return;
     }
     else {
         NSString* artist = [mediaItem valueForKey:MPMediaItemPropertyArtist];
         NSString* title = [mediaItem valueForKey:MPMediaItemPropertyTitle];
-        self.artistTitle = [NSString stringWithFormat:@"%@ %@", artist, title];
-        
+        if (artist) [self.artistTitle appendString:artist];
+        if (artist && title) [self.artistTitle appendString:@" "];
+        if (title) [self.artistTitle appendString:title];
         //This query is same as last query, so don't search
         if (options == SEARCH_OPTIONAL &&
             [self.lastArtistTitle isEqualToString: self.artistTitle])
@@ -131,16 +128,19 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     
     NSLog(@"%@",urlStr);
     NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
-    self.lastArtistTitle = self.artistTitle;
+    [self loadURL:url];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)loadURL: (NSURL*) url
+{
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:request];
+    self.lastArtistTitle = self.artistTitle;
+}
 #pragma Mark - UIWebViewDelegate
 -(BOOL)webView:(nonnull UIWebView *)webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -219,7 +219,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 {
     if (buttonIndex == 1)
     {
-        self.artistTitle = [NSString stringWithFormat:@"%@",[alertView textFieldAtIndex:0].text];
+        self.artistTitle = [NSMutableString stringWithFormat:@"%@",[alertView textFieldAtIndex:0].text];
         [self searchLyricsHelper];
     }
 }
@@ -249,7 +249,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 - (void)searchBarSearchButtonClicked:(nonnull UISearchBar *)searchBar
 {
-    self.artistTitle = [NSString stringWithFormat:@"%@",searchBar.text];
+    self.artistTitle = [NSMutableString stringWithFormat:@"%@",searchBar.text];
     self.searchBar.text = self.artistTitle;
     [self searchLyricsHelper];
     searchBar.text = @"";
