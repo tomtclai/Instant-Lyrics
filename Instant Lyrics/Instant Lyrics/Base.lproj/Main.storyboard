@@ -69,12 +69,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gPL-y2-5Gs"/>
-                                    <barButtonItem image="Search-Music3" id="nuk-cc-9nH">
-                                        <connections>
-                                            <action selector="refresh:" destination="BYZ-38-t0r" id="qsz-6I-fWq"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pxH-NQ-Ord"/>
                                     <barButtonItem image="Safari" id="h9h-Pj-nLk">
                                         <connections>
                                             <action selector="actionButtonPressed:" destination="BYZ-38-t0r" id="V1i-My-9NE"/>
@@ -159,6 +153,5 @@
         <image name="Back" width="21" height="21"/>
         <image name="Forward" width="21" height="21"/>
         <image name="Safari" width="21" height="21"/>
-        <image name="Search-Music3" width="21" height="21"/>
     </resources>
 </document>
