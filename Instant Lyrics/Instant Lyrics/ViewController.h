@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIViewControllerRestoration>
 -(BOOL)webView:(nonnull UIWebView *)webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 -(void)webViewDidFinishLoad:(nonnull UIWebView *)webView;
 -(void)swipeBack:(nonnull UIScreenEdgePanGestureRecognizer *)regcognizer;

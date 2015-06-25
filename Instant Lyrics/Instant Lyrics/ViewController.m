@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "ILURLMap.h"
+#import "LyricsURL.h"
 @import MediaPlayer;
 @interface ViewController () <UIWebViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate>
+@property (strong, nonatomic) ILURLMap *urlmap;
 @property (strong, nonatomic) MPMusicPlayerController *MPcontroller;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
@@ -16,9 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
-@property (strong, nonatomic) NSMutableString *artistTitle;
-@property (strong, nonatomic) NSURL *lastURL;
-@property (strong, nonatomic) NSString *lastArtistTitle;
 @end
 NSString *const searchbarPlaceholder = @"Search Lyrics";
 @implementation ViewController
@@ -59,20 +59,24 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(searchLyrics)
                                                  name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
-                                               object:nil];
-    self.artistTitle = [[NSMutableString alloc]init];
+                              object:nil];
+    self.urlmap = [[ILURLMap alloc] init];
     self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchBar.translucent = YES;
     self.searchBar.delegate=self;
+    self.progressView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [[self progressView] setAlpha:0];
     [[self progressView] setProgress:0];
     
     [self searchLyricsWithOptions:SEARCH_OPTIONAL];
     [self updateBackForwardButtons];
+    
 }
 
 - (void)searchLyrics
@@ -81,32 +85,32 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 - (void)searchLyricsWithOptions:(searchOptions)options {
     MPMediaItem *mediaItem = [_MPcontroller nowPlayingItem];
+    LyricsURL* lastEntry = [self.urlmap lastEntry];
     if ([_MPcontroller playbackState] != MPMusicPlaybackStatePlaying)
     {
-        self.searchBar.placeholder = searchbarPlaceholder;
-        if (self.lastURL) [self loadURL:self.lastURL];
+        if (lastEntry) [self loadURL:lastEntry.url];
         return;
     }
     else {
+        NSMutableString* artistTitle = [[NSMutableString alloc] init];
         NSString* artist = [mediaItem valueForKey:MPMediaItemPropertyArtist];
         NSString* title = [mediaItem valueForKey:MPMediaItemPropertyTitle];
-        if (artist) [self.artistTitle appendString:artist];
-        if (artist && title) [self.artistTitle appendString:@" "];
-        if (title) [self.artistTitle appendString:title];
-        //This query is same as last query, so don't search
+        if (artist) [artistTitle appendString:artist];
+        if (artist && title) [artistTitle appendString:@" "];
+        if (title) [artistTitle appendString:title];
+        
+        //This entry is same as the last, so don't search
         if (options == SEARCH_OPTIONAL &&
-            [self.lastArtistTitle isEqualToString: self.artistTitle])
+            [lastEntry.artistTitle isEqualToString: artistTitle])
         {
             return;
         }
-        
-
-        [self searchLyricsHelper];
+        [self searchLyricsHelperWithArtistTitle:artistTitle];
     }
 }
-- (void)searchLyricsHelper
+- (void)searchLyricsHelperWithArtistTitle:(NSString*) at
 {
-    NSMutableString* query = [self.artistTitle mutableCopy];
+    NSMutableString* query = [at mutableCopy];
     if (![query containsString:@"Lyrics"] && ![query containsString:@"lyrics"])
     {
         query = [NSMutableString stringWithFormat:@"Lyrics %@",query];
@@ -129,6 +133,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     NSLog(@"%@",urlStr);
     NSURL *url = [NSURL URLWithString:urlStr];
     [self loadURL:url];
+    [[self urlmap]addURL:url forArtistTitle:at];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,26 +144,34 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
-    self.lastArtistTitle = self.artistTitle;
 }
-#pragma Mark - UIWebViewDelegate
+
+#pragma mark - UIWebViewDelegate
 -(BOOL)webView:(nonnull UIWebView *)webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    [[self progressView] setAlpha:1];
-    [[self progressView] setProgress:0];
-    float old = [[self progressView]progress];
-    [[self progressView] setProgress:old+0.1 animated:YES];
+    
+
+    
     //    self.lastURL = [[request URL]copy];
     return YES;
 }
 
 -(void)webViewDidStartLoad:(nonnull UIWebView *)webView
 {
+    [[self progressView] setAlpha:1];
+    [UIView animateWithDuration:3.5f animations:^{
+        [[self progressView] setProgress:0];
+    } completion:nil];
     [self updateBackForwardButtons];
 }
 -(void)webViewDidFinishLoad:(nonnull UIWebView *)webView
 {
-    [[self progressView] setProgress:1.0 animated:YES];
+    
+    [UIView animateWithDuration:2.5f animations:^{
+        [[self progressView] setProgress:1.0 animated:YES];
+        
+    } completion:nil];
+
     
     
     
@@ -166,13 +179,13 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [UIView animateWithDuration:0.3f animations:^{
+        [UIView animateWithDuration:3.5f animations:^{
             [[self progressView] setAlpha:0.0f];
             
         } completion:nil];
             });
 }
-#pragma Mark - gestures
+#pragma mark - gestures
 -(void)swipeForward:(UIScreenEdgePanGestureRecognizer *)regcognizer
 {
     if (regcognizer.state == UIGestureRecognizerStateEnded) {
@@ -219,8 +232,8 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 {
     if (buttonIndex == 1)
     {
-        self.artistTitle = [NSMutableString stringWithFormat:@"%@",[alertView textFieldAtIndex:0].text];
-        [self searchLyricsHelper];
+        NSString* artistTitle = [NSMutableString stringWithFormat:@"%@",[alertView textFieldAtIndex:0].text];
+        [self searchLyricsHelperWithArtistTitle:artistTitle];
     }
 }
 #pragma mark - back button
@@ -244,18 +257,18 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 
 #pragma mark - search bar
-- (void)searchBarTextDidBeginEditing:(nonnull UISearchBar *)searchBar
-{
-}
-- (void)searchBarSearchButtonClicked:(nonnull UISearchBar *)searchBar
-{
-    self.artistTitle = [NSMutableString stringWithFormat:@"%@",searchBar.text];
-    self.searchBar.text = self.artistTitle;
-    [self searchLyricsHelper];
-    searchBar.text = @"";
-    [searchBar resignFirstResponder];
-
-}
+//- (void)searchBarTextDidBeginEditing:(nonnull UISearchBar *)searchBar
+//{
+//}
+//- (void)searchBarSearchButtonClicked:(nonnull UISearchBar *)searchBar
+//{
+//    self.artistTitle = [NSMutableString stringWithFormat:@"%@",searchBar.text];
+//    self.searchBar.text = self.artistTitle;
+//    [self searchLyricsHelper];
+//    searchBar.text = @"";
+//    [searchBar resignFirstResponder];
+//
+//}
 #pragma mark - dealloc
 - (void) dealloc
 {
@@ -266,5 +279,43 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
                                                     name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                                                   object:nil];
     [_MPcontroller endGeneratingPlaybackNotifications];
+}
+
+#pragma mark - state restoration
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(nonnull NSArray *)path coder:(nonnull NSCoder *)coder
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    return [[self alloc]init];
+}
+
+- (void)encodeRestorableStateWithCoder:(nonnull NSCoder *)coder
+{
+//    [coder encodeObject:self.item.itemKey
+//                 forKey:@"item.itemKey"];
+//    
+//    // Save changes into item
+//    self.item.itemName = self.nameField.text;
+//    self.item.serialNumber = self.serialNumberField.text;
+//    self.item.valueInDollars = [self.valueField.text intValue];
+//    
+//    // Have store save changes to disk
+//    [[BNRItemStore sharedStore] saveChanges];
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+    
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(nonnull NSCoder *)coder
+{
+//    NSString *itemKey = [coder decodeObjectForKey:@"item.itemKey"];
+//    
+//    for (BNRItem *item in [[BNRItemStore sharedStore] allItems]) {
+//        if ([itemKey isEqualToString:item.itemKey]) {
+//            self.item = item;
+//            break;
+//        }
+//    }
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+    [super decodeRestorableStateWithCoder:coder];
 }
 @end

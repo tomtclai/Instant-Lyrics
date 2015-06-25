@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7770A1501B3C7D3000D790AB /* ILURLMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A14F1B3C7D3000D790AB /* ILURLMap.m */; };
+		7770A1541B3C80B300D790AB /* LyricsURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A1531B3C80B300D790AB /* LyricsURL.m */; };
 		7774D7A11B37A40400DA0068 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A01B37A40400DA0068 /* main.m */; };
 		7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A31B37A40400DA0068 /* AppDelegate.m */; };
 		7774D7A71B37A40400DA0068 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A61B37A40400DA0068 /* ViewController.m */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7770A14E1B3C7D3000D790AB /* ILURLMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLMap.h; sourceTree = "<group>"; };
+		7770A14F1B3C7D3000D790AB /* ILURLMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLMap.m; sourceTree = "<group>"; };
+		7770A1521B3C80B300D790AB /* LyricsURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricsURL.h; sourceTree = "<group>"; };
+		7770A1531B3C80B300D790AB /* LyricsURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsURL.m; sourceTree = "<group>"; };
 		7774D79C1B37A40400DA0068 /* Instant Lyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instant Lyrics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7774D7A01B37A40400DA0068 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7774D7A21B37A40400DA0068 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +45,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7770A14D1B3C7CD100D790AB /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7774D7A51B37A40400DA0068 /* ViewController.h */,
+				7774D7A61B37A40400DA0068 /* ViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		7770A1511B3C7D3400D790AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7770A14E1B3C7D3000D790AB /* ILURLMap.h */,
+				7770A14F1B3C7D3000D790AB /* ILURLMap.m */,
+				7770A1521B3C80B300D790AB /* LyricsURL.h */,
+				7770A1531B3C80B300D790AB /* LyricsURL.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		7774D7931B37A40400DA0068 = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +86,8 @@
 			children = (
 				7774D7A21B37A40400DA0068 /* AppDelegate.h */,
 				7774D7A31B37A40400DA0068 /* AppDelegate.m */,
-				7774D7A51B37A40400DA0068 /* ViewController.h */,
-				7774D7A61B37A40400DA0068 /* ViewController.m */,
+				7770A1511B3C7D3400D790AB /* Model */,
+				7770A14D1B3C7CD100D790AB /* View Controller */,
 				7774D7A81B37A40400DA0068 /* Main.storyboard */,
 				7774D7AB1B37A40400DA0068 /* Assets.xcassets */,
 				7774D7AD1B37A40400DA0068 /* LaunchScreen.storyboard */,
@@ -149,9 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7770A1501B3C7D3000D790AB /* ILURLMap.m in Sources */,
 				7774D7A71B37A40400DA0068 /* ViewController.m in Sources */,
 				7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */,
 				7774D7A11B37A40400DA0068 /* main.m in Sources */,
+				7770A1541B3C80B300D790AB /* LyricsURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
