@@ -9,7 +9,7 @@
 #import "ViewController.h"
 @import MediaPlayer;
 @interface ViewController () <UIWebViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate>
-@property (strong, nonatomic) MPMusicPlayerController *controller;
+@property (strong, nonatomic) MPMusicPlayerController *MPcontroller;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -25,7 +25,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
 #pragma mark - UIView
 - (void)viewDidLoad {
-    self.controller = [[MPMusicPlayerController alloc] init];
+    self.MPcontroller = [[MPMusicPlayerController alloc] init];
     self.webView.delegate=self;
     [super viewDidLoad];
     self.webView.scrollView.scrollEnabled = YES;
@@ -51,10 +51,14 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     [self.view addGestureRecognizer:rightSwipeRecognizer];
     [self.view addGestureRecognizer:leftSwipeRecognizer];
     
-    
+    [self.MPcontroller beginGeneratingPlaybackNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(searchLyrics)
-                                                 name:UIApplicationWillEnterForegroundNotification
+                                                 name:MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(searchLyrics)
+                                                 name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                                                object:nil];
     self.artistTitle = [[NSString alloc]init];
     self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -76,8 +80,8 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     [self searchLyricsWithOptions: SEARCH_OPTIONAL];
 }
 - (void)searchLyricsWithOptions:(searchOptions)options {
-    MPMediaItem *mediaItem = [_controller nowPlayingItem];
-    if ([_controller playbackState] != MPMusicPlaybackStatePlaying)
+    MPMediaItem *mediaItem = [_MPcontroller nowPlayingItem];
+    if ([_MPcontroller playbackState] != MPMusicPlaybackStatePlaying)
     {
         self.searchBar.placeholder = searchbarPlaceholder;
 //        NSString *urlStr = [NSMutableString stringWithFormat:@"http://www.google.com/search?q="];
@@ -199,10 +203,17 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 
 #pragma mark - search button
--(IBAction)manualSearch:(id)sender
-{
-    [[self searchBar] becomeFirstResponder];
-}
+//-(IBAction)manualSearch:(id)sender
+//{
+//    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Manual Search"
+//                                                     message:@"Enter artist and title here"
+//                                                    delegate:self
+//                                           cancelButtonTitle:@"Hide"
+//                                           otherButtonTitles:@"Search",nil];
+//    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+//
+//    [alert show];
+//}
 
 -(void)alertView:(nonnull UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
@@ -249,7 +260,11 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationWillEnterForegroundNotification
+                                                    name:MPMusicPlayerControllerNowPlayingItemDidChangeNotification
                                                   object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
+                                                  object:nil];
+    [_MPcontroller endGeneratingPlaybackNotifications];
 }
 @end
