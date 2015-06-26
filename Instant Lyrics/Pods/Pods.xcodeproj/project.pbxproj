@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		010BA999613B0B384567B328 /* NJKWebViewProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ABE861084502C65518C05FA /* NJKWebViewProgressView.h */; };
+		0654C8D412031F823A85FAC2 /* Pods-NJKWebViewProgress-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3DB3B41F1E79AD625EF35 /* Pods-NJKWebViewProgress-dummy.m */; };
+		210FF7BB1F6809687FB65F2D /* NJKWebViewProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 9238C628EF566333877B5AD0 /* NJKWebViewProgress.h */; };
+		926C36F9B75848E094C6D8F7 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8869A409B29369E37801A611 /* Pods-dummy.m */; };
+		CC88A2A9E8B3F9E3D174A070 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 595B237C5D9A0C71C9627B0C /* Foundation.framework */; };
+		D3D60A3848CDA6CCC857916C /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A88922BBB6546CDC82E3176 /* NJKWebViewProgressView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D6DC5E733A54395A5FCC95E3 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE13B848B1767C61B8A7803 /* NJKWebViewProgress.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E1E840B071293B052A11F4B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 595B237C5D9A0C71C9627B0C /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1B5ED9EDA991BC1CCF4A37A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19B9416D3149F9553656BCE7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 175DEB5756E85FCF40F9251D;
+			remoteInfo = "Pods-NJKWebViewProgress";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0ABE861084502C65518C05FA /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgressView.h; path = NJKWebViewProgress/NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		0E90A9527A1A547B71730710 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		1A88922BBB6546CDC82E3176 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJKWebViewProgressView.m; path = NJKWebViewProgress/NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		27310462E972A18C1F504C8B /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		40F17A7AD27FCB6E630CD973 /* Pods-NJKWebViewProgress-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NJKWebViewProgress-Private.xcconfig"; sourceTree = "<group>"; };
+		4CE13B848B1767C61B8A7803 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJKWebViewProgress.m; path = NJKWebViewProgress/NJKWebViewProgress.m; sourceTree = "<group>"; };
+		59326B8EF866AA9E53D6EAF3 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		595B237C5D9A0C71C9627B0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		76B9AB76E29D6C2B44B5666A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		7B48DDFB33422B331884BCC4 /* libPods-NJKWebViewProgress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NJKWebViewProgress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E202014E1E462501A62F492 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		83BBC70A3C9C86DDD49A57FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8869A409B29369E37801A611 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		9238C628EF566333877B5AD0 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgress.h; path = NJKWebViewProgress/NJKWebViewProgress.h; sourceTree = "<group>"; };
+		B7A1E5B5A50E3A35542268CF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		BE6AE1B30244A99F0348B287 /* Pods-NJKWebViewProgress.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NJKWebViewProgress.xcconfig"; sourceTree = "<group>"; };
+		C1F3DB3B41F1E79AD625EF35 /* Pods-NJKWebViewProgress-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NJKWebViewProgress-dummy.m"; sourceTree = "<group>"; };
+		D1DCAAC2E6D707448C01B5D3 /* Pods-NJKWebViewProgress-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NJKWebViewProgress-prefix.pch"; sourceTree = "<group>"; };
+		F28CB8F41797C5F2F459E1CE /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4FADB7F5A619B70F2C1BC1A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC88A2A9E8B3F9E3D174A070 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B72591C33F3C53DD1FB20432 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1E840B071293B052A11F4B3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23468E50DAEA81600F40FCB8 /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				0ABE861084502C65518C05FA /* NJKWebViewProgressView.h */,
+				1A88922BBB6546CDC82E3176 /* NJKWebViewProgressView.m */,
+			);
+			name = ProgressView;
+			sourceTree = "<group>";
+		};
+		3EE1B8D2C9F8C2CD7E04B669 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83BBC70A3C9C86DDD49A57FB /* libPods.a */,
+				7B48DDFB33422B331884BCC4 /* libPods-NJKWebViewProgress.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		797261EB7D69B539AA0C0A38 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE6AE1B30244A99F0348B287 /* Pods-NJKWebViewProgress.xcconfig */,
+				40F17A7AD27FCB6E630CD973 /* Pods-NJKWebViewProgress-Private.xcconfig */,
+				C1F3DB3B41F1E79AD625EF35 /* Pods-NJKWebViewProgress-dummy.m */,
+				D1DCAAC2E6D707448C01B5D3 /* Pods-NJKWebViewProgress-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-NJKWebViewProgress";
+			sourceTree = "<group>";
+		};
+		8C84CE5705750F157667F240 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8CDE5825736E53C63013D38 /* NJKWebViewProgress */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9363908CCB93A1EFA13F0EE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59326B8EF866AA9E53D6EAF3 /* Pods-acknowledgements.markdown */,
+				0E90A9527A1A547B71730710 /* Pods-acknowledgements.plist */,
+				8869A409B29369E37801A611 /* Pods-dummy.m */,
+				27310462E972A18C1F504C8B /* Pods-environment.h */,
+				F28CB8F41797C5F2F459E1CE /* Pods-resources.sh */,
+				76B9AB76E29D6C2B44B5666A /* Pods.debug.xcconfig */,
+				B7A1E5B5A50E3A35542268CF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		A3FF15461E22A3576ED97AB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A436FFDBBB61F31C1ACDAC7E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A436FFDBBB61F31C1ACDAC7E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				595B237C5D9A0C71C9627B0C /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		B39429C228DC4AE7F7D8E009 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9363908CCB93A1EFA13F0EE3 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BFB8AF90F9327F6BD9C947D8 = {
+			isa = PBXGroup;
+			children = (
+				7E202014E1E462501A62F492 /* Podfile */,
+				A3FF15461E22A3576ED97AB0 /* Frameworks */,
+				8C84CE5705750F157667F240 /* Pods */,
+				3EE1B8D2C9F8C2CD7E04B669 /* Products */,
+				B39429C228DC4AE7F7D8E009 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D8CDE5825736E53C63013D38 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				F18A13C598B740C0B6F15469 /* Core */,
+				23468E50DAEA81600F40FCB8 /* ProgressView */,
+				797261EB7D69B539AA0C0A38 /* Support Files */,
+			);
+			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
+		F18A13C598B740C0B6F15469 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9238C628EF566333877B5AD0 /* NJKWebViewProgress.h */,
+				4CE13B848B1767C61B8A7803 /* NJKWebViewProgress.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2F10B0BE5E8CA5EA1BD99966 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				210FF7BB1F6809687FB65F2D /* NJKWebViewProgress.h in Headers */,
+				010BA999613B0B384567B328 /* NJKWebViewProgressView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		175DEB5756E85FCF40F9251D /* Pods-NJKWebViewProgress */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45561B2B8074ACCE5850D0DC /* Build configuration list for PBXNativeTarget "Pods-NJKWebViewProgress" */;
+			buildPhases = (
+				63754146D0144850FB62AD85 /* Sources */,
+				B72591C33F3C53DD1FB20432 /* Frameworks */,
+				2F10B0BE5E8CA5EA1BD99966 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-NJKWebViewProgress";
+			productName = "Pods-NJKWebViewProgress";
+			productReference = 7B48DDFB33422B331884BCC4 /* libPods-NJKWebViewProgress.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A02E18662EA618B91B8D4971 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D21FE0D8658B715502388612 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				14AE2E7DC2F5369421252331 /* Sources */,
+				4FADB7F5A619B70F2C1BC1A6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D8F703F33DC3954796E1077 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 83BBC70A3C9C86DDD49A57FB /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		19B9416D3149F9553656BCE7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = 12BAF1FAD7478435645C6296 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BFB8AF90F9327F6BD9C947D8;
+			productRefGroup = 3EE1B8D2C9F8C2CD7E04B669 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A02E18662EA618B91B8D4971 /* Pods */,
+				175DEB5756E85FCF40F9251D /* Pods-NJKWebViewProgress */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14AE2E7DC2F5369421252331 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				926C36F9B75848E094C6D8F7 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63754146D0144850FB62AD85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6DC5E733A54395A5FCC95E3 /* NJKWebViewProgress.m in Sources */,
+				D3D60A3848CDA6CCC857916C /* NJKWebViewProgressView.m in Sources */,
+				0654C8D412031F823A85FAC2 /* Pods-NJKWebViewProgress-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9D8F703F33DC3954796E1077 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-NJKWebViewProgress";
+			target = 175DEB5756E85FCF40F9251D /* Pods-NJKWebViewProgress */;
+			targetProxy = 1B5ED9EDA991BC1CCF4A37A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0E463677B181FDAABD4E4343 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7A1E5B5A50E3A35542268CF /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		14C31A3F8B986D91C93FC704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		341908891C40AEC86E48A5D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		445DCCE736F558C48D163D6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40F17A7AD27FCB6E630CD973 /* Pods-NJKWebViewProgress-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-NJKWebViewProgress/Pods-NJKWebViewProgress-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A220AB7E78144266EC131210 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40F17A7AD27FCB6E630CD973 /* Pods-NJKWebViewProgress-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-NJKWebViewProgress/Pods-NJKWebViewProgress-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C274B8F8857A3FB8419B8B8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B9AB76E29D6C2B44B5666A /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12BAF1FAD7478435645C6296 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14C31A3F8B986D91C93FC704 /* Debug */,
+				341908891C40AEC86E48A5D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45561B2B8074ACCE5850D0DC /* Build configuration list for PBXNativeTarget "Pods-NJKWebViewProgress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				445DCCE736F558C48D163D6C /* Debug */,
+				A220AB7E78144266EC131210 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D21FE0D8658B715502388612 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C274B8F8857A3FB8419B8B8A /* Debug */,
+				0E463677B181FDAABD4E4343 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 19B9416D3149F9553656BCE7 /* Project object */;
+}
