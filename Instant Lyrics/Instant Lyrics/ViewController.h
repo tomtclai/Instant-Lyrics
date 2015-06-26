@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NJKWebViewProgress.h"
 @interface ViewController : UIViewController <UIViewControllerRestoration>
--(BOOL)webView:(nonnull UIWebView *)webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+//-(BOOL)webView:(nonnull UIWebView *)webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 -(void)webViewDidFinishLoad:(nonnull UIWebView *)webView;
 -(void)swipeBack:(nonnull UIScreenEdgePanGestureRecognizer *)regcognizer;
 -(void)swipeForward:(nonnull UIScreenEdgePanGestureRecognizer *)regcognizer;

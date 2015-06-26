@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "ILURLMap.h"
 #import "LyricsURL.h"
+
 @import MediaPlayer;
-@interface ViewController () <UIWebViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate>
+@interface ViewController () <UIWebViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate, NJKWebViewProgressDelegate>
 @property (strong, nonatomic) ILURLMap *urlmap;
 @property (strong, nonatomic) MPMusicPlayerController *MPcontroller;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -22,35 +23,41 @@
 @end
 NSString *const searchbarPlaceholder = @"Search Lyrics";
 @implementation ViewController
-
+{
+    // This is a global variable
+    NJKWebViewProgress *_progressProxy;
+}
 #pragma mark - UIView
 - (void)viewDidLoad {
-    self.MPcontroller = [[MPMusicPlayerController alloc] init];
-    self.webView.delegate=self;
+    _MPcontroller = [[MPMusicPlayerController alloc] init];
+    _progressProxy = [[NJKWebViewProgress alloc] init];
+    _webView.delegate=_progressProxy;
     [super viewDidLoad];
-    self.webView.scrollView.scrollEnabled = YES;
-    self.webView.scalesPageToFit =YES;
-    self.webView.clipsToBounds = NO;
-    self.webView.scrollView.clipsToBounds = NO;
-    self.webView.allowsInlineMediaPlayback = NO;
-    self.webView.mediaPlaybackRequiresUserAction = YES;
-    
+    _webView.scrollView.scrollEnabled = YES;
+    _webView.scalesPageToFit =YES;
+    _webView.clipsToBounds = NO;
+    _webView.scrollView.clipsToBounds = NO;
+    _webView.allowsInlineMediaPlayback = NO;
+    _webView.mediaPlaybackRequiresUserAction = YES;
+    _progressProxy.webViewProxyDelegate = self;
+    _progressProxy.progressDelegate = self;
+
     UIScreenEdgePanGestureRecognizer
     *rightSwipeRecognizer =
     [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self
                                                      action:@selector(swipeBack:)];
-    
+
     UIScreenEdgePanGestureRecognizer
     *leftSwipeRecognizer =
     [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self
                                                      action:@selector(swipeForward:)];
-    
+
     rightSwipeRecognizer.edges = UIRectEdgeLeft;
     leftSwipeRecognizer.edges = UIRectEdgeRight;
-    
+
     [self.view addGestureRecognizer:rightSwipeRecognizer];
     [self.view addGestureRecognizer:leftSwipeRecognizer];
-    
+
     [self.MPcontroller beginGeneratingPlaybackNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(searchLyrics)
@@ -70,13 +77,13 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     [[self progressView] setAlpha:0];
     [[self progressView] setProgress:0];
-    
+
     [self searchLyricsWithOptions:SEARCH_OPTIONAL];
     [self updateBackForwardButtons];
-    
+
 }
 
 - (void)searchLyrics
@@ -98,7 +105,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
         if (artist) [artistTitle appendString:artist];
         if (artist && title) [artistTitle appendString:@" "];
         if (title) [artistTitle appendString:title];
-        
+
         //This entry is same as the last, so don't search
         if (options == SEARCH_OPTIONAL &&
             [lastEntry.artistTitle isEqualToString: artistTitle])
@@ -117,7 +124,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     };
     NSMutableString *urlStr = [NSMutableString stringWithFormat:@"%@",
                                [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    
+
     [urlStr replaceOccurrencesOfString:@"$" withString:@"%24" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
     [urlStr replaceOccurrencesOfString:@"&" withString:@"%26" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
     [urlStr replaceOccurrencesOfString:@"+" withString:@"%2B" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
@@ -127,9 +134,9 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     [urlStr replaceOccurrencesOfString:@";" withString:@"%3B" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
     [urlStr replaceOccurrencesOfString:@"=" withString:@"%3D" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
     [urlStr replaceOccurrencesOfString:@"?" withString:@"%3F" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
-    
+
     urlStr = [NSMutableString stringWithFormat:@"http://www.google.com/search?q=%@", urlStr];
-    
+
     NSLog(@"%@",urlStr);
     NSURL *url = [NSURL URLWithString:urlStr];
     [self loadURL:url];
@@ -145,45 +152,36 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
 }
-
+//
 #pragma mark - UIWebViewDelegate
--(BOOL)webView:(nonnull UIWebView *)webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    
-
-    
-    //    self.lastURL = [[request URL]copy];
-    return YES;
-}
-
+//-(BOOL)webView:(nonnull UIWebView *)webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+//{
+//
+//
+//
+//    //    self.lastURL = [[request URL]copy];
+//    return YES;
+//}
+//
 -(void)webViewDidStartLoad:(nonnull UIWebView *)webView
 {
-    [[self progressView] setAlpha:1];
-    [UIView animateWithDuration:3.5f animations:^{
-        [[self progressView] setProgress:0];
-    } completion:nil];
+
+    if (_progressView.progress > 0)
+    {
+        [UIView animateWithDuration:0.2f animations:^{
+            [[self progressView] setAlpha:1];
+        }];
+    }
     [self updateBackForwardButtons];
 }
 -(void)webViewDidFinishLoad:(nonnull UIWebView *)webView
 {
-    
-    [UIView animateWithDuration:2.5f animations:^{
-        [[self progressView] setProgress:1.0 animated:YES];
-        
-    } completion:nil];
-
-    
-    
-    
-    int64_t delayInSeconds = 0.3;
-    
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [UIView animateWithDuration:3.5f animations:^{
+    if (_progressView.progress >= 1)
+    {
+        [UIView animateWithDuration:0.2f animations:^{
             [[self progressView] setAlpha:0.0f];
-            
-        } completion:nil];
-            });
+        }];
+    }
 }
 #pragma mark - gestures
 -(void)swipeForward:(UIScreenEdgePanGestureRecognizer *)regcognizer
@@ -209,9 +207,9 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
 #pragma mark - action button
 -(IBAction)actionButtonPressed:(id)sender {
-    
+
     NSLog(@"shareButton pressed");
-    
+
     [[UIApplication sharedApplication] openURL:self.webView.request.URL];
 }
 
@@ -253,7 +251,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 {
     [[self backButton] setEnabled:[self.webView canGoBack]];
     [[self forwardButton] setEnabled:[self.webView canGoForward]];
-    
+
 }
 
 #pragma mark - search bar
@@ -292,23 +290,23 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 {
 //    [coder encodeObject:self.item.itemKey
 //                 forKey:@"item.itemKey"];
-//    
+//
 //    // Save changes into item
 //    self.item.itemName = self.nameField.text;
 //    self.item.serialNumber = self.serialNumberField.text;
 //    self.item.valueInDollars = [self.valueField.text intValue];
-//    
+//
 //    // Have store save changes to disk
 //    [[BNRItemStore sharedStore] saveChanges];
         NSLog(@"%@", NSStringFromSelector(_cmd));
-    
+
     [super encodeRestorableStateWithCoder:coder];
 }
 
 - (void)decodeRestorableStateWithCoder:(nonnull NSCoder *)coder
 {
 //    NSString *itemKey = [coder decodeObjectForKey:@"item.itemKey"];
-//    
+//
 //    for (BNRItem *item in [[BNRItemStore sharedStore] allItems]) {
 //        if ([itemKey isEqualToString:item.itemKey]) {
 //            self.item = item;
@@ -317,5 +315,11 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 //    }
         NSLog(@"%@", NSStringFromSelector(_cmd));
     [super decodeRestorableStateWithCoder:coder];
+}
+
+#pragma mark - NJKWebViewProgressDelegate
+-(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
+{
+    [_progressView setProgress:progress animated:NO];
 }
 @end
