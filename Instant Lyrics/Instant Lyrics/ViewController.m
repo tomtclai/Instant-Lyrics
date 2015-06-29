@@ -154,15 +154,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 //
 #pragma mark - UIWebViewDelegate
-//-(BOOL)webView:(nonnull UIWebView *)webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-//{
-//
-//
-//
-//    //    self.lastURL = [[request URL]copy];
-//    return YES;
-//}
-//
+
 -(void)webViewDidStartLoad:(nonnull UIWebView *)webView
 {
 
