@@ -16,7 +16,7 @@
 @property (strong, nonatomic) MPMusicPlayerController *MPcontroller;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -68,9 +68,9 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
                                                  name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                               object:nil];
     self.urlmap = [[ILURLMap alloc] init];
-    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
-    self.searchBar.translucent = YES;
-    self.searchBar.delegate=self;
+//    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+//    self.searchBar.translucent = YES;
+//    self.searchBar.delegate=self;
     self.progressView.backgroundColor = [UIColor clearColor];
 }
 
@@ -81,7 +81,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     [[self progressView] setAlpha:0];
     [[self progressView] setProgress:0];
 
-    [self searchLyricsWithOptions:SEARCH_OPTIONAL];
+    [self searchLyrics];
     [self updateBackForwardButtons];
 
 }
@@ -89,6 +89,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (void)searchLyrics
 {
     [self searchLyricsWithOptions: SEARCH_OPTIONAL];
+
 }
 - (void)searchLyricsWithOptions:(searchOptions)options {
     MPMediaItem *mediaItem = [_MPcontroller nowPlayingItem];
@@ -100,13 +101,14 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     }
     else {
         NSMutableString* artistTitle = [[NSMutableString alloc] init];
+
         NSString* artist = [mediaItem valueForKey:MPMediaItemPropertyArtist];
         NSString* title = [mediaItem valueForKey:MPMediaItemPropertyTitle];
         if (artist) [artistTitle appendString:artist];
         if (artist && title) [artistTitle appendString:@" "];
         if (title) [artistTitle appendString:title];
-
-        //This entry is same as the last, so don't search
+        
+//        This entry is same as the last, so don't search
         if (options == SEARCH_OPTIONAL &&
             [lastEntry.artistTitle isEqualToString: artistTitle])
         {
@@ -114,6 +116,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
         }
         [self searchLyricsHelperWithArtistTitle:artistTitle];
     }
+
 }
 - (void)searchLyricsHelperWithArtistTitle:(NSString*) at
 {
@@ -152,7 +155,6 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
 }
-//
 #pragma mark - UIWebViewDelegate
 
 -(void)webViewDidStartLoad:(nonnull UIWebView *)webView

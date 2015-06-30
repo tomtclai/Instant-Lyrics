@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Launch Screen.xib">
+   </FileRef>
+   <FileRef
       location = "group:Instant Lyrics.xcodeproj">
    </FileRef>
    <FileRef
