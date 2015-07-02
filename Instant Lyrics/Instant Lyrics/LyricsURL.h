@@ -10,7 +10,8 @@
 @interface LyricsURL : NSObject
 NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString* artistTitle;
-@property (strong, nonatomic) NSURL* url;
+@property (readonly) NSURL* originUrl;
+@property (strong, nonatomic) NSURL* destUrl;
 NS_ASSUME_NONNULL_END
 
 - (nullable instancetype) initWithUrl:(nonnull NSURL *)url

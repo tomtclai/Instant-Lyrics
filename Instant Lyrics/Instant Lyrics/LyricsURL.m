@@ -8,16 +8,16 @@
 
 #import "LyricsURL.h"
 @interface LyricsURL ()
-
+@property (strong, nonatomic) NSURL* originUrl;
 @end
 @implementation LyricsURL
-@synthesize artistTitle=_artistTitle, url=_url;
-
+@synthesize artistTitle=_artistTitle, destUrl = _destUrl, originUrl =_originUrl;
 - (instancetype)initWithUrl:(NSURL *)url
                      artistTitle:(NSString *) at
 {
     self = [super init];
-    [self setUrl:url];
+    [self setOriginUrl: url];
+    [self setDestUrl:url];
     [self setArtistTitle:at];
     return self;
 }

@@ -24,3 +24,9 @@
 #define COCOAPODS_VERSION_MINOR_NJKWebViewProgress_ProgressView 2
 #define COCOAPODS_VERSION_PATCH_NJKWebViewProgress_ProgressView 3
 
+// UALogger
+#define COCOAPODS_POD_AVAILABLE_UALogger
+#define COCOAPODS_VERSION_MAJOR_UALogger 0
+#define COCOAPODS_VERSION_MINOR_UALogger 3
+#define COCOAPODS_VERSION_PATCH_UALogger 0
+

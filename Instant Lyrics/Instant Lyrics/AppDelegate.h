@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const ILPrependPrefsKey;
+extern NSString * const ILSearchEnginePrefsKey;
+extern NSString * const ILPrependOptionsKey;
+extern NSString * const ILSearchEngineOptionsKey;
+extern NSDictionary * searchEngineBaseURLs;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

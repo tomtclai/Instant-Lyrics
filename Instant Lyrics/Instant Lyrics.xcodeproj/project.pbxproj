@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		745E92D56AA37028AD8ECF1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9F73CEE69FE50D6C1491EF /* libPods.a */; };
+		770DFB331B4440A900E1BF6C /* ILSettingsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770DFB321B4440A900E1BF6C /* ILSettingsDetailTableViewController.m */; };
 		7770A1501B3C7D3000D790AB /* ILURLMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A14F1B3C7D3000D790AB /* ILURLMap.m */; };
 		7770A1541B3C80B300D790AB /* LyricsURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A1531B3C80B300D790AB /* LyricsURL.m */; };
 		7774D7A11B37A40400DA0068 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A01B37A40400DA0068 /* main.m */; };
@@ -15,10 +16,17 @@
 		7774D7A71B37A40400DA0068 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A61B37A40400DA0068 /* ViewController.m */; };
 		7774D7AA1B37A40400DA0068 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7774D7A81B37A40400DA0068 /* Main.storyboard */; };
 		7774D7AC1B37A40400DA0068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7774D7AB1B37A40400DA0068 /* Assets.xcassets */; };
+		777989B41B4489E7003E5906 /* ILWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777989B21B4489E7003E5906 /* ILWelcomeViewController.m */; };
+		777989B51B4489E7003E5906 /* Welcome.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777989B31B4489E7003E5906 /* Welcome.xib */; };
 		777D65721B421909009F90E0 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777D65711B421909009F90E0 /* Launch Screen.xib */; };
+		77D45C411B431EDC00B5A06A /* ILSettingsMasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D45C401B431EDC00B5A06A /* ILSettingsMasterTableViewController.m */; };
+		77D45C441B43287E00B5A06A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77D45C431B43287E00B5A06A /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		770004041B4474CE0074CC05 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		770DFB311B4440A900E1BF6C /* ILSettingsDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILSettingsDetailTableViewController.h; path = ../ILSettingsDetailTableViewController.h; sourceTree = "<group>"; };
+		770DFB321B4440A900E1BF6C /* ILSettingsDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILSettingsDetailTableViewController.m; path = ../ILSettingsDetailTableViewController.m; sourceTree = "<group>"; };
 		7770A14E1B3C7D3000D790AB /* ILURLMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLMap.h; sourceTree = "<group>"; };
 		7770A14F1B3C7D3000D790AB /* ILURLMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLMap.m; sourceTree = "<group>"; };
 		7770A1521B3C80B300D790AB /* LyricsURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricsURL.h; sourceTree = "<group>"; };
@@ -32,7 +40,13 @@
 		7774D7A91B37A40400DA0068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7774D7AB1B37A40400DA0068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7774D7B01B37A40400DA0068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		777989B11B4489E7003E5906 /* ILWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILWelcomeViewController.h; sourceTree = "<group>"; };
+		777989B21B4489E7003E5906 /* ILWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILWelcomeViewController.m; sourceTree = "<group>"; };
+		777989B31B4489E7003E5906 /* Welcome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Welcome.xib; sourceTree = "<group>"; };
 		777D65711B421909009F90E0 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
+		77D45C3F1B431EDC00B5A06A /* ILSettingsMasterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSettingsMasterTableViewController.h; sourceTree = "<group>"; };
+		77D45C401B431EDC00B5A06A /* ILSettingsMasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSettingsMasterTableViewController.m; sourceTree = "<group>"; };
+		77D45C431B43287E00B5A06A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D7AC207AADAD918CDB99516B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DD9F73CEE69FE50D6C1491EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F87E9D5A3062B6D158531B5A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -50,11 +64,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7770A14D1B3C7CD100D790AB /* View Controller */ = {
+		770004051B447B380074CC05 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7774D7A81B37A40400DA0068 /* Main.storyboard */,
+				777D65711B421909009F90E0 /* Launch Screen.xib */,
+				777989B31B4489E7003E5906 /* Welcome.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7700040A1B4480F00074CC05 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				7774D7A51B37A40400DA0068 /* ViewController.h */,
 				7774D7A61B37A40400DA0068 /* ViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		770004111B4481290074CC05 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				777989B11B4489E7003E5906 /* ILWelcomeViewController.h */,
+				777989B21B4489E7003E5906 /* ILWelcomeViewController.m */,
+			);
+			name = Welcome;
+			sourceTree = "<group>";
+		};
+		7770A14D1B3C7CD100D790AB /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				770004111B4481290074CC05 /* Welcome */,
+				77D45C421B431EE200B5A06A /* Settings */,
+				7700040A1B4480F00074CC05 /* Main */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -91,12 +134,12 @@
 		7774D79E1B37A40400DA0068 /* Instant Lyrics */ = {
 			isa = PBXGroup;
 			children = (
+				77D45C431B43287E00B5A06A /* Settings.bundle */,
 				7774D7A21B37A40400DA0068 /* AppDelegate.h */,
 				7774D7A31B37A40400DA0068 /* AppDelegate.m */,
 				7770A1511B3C7D3400D790AB /* Model */,
 				7770A14D1B3C7CD100D790AB /* View Controller */,
-				7774D7A81B37A40400DA0068 /* Main.storyboard */,
-				777D65711B421909009F90E0 /* Launch Screen.xib */,
+				770004051B447B380074CC05 /* View */,
 				7774D7AB1B37A40400DA0068 /* Assets.xcassets */,
 				7774D7B01B37A40400DA0068 /* Info.plist */,
 				7774D79F1B37A40400DA0068 /* Supporting Files */,
@@ -108,8 +151,20 @@
 			isa = PBXGroup;
 			children = (
 				7774D7A01B37A40400DA0068 /* main.m */,
+				770004041B4474CE0074CC05 /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		77D45C421B431EE200B5A06A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				77D45C3F1B431EDC00B5A06A /* ILSettingsMasterTableViewController.h */,
+				77D45C401B431EDC00B5A06A /* ILSettingsMasterTableViewController.m */,
+				770DFB311B4440A900E1BF6C /* ILSettingsDetailTableViewController.h */,
+				770DFB321B4440A900E1BF6C /* ILSettingsDetailTableViewController.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		7BBBA2F8168C3DAEA1F887CF /* Pods */ = {
@@ -136,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7774D7B31B37A40400DA0068 /* Build configuration list for PBXNativeTarget "Instant Lyrics" */;
 			buildPhases = (
+				77D45C471B43374B00B5A06A /* Run Script */,
 				3276F0B674E688EF76FE6F97 /* Check Pods Manifest.lock */,
 				7774D7981B37A40400DA0068 /* Sources */,
 				7774D7991B37A40400DA0068 /* Frameworks */,
@@ -189,6 +245,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77D45C441B43287E00B5A06A /* Settings.bundle in Resources */,
+				777989B51B4489E7003E5906 /* Welcome.xib in Resources */,
 				7774D7AC1B37A40400DA0068 /* Assets.xcassets in Resources */,
 				7774D7AA1B37A40400DA0068 /* Main.storyboard in Resources */,
 				777D65721B421909009F90E0 /* Launch Screen.xib in Resources */,
@@ -228,6 +286,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		77D45C471B43374B00B5A06A /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd /Users/tomlai/Instant-Lyrics/Instant\\ Lyrics/Instant\\ Lyrics/License\nperl license.pl";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -235,9 +307,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770DFB331B4440A900E1BF6C /* ILSettingsDetailTableViewController.m in Sources */,
 				7770A1501B3C7D3000D790AB /* ILURLMap.m in Sources */,
 				7774D7A71B37A40400DA0068 /* ViewController.m in Sources */,
 				7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */,
+				777989B41B4489E7003E5906 /* ILWelcomeViewController.m in Sources */,
+				77D45C411B431EDC00B5A06A /* ILSettingsMasterTableViewController.m in Sources */,
 				7774D7A11B37A40400DA0068 /* main.m in Sources */,
 				7770A1541B3C80B300D790AB /* LyricsURL.m in Sources */,
 			);
@@ -346,7 +421,7 @@
 				INFOPLIST_FILE = "Instant Lyrics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Tsz-Chun-Lai.Instant-Lyrics";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsz-Chun-Lai.Instant-Lyrics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -361,7 +436,7 @@
 				INFOPLIST_FILE = "Instant Lyrics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Tsz-Chun-Lai.Instant-Lyrics";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsz-Chun-Lai.Instant-Lyrics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

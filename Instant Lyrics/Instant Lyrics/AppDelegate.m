@@ -8,6 +8,13 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+
+NSString * const ILPrependPrefsKey =  @"PrependValue";
+NSString * const ILSearchEnginePrefsKey = @"SearchEngineValue";
+NSString * const ILPrependOptionsKey =  @"AvailPrependValues";
+NSString * const ILSearchEngineOptionsKey = @"AvailSearchEngineValues";
+NSDictionary * searchEngineBaseURLs;
+
 @interface AppDelegate ()
 @property (strong, nonatomic) ViewController* rootViewController;
 @end
@@ -15,10 +22,34 @@
 @implementation AppDelegate
 @synthesize window = _window;
 
-
++ (void)initialize
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *factorySettings =
+    @{ILPrependPrefsKey: @"Lyrics",
+      ILSearchEnginePrefsKey: @"Google",
+      ILPrependOptionsKey:
+          @[@"Lyrics",
+            @"Letras",
+            @"Paroles",
+            @"가사",
+            @"歌詞",
+            @"歌词"],
+      ILSearchEngineOptionsKey:
+          @[@"Google",
+            @"Bing",
+            @"DuckDuckGo",
+            @"BaiDu"]
+      };
+    searchEngineBaseURLs = @ {@"Google"    :@"http://www.google.com/search?q=",
+                              @"Bing"      :@"http://www.bing.com/search?q=",
+                              @"DuckDuckGo":@"http://duckduckgo.com/?q=",
+                              @"BaiDu"     :@"http://www.baidu.com/s?wd="};
+    [defaults registerDefaults:factorySettings];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+
 
     return YES;
 }
@@ -44,7 +75,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-#pragma mark - state restoration 
+#pragma mark - state restoration
 // not ready yet
 //- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(nonnull NSCoder *)coder
 //{

@@ -1,0 +1,147 @@
+//
+//  ILSettingsDetailTableViewController.m
+//  
+//
+//  Created by Tom Lai on 7/1/15.
+//
+//
+
+#import "ILSettingsDetailTableViewController.h"
+#import "AppDelegate.h"
+
+@interface ILSettingsDetailTableViewController ()
+@property NSMutableArray * tableDataSource;
+@property (strong, nonatomic) UIStoryboardSegue *sourceSegue;
+@property (strong, nonatomic) NSUserDefaults *defaults;
+@end
+
+@implementation ILSettingsDetailTableViewController
+@synthesize sourceSegue;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"])
+    {
+        _tableDataSource = [_defaults objectForKey:ILPrependOptionsKey];
+        self.navigationItem.title = @"Set Search Term";
+    }
+    else //if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"])
+    {
+        _tableDataSource = [_defaults objectForKey:ILSearchEngineOptionsKey];
+        self.navigationItem.title = @"Search Engine";
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return [_tableDataSource count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableCell" forIndexPath:indexPath];
+    cell.textLabel.text = _tableDataSource[indexPath.row];
+    
+    if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"] &&
+        [cell.textLabel.text isEqualToString:[_defaults objectForKey:ILPrependPrefsKey]])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"] &&
+             [cell.textLabel.text isEqualToString:[_defaults objectForKey:ILSearchEnginePrefsKey]])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
+    return cell;
+}
+
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self clearTableCellViewCheckmarks];
+    selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    NSString * newValue = selectedCell.textLabel.text;
+    // Is it changed?
+    if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"] &&
+        ![newValue isEqualToString:[_defaults objectForKey:ILPrependPrefsKey]])
+    {
+        // Save to defaults
+        [_defaults setObject:newValue forKey:ILPrependPrefsKey];
+    }
+    else if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"] &&
+              ![newValue isEqualToString:[_defaults objectForKey:ILSearchEnginePrefsKey]])
+    {
+        // Save to defaults
+        [_defaults setObject:newValue forKey:ILSearchEnginePrefsKey];
+    }
+
+    
+}
+
+- (void)clearTableCellViewCheckmarks
+{
+    for (int i = 0 ; i < [_tableDataSource count]; i++){
+        
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        UITableViewCell * aCell = [self.tableView cellForRowAtIndexPath:indexPath];
+        aCell.accessoryType = UITableViewCellAccessoryNone;
+    }
+}
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+@end

@@ -28,7 +28,7 @@
         if ([[i artistTitle] isEqualToString: at])
             break;
     }
-    return [i url];
+    return [i originUrl];
 }
 - (void)addURL:(nonnull NSURL *)url
         forArtistTitle:(NSString *) at
