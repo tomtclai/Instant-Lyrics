@@ -25,26 +25,31 @@ NSDictionary * searchEngineBaseURLs;
 + (void)initialize
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *factorySettings =
-    @{ILPrependPrefsKey: @"Lyrics",
-      ILSearchEnginePrefsKey: @"Google",
-      ILPrependOptionsKey:
-          @[@"Lyrics",
-            @"Letras",
-            @"Paroles",
-            @"가사",
-            @"歌詞",
-            @"歌词"],
-      ILSearchEngineOptionsKey:
-          @[@"Google",
-            @"Bing",
-            @"DuckDuckGo",
-            @"BaiDu"]
-      };
-    searchEngineBaseURLs = @ {@"Google"    :@"http://www.google.com/search?q=",
-                              @"Bing"      :@"http://www.bing.com/search?q=",
-                              @"DuckDuckGo":@"http://duckduckgo.com/?q=",
-                              @"BaiDu"     :@"http://www.baidu.com/s?wd="};
+    NSDictionary *factorySettings = @{
+                                      ILPrependPrefsKey: @"Lyrics",
+                                      ILSearchEnginePrefsKey: @"Google",
+                                      ILPrependOptionsKey:
+                                          @[@"",
+                                            @"Lyrics",
+                                            @"Letras",
+                                            @"Paroles",
+                                            @"가사",
+                                            @"歌詞",
+                                            @"歌词"],
+                                      ILSearchEngineOptionsKey:
+                                          @[@"Google",
+                                            @"Bing",
+                                            @"DuckDuckGo",
+                                            @"BaiDu",
+                                            @"LyricWiki"]
+                                      };
+    searchEngineBaseURLs = @{
+                             @"Google"    :@"http://www.google.com/search?q=",
+                             @"Bing"      :@"http://www.bing.com/search?q=",
+                             @"DuckDuckGo":@"http://duckduckgo.com/?q=",
+                             @"BaiDu"     :@"http://www.baidu.com/s?wd=",
+                             @"LyricWiki" :@"http://lyrics.wikia.com/Special:Search?search="
+                             };
     [defaults registerDefaults:factorySettings];
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ILSettingsMasterTableViewController : UITableViewController <UITableViewDataSource>
-
+@property (strong, nonatomic) ViewController *vc;
 @end

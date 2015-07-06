@@ -13,7 +13,8 @@
 -(void)webViewDidFinishLoad:(nonnull UIWebView *)webView;
 -(void)swipeBack:(nonnull UIScreenEdgePanGestureRecognizer *)regcognizer;
 -(void)swipeForward:(nonnull UIScreenEdgePanGestureRecognizer *)regcognizer;
-- (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController:(UIPopoverController *)popoverController;
+- (void)popoverPresentationControllerDidDismissPopover:(nonnull UIPopoverPresentationController *)popoverPresentationController;
+- (BOOL)currentArtistTitle:(NSString *__nullable *__nullable)result;
 typedef enum searchOptions
 {
     SEARCH_OPTIONAL,

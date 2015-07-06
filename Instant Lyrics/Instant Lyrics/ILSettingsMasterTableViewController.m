@@ -9,11 +9,12 @@
 #import "ILSettingsMasterTableViewController.h"
 #import "ILSettingsDetailTableViewController.h"
 #import "AppDelegate.h"
+#import "ViewController.h"
 @interface ILSettingsMasterTableViewController ()
 
 @end
 @implementation ILSettingsMasterTableViewController
-
+@synthesize vc=_vc;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -68,7 +69,17 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString* prependText = [defaults objectForKey:ILPrependPrefsKey];
         
-        cell.detailTextLabel.text = prependText;
+        NSString* artistTitle;
+        if ([_vc currentArtistTitle:&artistTitle])
+        {
+            NSString *potentialSpace = [cell.textLabel.text length]==0? @"":@" ";
+            cell.detailTextLabel.text  =
+            [NSString stringWithFormat:@"%@%@%@",prependText, potentialSpace, artistTitle];
+        }
+        else
+        {
+            cell.detailTextLabel.text = prependText;
+        }
     }
     else
     {
@@ -143,6 +154,7 @@
     ILSettingsDetailTableViewController* sdtvc = (ILSettingsDetailTableViewController *)
     [segue destinationViewController];
     [sdtvc setSourceSegue:segue];
+    sdtvc.vc = _vc;
     
 }
 - (void)doneButtonPressed

@@ -8,15 +8,17 @@
 
 #import "ILSettingsDetailTableViewController.h"
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface ILSettingsDetailTableViewController ()
 @property NSMutableArray * tableDataSource;
 @property (strong, nonatomic) UIStoryboardSegue *sourceSegue;
 @property (strong, nonatomic) NSUserDefaults *defaults;
+
 @end
 
 @implementation ILSettingsDetailTableViewController
-@synthesize sourceSegue;
+@synthesize sourceSegue,vc=_vc;
 - (void)viewDidLoad {
     [super viewDidLoad];
     _defaults = [NSUserDefaults standardUserDefaults];
@@ -53,23 +55,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableCell" forIndexPath:indexPath];
+    
+    
     cell.textLabel.text = _tableDataSource[indexPath.row];
     
-    if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"] &&
-        [cell.textLabel.text isEqualToString:[_defaults objectForKey:ILPrependPrefsKey]])
+    if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"])
     {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        // add the artist title to the text
+        NSString* artistTitle;
+        if ([_vc currentArtistTitle:&artistTitle])
+        {
+            NSString *potentialSpace = [cell.textLabel.text length]==0? @"":@" ";
+            cell.textLabel.text =
+            [NSString stringWithFormat:@"%@%@%@",cell.textLabel.text, potentialSpace, artistTitle];
+        }
+        if ([cell.textLabel.text isEqualToString:[_defaults objectForKey:ILPrependPrefsKey]])
+        {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
     }
     else if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"] &&
              [cell.textLabel.text isEqualToString:[_defaults objectForKey:ILSearchEnginePrefsKey]])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
-    
     return cell;
+    
 }
-
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;

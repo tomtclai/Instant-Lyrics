@@ -8,7 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - NJKWebViewProgress
-  - UALogger
+  - UALogger (~> 0.3)
 
 SPEC CHECKSUMS:
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d

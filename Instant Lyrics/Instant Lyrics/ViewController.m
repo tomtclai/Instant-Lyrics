@@ -118,20 +118,12 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
 }
 - (void)searchLyricsWithOptions:(searchOptions)options {
-    MPMediaItem *mediaItem = [_MPcontroller nowPlayingItem];
-    if (mediaItem)
+    NSString* at = nil;
+    if ([self currentArtistTitle:&at])
     {
         LyricsURL* lastEntry = [self.urlmap lastEntry];
         
-        NSMutableString* at = [[NSMutableString alloc] init];
-        
-        NSString* artist = [mediaItem valueForKey:MPMediaItemPropertyArtist];
-        NSString* title = [mediaItem valueForKey:MPMediaItemPropertyTitle];
-        if (artist) [at appendString:artist];
-        if (artist && title) [at appendString:@" "];
-        if (title) [at appendString:title];
-        
-        //        This generated URL is the same as last, so don't load
+        // This generated URL is the same as last, so don't load
         if (options == SEARCH_OPTIONAL &&
             [lastEntry.originUrl isEqual:[self generateSearchURLWithArtistTitle:at]])
         {
@@ -149,6 +141,26 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
         [alert show];
     }
 
+}
+- (BOOL)currentArtistTitle:(NSString**)result {
+    MPMediaItem *mediaItem = [_MPcontroller nowPlayingItem];
+    if (mediaItem)
+    {
+        NSMutableString* at = [[NSMutableString alloc] init];
+        
+        NSString* artist = [mediaItem valueForKey:MPMediaItemPropertyArtist];
+        NSString* title = [mediaItem valueForKey:MPMediaItemPropertyTitle];
+        if (artist) [at appendString:artist];
+        if (artist && title) [at appendString:@" "];
+        if (title) [at appendString:title];
+        
+        *result =  [at copy];
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 - (void)searchLyricsHelperWithArtistTitle:(NSString*) at
 {
@@ -361,15 +373,27 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 #pragma mark - UI story board
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPad
-        && [segue.identifier isEqualToString:@"popoverPresent"])
+
+    if ([segue.identifier isEqualToString:@"popoverPresent"])
     {
-        ILSettingsMasterTableViewController *smtvc =  segue.destinationViewController;
-        smtvc.modalPresentationStyle = UIModalPresentationPopover;
-        UIPopoverPresentationController *popoverPresentationController = smtvc.popoverPresentationController;
-        popoverPresentationController.delegate = self;
+        if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            ILSettingsMasterTableViewController *smtvc =  segue.destinationViewController;
+            smtvc.vc = self;
+            smtvc.modalPresentationStyle = UIModalPresentationPopover;
+            UIPopoverPresentationController *popoverPresentationController = smtvc.popoverPresentationController;
+            popoverPresentationController.delegate = self;
+        }
+        else if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+        {
+            UINavigationController* nc =  segue.destinationViewController;
+            ILSettingsMasterTableViewController *smtvc = (ILSettingsMasterTableViewController *)
+            [nc visibleViewController];
+            smtvc.vc = self;
+        }
     }
+    
+    
 }
 
 @end
