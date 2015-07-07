@@ -93,7 +93,7 @@
     UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
     [self clearTableCellViewCheckmarks];
     selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
-    NSString * newValue = selectedCell.textLabel.text;
+    NSString * newValue = _tableDataSource[indexPath.row];
     // Is it changed?
     if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"] &&
         ![newValue isEqualToString:[_defaults objectForKey:ILPrependPrefsKey]])
