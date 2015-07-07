@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 @class ILURLEntry;
-@interface ILURLLog : NSObject
+@interface ILURLLog : NSObject <NSCoding>
 
 - (NSURL *)URLForArtistTitle:(NSString *) at;
 - (void)addURL:(NSURL *)url
         forArtistTitle:(NSString *) at;
 - (ILURLEntry *)lastEntry;
 + (instancetype)sharedLog;
+- (BOOL)saveChanges;
 @end

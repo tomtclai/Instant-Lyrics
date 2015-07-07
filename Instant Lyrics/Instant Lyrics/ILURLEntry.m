@@ -16,9 +16,31 @@
                      artistTitle:(NSString *) at
 {
     self = [super init];
-    [self setOriginUrl: url];
-    [self setDestUrl:url];
-    [self setArtistTitle:at];
+    if (self)
+    {
+        [self setOriginUrl: url];
+        [self setDestUrl:url];
+        [self setArtistTitle:at];
+    }
+    return self;
+}
+
+#pragma mark NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.artistTitle forKey:@"artistTitle"];
+    [aCoder encodeObject:self.destUrl forKey:@"destUrl"];
+    [aCoder encodeObject:self.originUrl forKey:@"originUrl"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.artistTitle = [aDecoder valueForKey:@"artistTitle"];
+        self.destUrl = [aDecoder valueForKey:@"destUrl"];
+        self.originUrl = [aDecoder valueForKey:@"originUrl"];
+    }
     return self;
 }
 @end

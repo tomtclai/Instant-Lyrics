@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "ILURLLog.h"
+#import <UALogger.h>
 
 NSString * const ILPrependPrefsKey =  @"PrependValue";
 NSString * const ILSearchEnginePrefsKey = @"SearchEngineValue";
@@ -67,6 +69,13 @@ NSDictionary * searchEngineBaseURLs;
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    if( [[ILURLLog sharedLog] saveChanges]) {
+        UALog(@"Saved all of the URL Logs");
+    }
+    else {
+        UALog(@"Could not save any of the URL Logs ");
+    }
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

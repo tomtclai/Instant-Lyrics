@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface ILURLEntry : NSObject
+@interface ILURLEntry : NSObject <NSCoding>
 NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString* artistTitle;
 @property (readonly) NSURL* originUrl;

@@ -7,13 +7,13 @@
 //
 #import "ILURLEntry.h"
 #import "ILURLLog.h"
-@interface ILURLLog ()
+@interface ILURLLog () 
 @property (strong, nonatomic) NSMutableArray *LyricsURLs;
-@property (strong, nonatomic) ILURLEntry* lastEntry;
+//@property (strong, nonatomic) ILURLEntry* lastEntry;
 
 @end
 @implementation ILURLLog
-@synthesize lastEntry = _lastEntry;
+//@synthesize lastEntry = _lastEntry;
 #pragma mark singleton methods
 + (instancetype)sharedLog {
     static ILURLLog *sharedURLLog = nil;
@@ -26,7 +26,15 @@
 #pragma mark init
 - (instancetype) init{
     if (self = [super init]) {
-        self.LyricsURLs = [[NSMutableArray alloc] init];
+        
+        NSString *path = [self itemArchivePath];
+        self.LyricsURLs = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        // if the array hadn't been saved previously, create a new empty one
+        if (!self.LyricsURLs)
+        {
+            self.LyricsURLs = [[NSMutableArray alloc] init];
+        }
     }
     return self;
 }
@@ -47,6 +55,42 @@
                                              artistTitle:at];
     
     [[self LyricsURLs] addObject:newEntry];
-    [self setLastEntry:newEntry];
+}
+#pragma mark NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_LyricsURLs forKey:@"LyricsURLs"];
+}
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    if (self) {
+        self.LyricsURLs = [aDecoder valueForKey:@"LyricsURLs"];
+    }
+    return self;
+}
+#pragma mark convenience
+- (ILURLEntry *)lastEntry
+{
+    return [_LyricsURLs lastObject];
+}
+#pragma mark saving changes
+- (NSString *)itemArchivePath
+{
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentDirectory = [documentDirectories firstObject];
+    
+    return [documentDirectory stringByAppendingPathExtension:@"ILURLLog.archive"];
+}
+- (BOOL)saveChanges
+{
+    NSString *path = [self itemArchivePath];
+    
+    BOOL result = [NSKeyedArchiver archiveRootObject:self.LyricsURLs
+                                              toFile:path];
+    
+    return result;
+    
 }
 @end
