@@ -10,6 +10,8 @@
 #import "ILSettingsDetailTableViewController.h"
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "ILURLLog.h"
+#import "ILURLEntry.h"
 @interface ILSettingsMasterTableViewController ()
 
 @end
@@ -57,37 +59,32 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     if (indexPath.section == 0)
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"PrependText" forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"PrependText"
+                                               forIndexPath:indexPath];
 
-//        if (cell == nil) {
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"PrependText"];
-//        }
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString* prependText = [defaults objectForKey:ILPrependPrefsKey];
         
         NSString* artistTitle;
-        if ([_vc currentArtistTitle:&artistTitle])
+        // use current artist title if exists
+        // use last artist title if not
+        if (![_vc currentArtistTitle:&artistTitle])
         {
-            NSString *potentialSpace = [cell.textLabel.text length]==0? @"":@" ";
-            cell.detailTextLabel.text  =
-            [NSString stringWithFormat:@"%@%@%@",prependText, potentialSpace, artistTitle];
+            ILURLEntry * last = [[ILURLLog sharedLog]lastEntry];
+            artistTitle = last? last.artistTitle : @"";
         }
-        else
-        {
-            cell.detailTextLabel.text = prependText;
-        }
+        NSString *potentialSpace = [prependText length]==0? @"":@" ";
+        cell.detailTextLabel.text  =
+        [NSString stringWithFormat:@"%@%@%@",prependText, potentialSpace, artistTitle];
     }
     else
     {
-        
         cell = [tableView dequeueReusableCellWithIdentifier:@"SearchEngine" forIndexPath:indexPath];
-//        if (cell == nil) {
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"SearchEngine"];
-//        }
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString* searchEngine = [defaults objectForKey:ILSearchEnginePrefsKey];
         
@@ -96,8 +93,6 @@
     cell.editingAccessoryType = UITableViewCellAccessoryDetailButton;
 
     // Configure the cell...
-    
-//    [cell ]
     return cell;
 }
 

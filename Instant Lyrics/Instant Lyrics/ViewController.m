@@ -7,19 +7,18 @@
 //
 
 #import "ViewController.h"
-#import "ILURLMap.h"
-#import "LyricsURL.h"
+#import "ILURLLog.h"
+#import "ILURLEntry.h"
 #import "AppDelegate.h"
 #import "Prefix.pch"
 #import "ILWelcomeViewController.h"
 #import "ILSettingsMasterTableViewController.h"
 @import MediaPlayer;
 @interface ViewController () <UIWebViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate, NJKWebViewProgressDelegate>
-@property (strong, nonatomic) ILURLMap *urlmap;
+@property (strong, nonatomic) ILURLLog *urlmap;
 @property (strong, nonatomic) MPMusicPlayerController *MPcontroller;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
-//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -72,10 +71,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
                                              selector:@selector(searchLyricsIfPlaying)
                                                  name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                               object:nil];
-    self.urlmap = [[ILURLMap alloc] init];
-//    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
-//    self.searchBar.translucent = YES;
-//    self.searchBar.delegate=self;
+    self.urlmap = [ILURLLog sharedLog];
     self.progressView.backgroundColor = [UIColor clearColor];
 }
 
@@ -121,7 +117,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     NSString* at = nil;
     if ([self currentArtistTitle:&at])
     {
-        LyricsURL* lastEntry = [self.urlmap lastEntry];
+        ILURLEntry* lastEntry = [self.urlmap lastEntry];
         
         // This generated URL is the same as last, so don't load
         if (options == SEARCH_OPTIONAL &&

@@ -6,11 +6,11 @@
 //  Copyright © 2015 Tom. All rights reserved.
 //
 
-#import "LyricsURL.h"
-@interface LyricsURL ()
+#import "ILURLEntry.h"
+@interface ILURLEntry ()
 @property (strong, nonatomic) NSURL* originUrl;
 @end
-@implementation LyricsURL
+@implementation ILURLEntry
 @synthesize artistTitle=_artistTitle, destUrl = _destUrl, originUrl =_originUrl;
 - (instancetype)initWithUrl:(NSURL *)url
                      artistTitle:(NSString *) at

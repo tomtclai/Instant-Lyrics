@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		745E92D56AA37028AD8ECF1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9F73CEE69FE50D6C1491EF /* libPods.a */; };
 		770DFB331B4440A900E1BF6C /* ILSettingsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770DFB321B4440A900E1BF6C /* ILSettingsDetailTableViewController.m */; };
-		7770A1501B3C7D3000D790AB /* ILURLMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A14F1B3C7D3000D790AB /* ILURLMap.m */; };
-		7770A1541B3C80B300D790AB /* LyricsURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A1531B3C80B300D790AB /* LyricsURL.m */; };
+		7770A1501B3C7D3000D790AB /* ILURLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A14F1B3C7D3000D790AB /* ILURLLog.m */; };
+		7770A1541B3C80B300D790AB /* ILURLEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A1531B3C80B300D790AB /* ILURLEntry.m */; };
 		7774D7A11B37A40400DA0068 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A01B37A40400DA0068 /* main.m */; };
 		7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A31B37A40400DA0068 /* AppDelegate.m */; };
 		7774D7A71B37A40400DA0068 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A61B37A40400DA0068 /* ViewController.m */; };
@@ -27,10 +27,10 @@
 		770004041B4474CE0074CC05 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		770DFB311B4440A900E1BF6C /* ILSettingsDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILSettingsDetailTableViewController.h; path = ../ILSettingsDetailTableViewController.h; sourceTree = "<group>"; };
 		770DFB321B4440A900E1BF6C /* ILSettingsDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILSettingsDetailTableViewController.m; path = ../ILSettingsDetailTableViewController.m; sourceTree = "<group>"; };
-		7770A14E1B3C7D3000D790AB /* ILURLMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLMap.h; sourceTree = "<group>"; };
-		7770A14F1B3C7D3000D790AB /* ILURLMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLMap.m; sourceTree = "<group>"; };
-		7770A1521B3C80B300D790AB /* LyricsURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricsURL.h; sourceTree = "<group>"; };
-		7770A1531B3C80B300D790AB /* LyricsURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsURL.m; sourceTree = "<group>"; };
+		7770A14E1B3C7D3000D790AB /* ILURLLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLLog.h; sourceTree = "<group>"; };
+		7770A14F1B3C7D3000D790AB /* ILURLLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLLog.m; sourceTree = "<group>"; };
+		7770A1521B3C80B300D790AB /* ILURLEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLEntry.h; sourceTree = "<group>"; };
+		7770A1531B3C80B300D790AB /* ILURLEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLEntry.m; sourceTree = "<group>"; };
 		7774D79C1B37A40400DA0068 /* Instant Lyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instant Lyrics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7774D7A01B37A40400DA0068 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7774D7A21B37A40400DA0068 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,10 +105,10 @@
 		7770A1511B3C7D3400D790AB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7770A14E1B3C7D3000D790AB /* ILURLMap.h */,
-				7770A14F1B3C7D3000D790AB /* ILURLMap.m */,
-				7770A1521B3C80B300D790AB /* LyricsURL.h */,
-				7770A1531B3C80B300D790AB /* LyricsURL.m */,
+				7770A14E1B3C7D3000D790AB /* ILURLLog.h */,
+				7770A14F1B3C7D3000D790AB /* ILURLLog.m */,
+				7770A1521B3C80B300D790AB /* ILURLEntry.h */,
+				7770A1531B3C80B300D790AB /* ILURLEntry.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -308,13 +308,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				770DFB331B4440A900E1BF6C /* ILSettingsDetailTableViewController.m in Sources */,
-				7770A1501B3C7D3000D790AB /* ILURLMap.m in Sources */,
+				7770A1501B3C7D3000D790AB /* ILURLLog.m in Sources */,
 				7774D7A71B37A40400DA0068 /* ViewController.m in Sources */,
 				7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */,
 				777989B41B4489E7003E5906 /* ILWelcomeViewController.m in Sources */,
 				77D45C411B431EDC00B5A06A /* ILSettingsMasterTableViewController.m in Sources */,
 				7774D7A11B37A40400DA0068 /* main.m in Sources */,
-				7770A1541B3C80B300D790AB /* LyricsURL.m in Sources */,
+				7770A1541B3C80B300D790AB /* ILURLEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

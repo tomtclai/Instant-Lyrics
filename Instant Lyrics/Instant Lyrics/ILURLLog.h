@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@class LyricsURL;
-@interface ILURLMap : NSObject
+@class ILURLEntry;
+@interface ILURLLog : NSObject
 
 - (NSURL *)URLForArtistTitle:(NSString *) at;
 - (void)addURL:(NSURL *)url
         forArtistTitle:(NSString *) at;
-- (LyricsURL *)lastEntry;
+- (ILURLEntry *)lastEntry;
++ (instancetype)sharedLog;
 @end

@@ -9,6 +9,8 @@
 #import "ILSettingsDetailTableViewController.h"
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "ILURLEntry.h"
+#import "ILURLLog.h"
 
 @interface ILSettingsDetailTableViewController ()
 @property NSMutableArray * tableDataSource;
@@ -61,15 +63,21 @@
     
     if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"])
     {
-        // add the artist title to the text
+        // add the artist title to the text if currently playing
+        // if not, use last artist title
         NSString* artistTitle;
-        if ([_vc currentArtistTitle:&artistTitle])
+        if (![_vc currentArtistTitle:&artistTitle])
         {
-            NSString *potentialSpace = [cell.textLabel.text length]==0? @"":@" ";
-            cell.textLabel.text =
-            [NSString stringWithFormat:@"%@%@%@",cell.textLabel.text, potentialSpace, artistTitle];
+            // add last artist title
+            ILURLEntry * last = [[ILURLLog sharedLog]lastEntry];
+            artistTitle = last? last.artistTitle : @"";
         }
-        if ([cell.textLabel.text isEqualToString:[_defaults objectForKey:ILPrependPrefsKey]])
+        NSString *potentialSpace = [cell.textLabel.text length]==0? @"":@" ";
+        cell.textLabel.text =
+        [NSString stringWithFormat:@"%@%@%@",cell.textLabel.text, potentialSpace, artistTitle];
+
+        if ([_tableDataSource[indexPath.row]
+             isEqualToString:[_defaults objectForKey:ILPrependPrefsKey]])
         {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }

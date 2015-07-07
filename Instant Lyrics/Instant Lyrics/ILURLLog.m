@@ -5,24 +5,34 @@
 //  Created by Tom Lai on 6/25/15.
 //  Copyright © 2015 Tom. All rights reserved.
 //
-#import "LyricsURL.h"
-#import "ILURLMap.h"
-@interface ILURLMap ()
+#import "ILURLEntry.h"
+#import "ILURLLog.h"
+@interface ILURLLog ()
 @property (strong, nonatomic) NSMutableArray *LyricsURLs;
-@property (strong, nonatomic) LyricsURL* lastEntry;
+@property (strong, nonatomic) ILURLEntry* lastEntry;
 
 @end
-@implementation ILURLMap
+@implementation ILURLLog
 @synthesize lastEntry = _lastEntry;
-#pragma init
+#pragma mark singleton methods
++ (instancetype)sharedLog {
+    static ILURLLog *sharedURLLog = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^ {
+        sharedURLLog = [[self alloc]init];
+    });
+    return sharedURLLog;
+}
+#pragma mark init
 - (instancetype) init{
-    self = [super init];
-    self.LyricsURLs = [[NSMutableArray alloc] init];
+    if (self = [super init]) {
+        self.LyricsURLs = [[NSMutableArray alloc] init];
+    }
     return self;
 }
 - (NSURL *)URLForArtistTitle:(NSString *) at
 {
-    LyricsURL *i  = nil;
+    ILURLEntry *i  = nil;
     for (i in self.LyricsURLs)
     {
         if ([[i artistTitle] isEqualToString: at])
@@ -33,7 +43,7 @@
 - (void)addURL:(nonnull NSURL *)url
         forArtistTitle:(NSString *) at
 {
-    LyricsURL * newEntry = [[LyricsURL alloc]initWithUrl:url
+    ILURLEntry * newEntry = [[ILURLEntry alloc]initWithUrl:url
                                              artistTitle:at];
     
     [[self LyricsURLs] addObject:newEntry];
