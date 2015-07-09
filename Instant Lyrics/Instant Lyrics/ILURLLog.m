@@ -81,7 +81,7 @@
     
     NSString *documentDirectory = [documentDirectories firstObject];
     
-    return [documentDirectory stringByAppendingPathExtension:@"ILURLLog.archive"];
+    return [documentDirectory stringByAppendingPathComponent:@"ILURLLog.data"];
 }
 - (BOOL)saveChanges
 {
