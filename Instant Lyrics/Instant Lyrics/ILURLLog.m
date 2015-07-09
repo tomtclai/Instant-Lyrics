@@ -7,6 +7,7 @@
 //
 #import "ILURLEntry.h"
 #import "ILURLLog.h"
+#import <UALogger.h>
 @interface ILURLLog () 
 @property (strong, nonatomic) NSMutableArray *LyricsURLs;
 //@property (strong, nonatomic) ILURLEntry* lastEntry;
@@ -28,13 +29,20 @@
     if (self = [super init]) {
         
         NSString *path = [self itemArchivePath];
-        self.LyricsURLs = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
-        // if the array hadn't been saved previously, create a new empty one
-        if (!self.LyricsURLs)
-        {
-            self.LyricsURLs = [[NSMutableArray alloc] init];
+        @try {
+            self.LyricsURLs = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
         }
+        @catch (NSException *exception) {
+            UALog(@"%@",exception);
+        }
+        @finally {
+            // if the array hadn't been saved previously, create a new empty one
+            if (!self.LyricsURLs)
+            {
+                self.LyricsURLs = [[NSMutableArray alloc] init];
+            }
+        }
+        
     }
     return self;
 }

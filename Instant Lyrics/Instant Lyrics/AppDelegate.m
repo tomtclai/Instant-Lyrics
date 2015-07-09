@@ -15,6 +15,7 @@ NSString * const ILPrependPrefsKey =  @"PrependValue";
 NSString * const ILSearchEnginePrefsKey = @"SearchEngineValue";
 NSString * const ILPrependOptionsKey =  @"AvailPrependValues";
 NSString * const ILSearchEngineOptionsKey = @"AvailSearchEngineValues";
+NSString * const ILNoMusicPlayingScreenToggleKey = @"NoMusicPlayingScreenToggle";
 NSDictionary * searchEngineBaseURLs;
 
 @interface AppDelegate ()
@@ -43,7 +44,8 @@ NSDictionary * searchEngineBaseURLs;
                                             @"Bing",
                                             @"DuckDuckGo",
                                             @"BaiDu",
-                                            @"LyricWiki"]
+                                            @"LyricWiki"],
+                                      ILNoMusicPlayingScreenToggleKey:@YES
                                       };
     searchEngineBaseURLs = @{
                              @"Google"    :@"http://www.google.com/search?q=",

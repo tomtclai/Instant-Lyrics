@@ -12,6 +12,7 @@ extern NSString * const ILPrependPrefsKey;
 extern NSString * const ILSearchEnginePrefsKey;
 extern NSString * const ILPrependOptionsKey;
 extern NSString * const ILSearchEngineOptionsKey;
+extern NSString * const ILNoMusicPlayingScreenToggleKey;
 extern NSDictionary * searchEngineBaseURLs;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

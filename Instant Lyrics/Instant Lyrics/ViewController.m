@@ -93,7 +93,8 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 - (void)displayWelcome
 {
-    if([self webView].request == nil &&
+    if([_defaults valueForKey:ILNoMusicPlayingScreenToggleKey] &&
+       [self webView].request == nil &&
        [_MPcontroller playbackState] != MPMusicPlaybackStatePlaying)
     {
         ILWelcomeViewController * welcomeVC = [[ILWelcomeViewController alloc] initWithNibName:@"Welcome" bundle:nil];

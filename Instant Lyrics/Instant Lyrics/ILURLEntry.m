@@ -37,9 +37,9 @@
 {
     self = [super init];
     if (self) {
-        self.artistTitle = [aDecoder valueForKey:@"artistTitle"];
-        self.destUrl = [aDecoder valueForKey:@"destUrl"];
-        self.originUrl = [aDecoder valueForKey:@"originUrl"];
+        self.artistTitle = [aDecoder decodeObjectForKey:@"artistTitle"];
+        self.destUrl = [aDecoder decodeObjectForKey:@"destUrl"];
+        self.originUrl = [aDecoder decodeObjectForKey:@"originUrl"];
     }
     return self;
 }
