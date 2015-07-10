@@ -9,13 +9,17 @@
 #import "ILWelcomeViewController.h"
 @import MediaPlayer;
 @interface ILWelcomeViewController ()
-
+@property (weak, nonatomic) IBOutlet UIButton *playMusicButton;
+@property (weak, nonatomic) IBOutlet UIButton *goToMusicApp;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @end
 
 @implementation ILWelcomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _playMusicButton.hidden = NO;
+    _goToMusicApp.hidden = YES;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -35,8 +39,37 @@
 */
 - (IBAction)playButtonPressed:(id)sender {
     [[MPMusicPlayerController systemMusicPlayer]play];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    if ([[MPMusicPlayerController systemMusicPlayer]playbackState]==MPMusicPlaybackStatePlaying)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [_playMusicButton setSelected:NO];
+        [_playMusicButton setHidden:YES];
+        [_goToMusicApp setHidden:NO];
+    }
+}
+- (IBAction)goToMusicAppButtonPressed:(id)sender {
+    BOOL success = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"music:"]];
+    if (success)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        _messageLabel.text = @"This device have no music app,\nInstant Lyrics needs iOS music\napp to function.";
+        
+        _messageLabel.numberOfLines = 3;
+        
+        CGSize labelSize = [_messageLabel.text sizeWithAttributes:@{NSFontAttributeName:_messageLabel.font}];
+        
+        CGRect newFrame = _messageLabel.frame;
+        newFrame.size = labelSize;
+        _messageLabel.frame = newFrame;
+        
+        [_goToMusicApp setHidden:YES];
+    }
 }
 
 @end
