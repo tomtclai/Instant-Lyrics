@@ -58,7 +58,7 @@
     }
     else
     {
-        _messageLabel.text = @"This device have no music app,\nInstant Lyrics needs iOS music\napp to function.";
+        _messageLabel.text = @"This device have no music app.\nInstant Lyrics needs iOS music\napp to function.";
         
         _messageLabel.numberOfLines = 3;
         
