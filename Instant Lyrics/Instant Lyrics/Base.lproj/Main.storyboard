@@ -202,27 +202,23 @@
                                     <segue destination="YQI-tp-5yr" kind="show" identifier="PrependTextSegue" id="1If-94-nO8"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoMusicPlayingToggle" id="fLf-4U-yKp">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="toggleCell" id="fLf-4U-yKp">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fLf-4U-yKp" id="d0u-5G-c8K">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="&quot;No Music Playing&quot; Screen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FZ-Vj-aKu">
-                                            <rect key="frame" x="15" y="12" width="196" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tb8-Lv-F44">
                                             <rect key="frame" x="543" y="6" width="51" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="rxT-Mq-00J"/>
+                                                <constraint firstAttribute="width" constant="49" id="zNO-rr-95e"/>
+                                            </constraints>
                                         </switch>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="centerY" secondItem="tb8-Lv-F44" secondAttribute="centerY" id="LEd-p0-MYf"/>
-                                        <constraint firstItem="1FZ-Vj-aKu" firstAttribute="leading" secondItem="d0u-5G-c8K" secondAttribute="leadingMargin" constant="7" id="cZU-kn-hgN"/>
                                         <constraint firstItem="tb8-Lv-F44" firstAttribute="trailing" secondItem="d0u-5G-c8K" secondAttribute="trailingMargin" id="tzg-eq-FTg"/>
-                                        <constraint firstAttribute="centerY" secondItem="1FZ-Vj-aKu" secondAttribute="centerY" id="ycF-4H-sec"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>

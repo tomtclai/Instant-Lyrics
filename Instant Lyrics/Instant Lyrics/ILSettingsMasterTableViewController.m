@@ -118,15 +118,17 @@
         }
         case 1: // section 1
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"toggleCell"
+                                                   forIndexPath:indexPath];
+            
             switch (indexPath.row) {
                 case 0:
                 {
                     //consider making a custom view class
-                    UILabel *aLabel = (UILabel *) [cell viewWithTag:0];
                     UISwitch *aSwitch = (UISwitch *) [cell viewWithTag:1];
-                    aLabel.text = @"\"No Music Playing\" Screen";
+                    cell.textLabel.text = @"\"No Music Playing\" Screen";
+                    cell.textLabel.backgroundColor = [UIColor clearColor];
                     aSwitch.on = [defaults objectForKey:ILNoMusicPlayingScreenToggleKey];
-                    
                 }
                     break;
                     
