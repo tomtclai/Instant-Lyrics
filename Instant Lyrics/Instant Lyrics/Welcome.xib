@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ILWelcomeViewController">
             <connections>
+                <outlet property="goToMusicApp" destination="zqs-0g-OLy" id="vvv-16-8F1"/>
+                <outlet property="messageLabel" destination="Jn3-Ok-0Ui" id="mvr-td-PKx"/>
+                <outlet property="playMusicButton" destination="vYM-fO-W2g" id="R7E-T4-HML"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,8 +24,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYM-fO-W2g">
-                                <rect key="frame" x="262" y="300" width="75" height="30"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYM-fO-W2g">
+                                <rect key="frame" x="258" y="300" width="83" height="30"/>
                                 <state key="normal" title="Play Music">
                                     <color key="titleColor" red="0.83921575546264648" green="0.73333334922790527" blue="0.92941182851791382" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,15 +34,27 @@
                                     <action selector="playButtonPressed:" destination="-1" eventType="touchUpInside" id="jfo-cr-Wr2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No music is currently playing." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn3-Ok-0Ui">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No music is currently playing." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn3-Ok-0Ui">
                                 <rect key="frame" x="170" y="276" width="259" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqs-0g-OLy">
+                                <rect key="frame" x="258" y="300" width="83" height="30"/>
+                                <state key="normal" title="Go to Music App">
+                                    <color key="titleColor" red="0.83921575550000005" green="0.73333334920000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToMusicAppButtonPressed:" destination="-1" eventType="touchUpInside" id="FK9-ot-qyY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="Jn3-Ok-0Ui" secondAttribute="bottom" id="CFX-kg-9j1"/>
+                            <constraint firstAttribute="centerX" secondItem="zqs-0g-OLy" secondAttribute="centerX" constant="0.5" id="SdI-ht-OOS"/>
+                            <constraint firstAttribute="centerY" secondItem="zqs-0g-OLy" secondAttribute="top" id="Vmg-pq-O0r"/>
                             <constraint firstAttribute="centerY" secondItem="vYM-fO-W2g" secondAttribute="top" id="cIY-pc-4d1"/>
                             <constraint firstAttribute="centerX" secondItem="Jn3-Ok-0Ui" secondAttribute="centerX" constant="0.5" id="lMo-Po-zjt"/>
                             <constraint firstAttribute="centerX" secondItem="vYM-fO-W2g" secondAttribute="centerX" constant="0.5" id="vTM-qZ-Ckq"/>
