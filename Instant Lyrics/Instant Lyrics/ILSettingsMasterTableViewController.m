@@ -20,6 +20,7 @@
 //@property (weak, nonatomic) IBOutlet UILabel *nomusicplayingLabel;
 //@property (weak, nonatomic) IBOutlet UISwitch *nomusicPlayingScreenSwitch;
 
+@property (strong, nonatomic) UISwitch *messageSwitch;
 @end
 @implementation ILSettingsMasterTableViewController
 @synthesize vc=_vc;
@@ -38,6 +39,10 @@
     
     // tell tableview to not display empty cells in the bottom
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    
+    
+
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -79,8 +84,6 @@
         {
             cell = [tableView dequeueReusableCellWithIdentifier:@"subtitle"
                                                    forIndexPath:indexPath];
-            
-            
             // Set title & subtitle
             switch (indexPath.row) {
                 case 0:
@@ -125,10 +128,17 @@
                 case 0:
                 {
                     //consider making a custom view class
-                    UISwitch *aSwitch = (UISwitch *) [cell viewWithTag:1];
+                    self.messageSwitch = (UISwitch *) [cell viewWithTag:121];
                     cell.textLabel.text = @"\"No Music Playing\" Screen";
                     cell.textLabel.backgroundColor = [UIColor clearColor];
-                    aSwitch.on = [defaults objectForKey:ILNoMusicPlayingScreenToggleKey];
+                    self.messageSwitch.on = [defaults boolForKey:ILNoMusicPlayingScreenToggleKey
+                                  ];
+                    
+                    // Add control event
+                    [self.messageSwitch addTarget:self
+                                           action:@selector(messageSwitchFlipped:)
+                                 forControlEvents:UIControlEventValueChanged];
+                    
                 }
                     break;
                     
@@ -144,6 +154,13 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1)
+    {
+        [[tableView cellForRowAtIndexPath:indexPath]setSelected:NO animated:YES];
+    }
+}
 //- (NSString *)tableView:(nonnull UITableView *)tableView titleForFooterInSection:(NSInteger)section
 //{
 //    if (section == 0) return @"Prepend Text is inserted in front of every query";
@@ -204,6 +221,13 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+#pragma mark control event
+- (void)messageSwitchFlipped:(UISwitch *)aSwitch
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setBool:aSwitch.on forKey:ILNoMusicPlayingScreenToggleKey];
+    
+}
 
 @end

@@ -90,6 +90,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (void)viewDidAppear:(BOOL)animated
 {
     [self displayWelcome]; //uncomment after screenshot taking
+    [self updateBackForwardButtons];
 }
 - (void)displayWelcome
 {

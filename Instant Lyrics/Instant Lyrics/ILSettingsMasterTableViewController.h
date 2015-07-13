@@ -10,4 +10,5 @@
 
 @interface ILSettingsMasterTableViewController : UITableViewController <UITableViewDataSource>
 @property (strong, nonatomic) ViewController *vc;
+- (void)messageSwitchFlipped:(UISwitch *)aSwitch;
 @end
