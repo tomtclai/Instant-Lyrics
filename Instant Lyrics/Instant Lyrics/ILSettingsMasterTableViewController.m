@@ -26,7 +26,7 @@
 @synthesize vc=_vc;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
@@ -67,6 +67,14 @@
     return 2;
 }
 
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section==0)
+        return @"Search";
+    else
+        return @"On App Launch";
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)
         return 2;
@@ -82,12 +90,13 @@
     switch (indexPath.section) {
         case 0: // section 0
         {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"subtitle"
-                                                   forIndexPath:indexPath];
+
             // Set title & subtitle
             switch (indexPath.row) {
                 case 0:
                 {
+                    cell = [tableView dequeueReusableCellWithIdentifier:@"searchTerm"
+                                                           forIndexPath:indexPath];
                     cell.textLabel.text = @"Search Term";
                     NSString* prependText = [defaults objectForKey:ILPrependPrefsKey];
                     NSString* artistTitle;
@@ -106,6 +115,8 @@
                 }
                 case 1:
                 {
+                    cell = [tableView dequeueReusableCellWithIdentifier:@"searchEngine"
+                                                           forIndexPath:indexPath];
                     cell.textLabel.text = @"Search Engine";
                     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                     NSString* searchEngine = [defaults objectForKey:ILSearchEnginePrefsKey];
@@ -229,5 +240,4 @@
     [defaults setBool:aSwitch.on forKey:ILNoMusicPlayingScreenToggleKey];
     
 }
-
 @end

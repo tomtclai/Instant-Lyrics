@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		745E92D56AA37028AD8ECF1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9F73CEE69FE50D6C1491EF /* libPods.a */; };
-		770DFB331B4440A900E1BF6C /* ILSettingsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770DFB321B4440A900E1BF6C /* ILSettingsDetailTableViewController.m */; };
 		7770A1501B3C7D3000D790AB /* ILURLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A14F1B3C7D3000D790AB /* ILURLLog.m */; };
 		7770A1541B3C80B300D790AB /* ILURLEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A1531B3C80B300D790AB /* ILURLEntry.m */; };
 		7774D7A11B37A40400DA0068 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A01B37A40400DA0068 /* main.m */; };
@@ -18,15 +17,15 @@
 		7774D7AC1B37A40400DA0068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7774D7AB1B37A40400DA0068 /* Assets.xcassets */; };
 		777989B41B4489E7003E5906 /* ILWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777989B21B4489E7003E5906 /* ILWelcomeViewController.m */; };
 		777989B51B4489E7003E5906 /* Welcome.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777989B31B4489E7003E5906 /* Welcome.xib */; };
-		777D65721B421909009F90E0 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777D65711B421909009F90E0 /* Launch Screen.xib */; };
+		77ADBFB41B555A1400EEEA43 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77ADBFB21B555A1400EEEA43 /* Launch Screen.xib */; };
+		77ADBFB51B555A1400EEEA43 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77ADBFB31B555A1400EEEA43 /* View.xib */; };
+		77ADBFB81B555A3500EEEA43 /* ILSettingsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77ADBFB71B555A3500EEEA43 /* ILSettingsDetailTableViewController.m */; };
 		77D45C411B431EDC00B5A06A /* ILSettingsMasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D45C401B431EDC00B5A06A /* ILSettingsMasterTableViewController.m */; };
 		77D45C441B43287E00B5A06A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77D45C431B43287E00B5A06A /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		770004041B4474CE0074CC05 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		770DFB311B4440A900E1BF6C /* ILSettingsDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILSettingsDetailTableViewController.h; path = ../ILSettingsDetailTableViewController.h; sourceTree = "<group>"; };
-		770DFB321B4440A900E1BF6C /* ILSettingsDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILSettingsDetailTableViewController.m; path = ../ILSettingsDetailTableViewController.m; sourceTree = "<group>"; };
 		7770A14E1B3C7D3000D790AB /* ILURLLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLLog.h; sourceTree = "<group>"; };
 		7770A14F1B3C7D3000D790AB /* ILURLLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLLog.m; sourceTree = "<group>"; };
 		7770A1521B3C80B300D790AB /* ILURLEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLEntry.h; sourceTree = "<group>"; };
@@ -43,7 +42,10 @@
 		777989B11B4489E7003E5906 /* ILWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILWelcomeViewController.h; sourceTree = "<group>"; };
 		777989B21B4489E7003E5906 /* ILWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILWelcomeViewController.m; sourceTree = "<group>"; };
 		777989B31B4489E7003E5906 /* Welcome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Welcome.xib; sourceTree = "<group>"; };
-		777D65711B421909009F90E0 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
+		77ADBFB21B555A1400EEEA43 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		77ADBFB31B555A1400EEEA43 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		77ADBFB61B555A3500EEEA43 /* ILSettingsDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSettingsDetailTableViewController.h; sourceTree = "<group>"; };
+		77ADBFB71B555A3500EEEA43 /* ILSettingsDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSettingsDetailTableViewController.m; sourceTree = "<group>"; };
 		77D45C3F1B431EDC00B5A06A /* ILSettingsMasterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSettingsMasterTableViewController.h; sourceTree = "<group>"; };
 		77D45C401B431EDC00B5A06A /* ILSettingsMasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSettingsMasterTableViewController.m; sourceTree = "<group>"; };
 		77D45C431B43287E00B5A06A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -68,7 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				7774D7A81B37A40400DA0068 /* Main.storyboard */,
-				777D65711B421909009F90E0 /* Launch Screen.xib */,
+				77ADBFB21B555A1400EEEA43 /* Launch Screen.xib */,
+				77ADBFB31B555A1400EEEA43 /* View.xib */,
 				777989B31B4489E7003E5906 /* Welcome.xib */,
 			);
 			name = View;
@@ -161,8 +164,8 @@
 			children = (
 				77D45C3F1B431EDC00B5A06A /* ILSettingsMasterTableViewController.h */,
 				77D45C401B431EDC00B5A06A /* ILSettingsMasterTableViewController.m */,
-				770DFB311B4440A900E1BF6C /* ILSettingsDetailTableViewController.h */,
-				770DFB321B4440A900E1BF6C /* ILSettingsDetailTableViewController.m */,
+				77ADBFB61B555A3500EEEA43 /* ILSettingsDetailTableViewController.h */,
+				77ADBFB71B555A3500EEEA43 /* ILSettingsDetailTableViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -245,11 +248,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77ADBFB51B555A1400EEEA43 /* View.xib in Resources */,
 				77D45C441B43287E00B5A06A /* Settings.bundle in Resources */,
 				777989B51B4489E7003E5906 /* Welcome.xib in Resources */,
 				7774D7AC1B37A40400DA0068 /* Assets.xcassets in Resources */,
 				7774D7AA1B37A40400DA0068 /* Main.storyboard in Resources */,
-				777D65721B421909009F90E0 /* Launch Screen.xib in Resources */,
+				77ADBFB41B555A1400EEEA43 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,13 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				770DFB331B4440A900E1BF6C /* ILSettingsDetailTableViewController.m in Sources */,
 				7770A1501B3C7D3000D790AB /* ILURLLog.m in Sources */,
 				7774D7A71B37A40400DA0068 /* ViewController.m in Sources */,
 				7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */,
 				777989B41B4489E7003E5906 /* ILWelcomeViewController.m in Sources */,
 				77D45C411B431EDC00B5A06A /* ILSettingsMasterTableViewController.m in Sources */,
 				7774D7A11B37A40400DA0068 /* main.m in Sources */,
+				77ADBFB81B555A3500EEEA43 /* ILSettingsDetailTableViewController.m in Sources */,
 				7770A1541B3C80B300D790AB /* ILURLEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

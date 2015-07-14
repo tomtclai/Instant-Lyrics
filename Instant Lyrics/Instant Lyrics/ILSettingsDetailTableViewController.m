@@ -23,9 +23,10 @@
 @synthesize sourceSegue,vc=_vc;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _defaults = [NSUserDefaults standardUserDefaults];
-    
-    if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"])
+
+    if ([sourceSegue.identifier isEqualToString:@"SearchTermSegue"])
     {
         _tableDataSource = [_defaults objectForKey:ILPrependOptionsKey];
         self.navigationItem.title = @"Set Search Term";
@@ -61,7 +62,7 @@
     
     cell.textLabel.text = _tableDataSource[indexPath.row];
     
-    if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"])
+    if ([sourceSegue.identifier isEqualToString:@"SearchTermSegue"])
     {
         // add the artist title to the text if currently playing
         // if not, use last artist title
@@ -103,7 +104,7 @@
     selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
     NSString * newValue = _tableDataSource[indexPath.row];
     // Is it changed?
-    if ([sourceSegue.identifier isEqualToString:@"PrependTextSegue"] &&
+    if ([sourceSegue.identifier isEqualToString:@"SearchTermSegue"] &&
         ![newValue isEqualToString:[_defaults objectForKey:ILPrependPrefsKey]])
     {
         // Save to defaults
@@ -117,6 +118,19 @@
     }
 
     
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    if ([sourceSegue.identifier isEqualToString:@"SearchTermSegue"])
+    {
+        return @"The query format is: <prepend text> <artist> <title>. \n\
+Depending on the language of lyrics and the search engine you choose, different prepend text may produce better search results.";
+    }
+    else // if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"])
+    {
+        return @"The default search engine to use in Instant Lyrics. \n";
+    }
 }
 
 - (void)clearTableCellViewCheckmarks

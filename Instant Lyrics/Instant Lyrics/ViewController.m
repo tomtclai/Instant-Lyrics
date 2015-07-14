@@ -94,7 +94,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 - (void)displayWelcome
 {
-    if([_defaults valueForKey:ILNoMusicPlayingScreenToggleKey] &&
+    if([_defaults boolForKey:ILNoMusicPlayingScreenToggleKey] &&
        [self webView].request == nil &&
        [_MPcontroller playbackState] != MPMusicPlaybackStatePlaying)
     {
