@@ -6,13 +6,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <nil key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="404" y="445"/>
-        </view>
+        <viewController id="Dzg-lQ-vrs">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="dmZ-MM-mor"/>
+                <viewControllerLayoutGuide type="bottom" id="2M4-pQ-mPh"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="xsP-9o-W9A">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gx-MK-TSc">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <items>
+                            <barButtonItem enabled="NO" image="Back" id="JYr-0j-ud8"/>
+                            <barButtonItem style="plain" systemItem="flexibleSpace" id="0ob-02-gQg"/>
+                            <barButtonItem enabled="NO" image="Forward" id="cKA-YT-Tcu"/>
+                            <barButtonItem style="plain" systemItem="flexibleSpace" id="95D-uX-g0F"/>
+                            <barButtonItem image="Safari" id="Biu-hA-E5Y"/>
+                            <barButtonItem style="plain" systemItem="flexibleSpace" id="HyO-1k-WSu"/>
+                            <barButtonItem image="Settings" id="uUD-OR-DUg"/>
+                        </items>
+                    </toolbar>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="tintColor" red="0.7630125552" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="centerX" secondItem="3gx-MK-TSc" secondAttribute="centerX" id="ATV-oP-r0u"/>
+                    <constraint firstAttribute="width" secondItem="3gx-MK-TSc" secondAttribute="width" id="em3-Rs-xNE"/>
+                    <constraint firstItem="2M4-pQ-mPh" firstAttribute="top" secondItem="3gx-MK-TSc" secondAttribute="bottom" id="qwc-kY-TGL"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="395" y="454"/>
+        </viewController>
     </objects>
+    <resources>
+        <image name="Back" width="21" height="21"/>
+        <image name="Forward" width="21" height="21"/>
+        <image name="Safari" width="21" height="21"/>
+        <image name="Settings" width="21" height="21"/>
+    </resources>
 </document>

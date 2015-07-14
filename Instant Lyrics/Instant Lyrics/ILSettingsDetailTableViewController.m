@@ -125,11 +125,11 @@
     if ([sourceSegue.identifier isEqualToString:@"SearchTermSegue"])
     {
         return @"The query format is: <prepend text> <artist> <title>. \n\
-Depending on the language of lyrics and the search engine you choose, different prepend text may produce better search results.";
+Depending on the language of songs you listen to and the search engine you choose, different prepend text may produce better search results.";
     }
     else // if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"])
     {
-        return @"The default search engine to use in Instant Lyrics. \n";
+        return @"Instant Lyrics will look up lyrics using the selected search engine. \n";
     }
 }
 

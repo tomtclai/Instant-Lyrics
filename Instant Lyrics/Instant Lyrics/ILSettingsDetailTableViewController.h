@@ -11,5 +11,4 @@
 @interface ILSettingsDetailTableViewController : UITableViewController <UITableViewDataSource>
 @property (strong, nonatomic) ViewController *vc;
 -(void) setSourceSegue:(UIStoryboardSegue *)aSourceSegue;
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end

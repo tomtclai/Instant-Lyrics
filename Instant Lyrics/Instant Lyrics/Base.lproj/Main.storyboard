@@ -226,7 +226,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="YQI-tp-5yr" kind="show" id="R7S-Qf-f2O"/>
+                                    <segue destination="YQI-tp-5yr" kind="show" identifier="SearchEngineSegue" id="R7S-Qf-f2O"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="toggleCell" id="fLf-4U-yKp">

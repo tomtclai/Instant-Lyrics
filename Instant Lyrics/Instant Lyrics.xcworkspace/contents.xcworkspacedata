@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Instant Lyrics/welcomeView.xib">
-   </FileRef>
-   <FileRef
       location = "group:Instant Lyrics.xcodeproj">
    </FileRef>
    <FileRef
