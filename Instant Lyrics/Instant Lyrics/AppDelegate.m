@@ -56,9 +56,19 @@ NSDictionary * searchEngineBaseURLs;
                              };
     [defaults registerDefaults:factorySettings];
 }
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // dunno why this is necessary
+//    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    return YES;
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+    if (!self.window.rootViewController)
+    {
+        self.window.rootViewController = [[ViewController alloc] init];
+    }
 
     return YES;
 }
@@ -92,14 +102,13 @@ NSDictionary * searchEngineBaseURLs;
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 #pragma mark - state restoration
-// not ready yet
-//- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(nonnull NSCoder *)coder
-//{
-//    return YES;
-//}
-//
-//- (BOOL)application:(nonnull UIApplication *)application shouldRestoreApplicationState:(nonnull NSCoder *)coder
-//{
-//    return YES;
-//}
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(nonnull NSCoder *)coder
+{
+    return YES;
+}
+
+- (BOOL)application:(nonnull UIApplication *)application shouldRestoreApplicationState:(nonnull NSCoder *)coder
+{
+    return YES;
+}
 @end

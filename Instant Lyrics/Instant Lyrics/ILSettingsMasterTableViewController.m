@@ -49,7 +49,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-
+    self.restorationIdentifier = NSStringFromClass([self class]);
+    self.restorationClass = [self class];
+    self.navigationController.restorationIdentifier =
+    NSStringFromClass([[self navigationController] class]);
+    self.navigationController.restorationClass =
+    [[self navigationController] class];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -240,4 +245,21 @@
     [defaults setBool:aSwitch.on forKey:ILNoMusicPlayingScreenToggleKey];
     
 }
+
+#pragma mark - state restoration
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(nonnull NSArray *)path coder:(nonnull NSCoder *)coder
+{
+    UALog(@"%@", NSStringFromSelector(_cmd));
+    ILSettingsMasterTableViewController *vc = nil;
+    UIStoryboard *storyboard = [coder decodeObjectForKey: UIStateRestorationViewControllerStoryboardKey];
+    if (storyboard)
+    {
+        vc = (ILSettingsMasterTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ILSettingsMasterTableViewController"];
+        
+        vc.restorationIdentifier = [path lastObject];
+        vc.restorationClass = [self class];
+    }
+    return [[self alloc]init];
+}
+
 @end

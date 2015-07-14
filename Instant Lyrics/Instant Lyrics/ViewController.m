@@ -73,6 +73,9 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
                               object:nil];
     self.urlmap = [ILURLLog sharedLog];
     self.progressView.backgroundColor = [UIColor clearColor];
+    
+    self.restorationIdentifier = NSStringFromClass([self class]);
+    self.restorationClass = [self class];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -323,39 +326,18 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 + (UIViewController *)viewControllerWithRestorationIdentifierPath:(nonnull NSArray *)path coder:(nonnull NSCoder *)coder
 {
     UALog(@"%@", NSStringFromSelector(_cmd));
+    ViewController *vc = nil;
+    UIStoryboard *storyboard = [coder decodeObjectForKey: UIStateRestorationViewControllerStoryboardKey];
+    if (storyboard)
+    {
+        vc = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"viewController"];
+        
+        vc.restorationIdentifier = [path lastObject];
+        vc.restorationClass = [self class];
+    }
     return [[self alloc]init];
 }
 
-- (void)encodeRestorableStateWithCoder:(nonnull NSCoder *)coder
-{
-//    [coder encodeObject:self.item.itemKey
-//                 forKey:@"item.itemKey"];
-//
-//    // Save changes into item
-//    self.item.itemName = self.nameField.text;
-//    self.item.serialNumber = self.serialNumberField.text;
-//    self.item.valueInDollars = [self.valueField.text intValue];
-//
-//    // Have store save changes to disk
-//    [[BNRItemStore sharedStore] saveChanges];
-        UALog(@"%@", NSStringFromSelector(_cmd));
-
-    [super encodeRestorableStateWithCoder:coder];
-}
-
-- (void)decodeRestorableStateWithCoder:(nonnull NSCoder *)coder
-{
-//    NSString *itemKey = [coder decodeObjectForKey:@"item.itemKey"];
-//
-//    for (BNRItem *item in [[BNRItemStore sharedStore] allItems]) {
-//        if ([itemKey isEqualToString:item.itemKey]) {
-//            self.item = item;
-//            break;
-//        }
-//    }
-    UALog(@"%@", NSStringFromSelector(_cmd));
-    [super decodeRestorableStateWithCoder:coder];
-}
 
 #pragma mark - NJKWebViewProgressDelegate
 -(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NJKWebViewProgress.h"
-@interface ViewController : UIViewController <UIViewControllerRestoration, UIPopoverPresentationControllerDelegate>
+@interface ViewController : UIViewController <UIViewControllerRestoration, UIPopoverPresentationControllerDelegate, UIViewControllerRestoration>
 
 - (BOOL)currentArtistTitle:(NSString *__nullable *__nullable)result;
 typedef enum searchOptions

@@ -169,7 +169,7 @@
         <!--Settings-->
         <scene sceneID="EYR-n3-ZQM">
             <objects>
-                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="FmE-1g-pXa" customClass="ILSettingsMasterTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ILSettingsMasterTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FmE-1g-pXa" customClass="ILSettingsMasterTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="kNs-pU-mxk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,7 +264,7 @@
         <!--Settings Detail Table View Controller-->
         <scene sceneID="UeE-1J-T7t">
             <objects>
-                <tableViewController id="YQI-tp-5yr" customClass="ILSettingsDetailTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ILSettingsDetailTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YQI-tp-5yr" customClass="ILSettingsDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="i3n-G8-QwK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

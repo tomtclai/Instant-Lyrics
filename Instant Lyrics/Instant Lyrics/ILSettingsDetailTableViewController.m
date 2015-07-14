@@ -11,7 +11,7 @@
 #import "ViewController.h"
 #import "ILURLEntry.h"
 #import "ILURLLog.h"
-
+#import <UALogger.h>
 @interface ILSettingsDetailTableViewController ()
 @property NSMutableArray * tableDataSource;
 @property (strong, nonatomic) UIStoryboardSegue *sourceSegue;
@@ -36,6 +36,8 @@
         _tableDataSource = [_defaults objectForKey:ILSearchEngineOptionsKey];
         self.navigationItem.title = @"Search Engine";
     }
+        self.restorationIdentifier = NSStringFromClass([self class]);
+        self.restorationClass = [self class];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -153,6 +155,22 @@ Depending on the language of songs you listen to and the search engine you choos
     }   
 }
 */
+
+#pragma mark - state restoration
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(nonnull NSArray *)path coder:(nonnull NSCoder *)coder
+{
+    UALog(@"%@", NSStringFromSelector(_cmd));
+    ILSettingsDetailTableViewController *vc = nil;
+    UIStoryboard *storyboard = [coder decodeObjectForKey: UIStateRestorationViewControllerStoryboardKey];
+    if (storyboard)
+    {
+        vc = (ILSettingsDetailTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ILSettingsDetailTableViewController"];
+        
+        vc.restorationIdentifier = [path lastObject];
+        vc.restorationClass = [self class];
+    }
+    return [[self alloc]init];
+}
 
 
 /*
