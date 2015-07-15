@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class ViewController;
-@interface ILSettingsDetailTableViewController : UITableViewController <UITableViewDataSource>
+@interface ILSettingsDetailTableViewController : UITableViewController <UITableViewDataSource, UIViewControllerRestoration>
 @property (strong, nonatomic) ViewController *vc;
 -(void) setSourceSegue:(UIStoryboardSegue *)aSourceSegue;
 @end

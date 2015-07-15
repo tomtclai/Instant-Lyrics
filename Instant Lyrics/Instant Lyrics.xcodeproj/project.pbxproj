@@ -18,7 +18,6 @@
 		777989B41B4489E7003E5906 /* ILWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777989B21B4489E7003E5906 /* ILWelcomeViewController.m */; };
 		777989B51B4489E7003E5906 /* Welcome.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777989B31B4489E7003E5906 /* Welcome.xib */; };
 		77ADBFB41B555A1400EEEA43 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77ADBFB21B555A1400EEEA43 /* Launch Screen.xib */; };
-		77ADBFB51B555A1400EEEA43 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77ADBFB31B555A1400EEEA43 /* View.xib */; };
 		77ADBFB81B555A3500EEEA43 /* ILSettingsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77ADBFB71B555A3500EEEA43 /* ILSettingsDetailTableViewController.m */; };
 		77D45C411B431EDC00B5A06A /* ILSettingsMasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D45C401B431EDC00B5A06A /* ILSettingsMasterTableViewController.m */; };
 		77D45C441B43287E00B5A06A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77D45C431B43287E00B5A06A /* Settings.bundle */; };
@@ -43,7 +42,6 @@
 		777989B21B4489E7003E5906 /* ILWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILWelcomeViewController.m; sourceTree = "<group>"; };
 		777989B31B4489E7003E5906 /* Welcome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Welcome.xib; sourceTree = "<group>"; };
 		77ADBFB21B555A1400EEEA43 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
-		77ADBFB31B555A1400EEEA43 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		77ADBFB61B555A3500EEEA43 /* ILSettingsDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSettingsDetailTableViewController.h; sourceTree = "<group>"; };
 		77ADBFB71B555A3500EEEA43 /* ILSettingsDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSettingsDetailTableViewController.m; sourceTree = "<group>"; };
 		77D45C3F1B431EDC00B5A06A /* ILSettingsMasterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSettingsMasterTableViewController.h; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 			children = (
 				7774D7A81B37A40400DA0068 /* Main.storyboard */,
 				77ADBFB21B555A1400EEEA43 /* Launch Screen.xib */,
-				77ADBFB31B555A1400EEEA43 /* View.xib */,
 				777989B31B4489E7003E5906 /* Welcome.xib */,
 			);
 			name = View;
@@ -248,7 +245,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77ADBFB51B555A1400EEEA43 /* View.xib in Resources */,
 				77D45C441B43287E00B5A06A /* Settings.bundle in Resources */,
 				777989B51B4489E7003E5906 /* Welcome.xib in Resources */,
 				7774D7AC1B37A40400DA0068 /* Assets.xcassets in Resources */,

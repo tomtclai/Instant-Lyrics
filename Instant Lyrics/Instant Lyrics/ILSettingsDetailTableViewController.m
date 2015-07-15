@@ -21,6 +21,16 @@
 
 @implementation ILSettingsDetailTableViewController
 @synthesize sourceSegue,vc=_vc;
+//- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self)
+//    {
+//        self.restorationIdentifier = NSStringFromClass([self class]);
+//        self.restorationClass = [self class];
+//    }
+//    return  self;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -36,8 +46,9 @@
         _tableDataSource = [_defaults objectForKey:ILSearchEngineOptionsKey];
         self.navigationItem.title = @"Search Engine";
     }
-        self.restorationIdentifier = NSStringFromClass([self class]);
-        self.restorationClass = [self class];
+
+    
+    [[self tableView]registerClass:[UITableViewCell class]forCellReuseIdentifier:@"UITableCell"];
 }
 
 - (void)didReceiveMemoryWarning {

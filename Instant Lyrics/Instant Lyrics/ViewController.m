@@ -74,8 +74,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     self.urlmap = [ILURLLog sharedLog];
     self.progressView.backgroundColor = [UIColor clearColor];
     
-    self.restorationIdentifier = NSStringFromClass([self class]);
-    self.restorationClass = [self class];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -353,7 +352,6 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 #pragma mark - UI story board
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
     if ([segue.identifier isEqualToString:@"popoverPresent"])
     {
         if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPad)

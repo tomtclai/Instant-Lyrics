@@ -69,6 +69,7 @@ NSDictionary * searchEngineBaseURLs;
     {
         self.window.rootViewController = [[ViewController alloc] init];
     }
+    
 
     return YES;
 }

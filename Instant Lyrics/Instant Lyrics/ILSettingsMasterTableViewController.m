@@ -24,6 +24,18 @@
 @end
 @implementation ILSettingsMasterTableViewController
 @synthesize vc=_vc;
+
+//- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self)
+//    {
+//        self.restorationIdentifier = NSStringFromClass([self class]);
+//        self.restorationClass = [self class];
+//    }
+//    return  self;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -48,13 +60,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.restorationIdentifier = NSStringFromClass([self class]);
-    self.restorationClass = [self class];
-    self.navigationController.restorationIdentifier =
-    NSStringFromClass([[self navigationController] class]);
-    self.navigationController.restorationClass =
-    [[self navigationController] class];
 }
 - (void)viewWillAppear:(BOOL)animated
 {

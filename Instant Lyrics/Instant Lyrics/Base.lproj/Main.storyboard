@@ -301,7 +301,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Kr7-LX-Hgu">
             <objects>
-                <navigationController id="g2h-Wx-WQ9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UINavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g2h-Wx-WQ9" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qaw-34-Wjs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -312,7 +312,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UrR-Fg-X2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-194" y="400"/>
+            <point key="canvasLocation" x="-196" y="395"/>
         </scene>
     </scenes>
     <resources>

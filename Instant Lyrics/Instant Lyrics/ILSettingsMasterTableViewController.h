@@ -8,6 +8,6 @@
 #import "ViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface ILSettingsMasterTableViewController : UITableViewController <UITableViewDataSource>
+@interface ILSettingsMasterTableViewController : UITableViewController <UITableViewDataSource, UIViewControllerRestoration>
 @property (strong, nonatomic) ViewController *vc;
 @end
