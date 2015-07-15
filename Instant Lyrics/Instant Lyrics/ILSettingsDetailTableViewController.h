@@ -10,5 +10,5 @@
 @class ViewController;
 @interface ILSettingsDetailTableViewController : UITableViewController <UITableViewDataSource, UIViewControllerRestoration>
 @property (strong, nonatomic) ViewController *vc;
--(void) setSourceSegue:(UIStoryboardSegue *)aSourceSegue;
+@property (strong, nonatomic) NSString *sourceIdentifier;
 @end

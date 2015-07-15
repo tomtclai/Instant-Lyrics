@@ -14,13 +14,14 @@
 #import <UALogger.h>
 @interface ILSettingsDetailTableViewController ()
 @property NSMutableArray * tableDataSource;
-@property (strong, nonatomic) UIStoryboardSegue *sourceSegue;
+//@property (strong, nonatomic) UIStoryboardSegue *sourceSegue;
+
 @property (strong, nonatomic) NSUserDefaults *defaults;
 
 @end
 
 @implementation ILSettingsDetailTableViewController
-@synthesize sourceSegue,vc=_vc;
+@synthesize vc=_vc,sourceIdentifier=_sourceIdentifier;
 //- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{
 //    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,12 +37,12 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _defaults = [NSUserDefaults standardUserDefaults];
 
-    if ([sourceSegue.identifier isEqualToString:@"SearchTermSegue"])
+    if ([_sourceIdentifier isEqualToString:@"SearchTermSegue"])
     {
         _tableDataSource = [_defaults objectForKey:ILPrependOptionsKey];
         self.navigationItem.title = @"Set Search Term";
     }
-    else //if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"])
+    else //if ([_sourceIdentifier isEqualToString:@"SearchEngineSegue"])
     {
         _tableDataSource = [_defaults objectForKey:ILSearchEngineOptionsKey];
         self.navigationItem.title = @"Search Engine";
@@ -49,6 +50,7 @@
 
     
     [[self tableView]registerClass:[UITableViewCell class]forCellReuseIdentifier:@"UITableCell"];
+    _defaults = [NSUserDefaults standardUserDefaults];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,7 +77,7 @@
     
     cell.textLabel.text = _tableDataSource[indexPath.row];
     
-    if ([sourceSegue.identifier isEqualToString:@"SearchTermSegue"])
+    if ([_sourceIdentifier isEqualToString:@"SearchTermSegue"])
     {
         // add the artist title to the text if currently playing
         // if not, use last artist title
@@ -96,7 +98,7 @@
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
     }
-    else if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"] &&
+    else if ([_sourceIdentifier isEqualToString:@"SearchEngineSegue"] &&
              [cell.textLabel.text isEqualToString:[_defaults objectForKey:ILSearchEnginePrefsKey]])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -117,13 +119,13 @@
     selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
     NSString * newValue = _tableDataSource[indexPath.row];
     // Is it changed?
-    if ([sourceSegue.identifier isEqualToString:@"SearchTermSegue"] &&
+    if ([_sourceIdentifier isEqualToString:@"SearchTermSegue"] &&
         ![newValue isEqualToString:[_defaults objectForKey:ILPrependPrefsKey]])
     {
         // Save to defaults
         [_defaults setObject:newValue forKey:ILPrependPrefsKey];
     }
-    else if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"] &&
+    else if ([_sourceIdentifier isEqualToString:@"SearchEngineSegue"] &&
               ![newValue isEqualToString:[_defaults objectForKey:ILSearchEnginePrefsKey]])
     {
         // Save to defaults
@@ -135,12 +137,12 @@
 
 - (NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-    if ([sourceSegue.identifier isEqualToString:@"SearchTermSegue"])
+    if ([_sourceIdentifier isEqualToString:@"SearchTermSegue"])
     {
         return @"The query format is: <prepend text> <artist> <title>. \n\
 Depending on the language of songs you listen to and the search engine you choose, different prepend text may produce better search results.";
     }
-    else // if ([sourceSegue.identifier isEqualToString:@"SearchEngineSegue"])
+    else // if ([_sourceIdentifier isEqualToString:@"SearchEngineSegue"])
     {
         return @"Instant Lyrics will look up lyrics using the selected search engine. \n";
     }
@@ -185,15 +187,13 @@ Depending on the language of songs you listen to and the search engine you choos
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:sourceSegue forKey:@"sourceSegue"];
-    [coder encodeObject:_defaults forKey:@"defaults"];
+    [coder encodeObject:_sourceIdentifier forKey:@"sourceIdentifier"];
     [coder encodeObject:_vc forKey:@"vc"];
 }
 
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder
 {
-    self.sourceSegue = [coder decodeObjectForKey:@"sourceSegue"];
-    _defaults = [coder decodeObjectForKey:@"defaults"];
+    self.sourceIdentifier = [coder decodeObjectForKey:@"sourceIdentifier"];
     
     _vc = [coder decodeObjectForKey:@"vc"];
 }

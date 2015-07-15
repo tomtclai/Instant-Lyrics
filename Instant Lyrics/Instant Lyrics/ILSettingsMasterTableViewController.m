@@ -47,6 +47,7 @@
                                   target:self
                                   action:@selector(doneButtonPressed)];
         self.navigationItem.rightBarButtonItem = done;
+
     }
     
     // tell tableview to not display empty cells in the bottom
@@ -234,7 +235,7 @@
     // Pass the selected object to the new view controller.
     ILSettingsDetailTableViewController* sdtvc = (ILSettingsDetailTableViewController *)
     [segue destinationViewController];
-    [sdtvc setSourceSegue:segue];
+    [sdtvc setSourceIdentifier:segue.identifier];
     sdtvc.vc = _vc;
     
 }
@@ -270,6 +271,7 @@
 {
     [coder encodeObject:_messageSwitch forKey:@"messageSwitch"];
     [coder encodeObject:_vc forKey:@"vc"];
+    
 }
 
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder

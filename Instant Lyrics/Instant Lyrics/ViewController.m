@@ -337,7 +337,6 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     return [[self alloc]init];
 }
 
-
 #pragma mark - NJKWebViewProgressDelegate
 -(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
 {
