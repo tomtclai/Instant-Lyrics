@@ -183,6 +183,20 @@ Depending on the language of songs you listen to and the search engine you choos
     return [[self alloc]init];
 }
 
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:sourceSegue forKey:@"sourceSegue"];
+    [coder encodeObject:_defaults forKey:@"defaults"];
+    [coder encodeObject:_vc forKey:@"vc"];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.sourceSegue = [coder decodeObjectForKey:@"sourceSegue"];
+    _defaults = [coder decodeObjectForKey:@"defaults"];
+    
+    _vc = [coder decodeObjectForKey:@"vc"];
+}
 
 /*
 // Override to support rearranging the table view.

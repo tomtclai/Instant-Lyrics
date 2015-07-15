@@ -266,5 +266,15 @@
     }
     return [[self alloc]init];
 }
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:_messageSwitch forKey:@"messageSwitch"];
+    [coder encodeObject:_vc forKey:@"vc"];
+}
 
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    _messageSwitch = [coder decodeObjectForKey:@"messageSwitch"];
+    _vc = [coder decodeObjectForKey:@"vc"];
+}
 @end

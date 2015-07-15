@@ -58,9 +58,12 @@ NSDictionary * searchEngineBaseURLs;
 }
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // dunno why this is necessary
-//    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    // dunno why this is necessary, disabled for now
+    // self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    
+    // The following fixes "Unbalanced calls to begin/end appearance transitions." this turns out to be always needed. see https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/index.html#//apple_ref/occ/intfm/UIApplicationDelegate/application:willFinishLaunchingWithOptions:
+    [self.window makeKeyAndVisible];
     return YES;
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
