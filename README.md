@@ -15,7 +15,7 @@ Utilizing ID3 tags that is on your audio files, Instant Lyrics knows what you're
 * You don't have to have a developer account to load apps to your device ([More info](http://bouk.co/blog/sideload-iphone/))
 
 #### Why is this not on the App store?
-Apple rejected this app because lyrics are usually copyrighted. I was asked to prove that I have rights to display any lyrics that could ever show up from a search query (turns out displaying those websites alone required rights). At this point in time, there is nothing I could do about it.
+Apple rejected this app because lyrics are usually copyrighted. I was asked to prove that I have rights to display any lyrics that could ever show up from a search query (turns out displaying those websites alone required rights). Unfortunately, there is nothing we could do about it at the moment.í²”.
 
 #### Author
 * [tomtclai](https://github.com/tomtclai)
