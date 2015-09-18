@@ -16,7 +16,7 @@ Apple rejected this app because lyrics are usually copyrighted. I was asked to p
 #### Install
 * Make sure to install Xcode 7
 * Download this project
-* Build and run by opening the .xcodeproj file
+* Build and run by opening the .xcworkspace file
 * Problems? Email us: tom.instantlyrics@gmail.com
 
 
