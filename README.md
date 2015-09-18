@@ -11,7 +11,7 @@ Utilizing ID3 tags that is on your audio files, Instant Lyrics knows what you're
  - Free of charge, forever 
 
 #### Why is this not on the App store?
-Apple rejected this app because lyrics are usually copyrighted. I was asked to prove that I have rights to display any lyrics that could ever show up from a search query (turns out displaying those websites alone required rights). Unfortunately, there is nothing we could do about it at the moment. However, as of June 11, 2015, [you can now download this project and manually push it to your phone.](http://www.zdnet.com/article/with-xcode-7-you-can-freely-bypass-the-app-store-for-ios-apps/)
+Apple rejected this app because lyrics are usually copyrighted. I was asked to prove that I have rights to display any lyrics that could ever show up from a search query (turns out displaying those websites alone required rights). There was nothing we could do. However, as of June 11, 2015, [you can now download this project and manually push it to your phone.](http://www.zdnet.com/article/with-xcode-7-you-can-freely-bypass-the-app-store-for-ios-apps/)
 
 #### Install
 * Make sure to install Xcode 7
