@@ -48,11 +48,11 @@ NSDictionary * searchEngineBaseURLs;
                                       ILNoMusicPlayingScreenToggleKey:@YES
                                       };
     searchEngineBaseURLs = @{
-                             @"Google"    :@"http://www.google.com/search?q=",
-                             @"Bing"      :@"http://www.bing.com/search?q=",
-                             @"DuckDuckGo":@"http://duckduckgo.com/?q=",
-                             @"BaiDu"     :@"http://www.baidu.com/s?wd=",
-                             @"LyricWiki" :@"http://lyrics.wikia.com/Special:Search?search="
+                             @"Google"    :@"https://www.google.com/search?q=",
+                             @"Bing"      :@"https://www.bing.com/search?q=",
+                             @"DuckDuckGo":@"https://duckduckgo.com/?q=",
+                             @"BaiDu"     :@"https://www.baidu.com/s?wd=",
+                             @"LyricWiki" :@"https://lyrics.wikia.com/Special:Search?search="
                              };
     [defaults registerDefaults:factorySettings];
 }

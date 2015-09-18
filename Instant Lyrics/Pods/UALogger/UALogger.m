@@ -206,7 +206,7 @@ static UALoggerSeverity	UA__minimumSeverity			= UALoggerSeverityUnset;
             }
         }
     } @catch (...) {
-        NSLogv(@"Caught an exception in UALogger", nil);
+        NSLog(@"Caught an exception in UALogger", nil);
     }
 	
 }

@@ -256,18 +256,6 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 
 #pragma mark - search button
-//-(IBAction)manualSearch:(id)sender
-//{
-//    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Manual Search"
-//                                                     message:@"Enter artist and title here"
-//                                                    delegate:self
-//                                           cancelButtonTitle:@"Hide"
-//                                           otherButtonTitles:@"Search",nil];
-//    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-//
-//    [alert show];
-//}
-
 -(void)alertView:(nonnull UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1)
@@ -296,19 +284,6 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
 }
 
-#pragma mark - search bar
-//- (void)searchBarTextDidBeginEditing:(nonnull UISearchBar *)searchBar
-//{
-//}
-//- (void)searchBarSearchButtonClicked:(nonnull UISearchBar *)searchBar
-//{
-//    self.artistTitle = [NSMutableString stringWithFormat:@"%@",searchBar.text];
-//    self.searchBar.text = self.artistTitle;
-//    [self searchLyricsHelper];
-//    searchBar.text = @"";
-//    [searchBar resignFirstResponder];
-//
-//}
 #pragma mark - dealloc
 - (void) dealloc
 {
