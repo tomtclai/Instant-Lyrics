@@ -14,7 +14,7 @@
 #import "ILWelcomeViewController.h"
 #import "ILSettingsMasterTableViewController.h"
 @import MediaPlayer;
-@interface ViewController () <UIWebViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate, NJKWebViewProgressDelegate>
+@interface ViewController () <UIViewControllerRestoration, UIPopoverPresentationControllerDelegate, UIViewControllerRestoration, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate, NJKWebViewProgressDelegate, UIWebViewDelegate>
 @property (strong, nonatomic) ILURLLog *urlmap;
 @property (strong, nonatomic) MPMusicPlayerController *MPcontroller;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -30,7 +30,12 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     // This is a global variable
     NJKWebViewProgress *_progressProxy;
 }
-
+- (ILURLLog *)urlmap {
+    if (!_urlmap) {
+        _urlmap = [ILURLLog sharedLog];
+    }
+    return _urlmap;
+}
 #pragma mark - UIView
 - (void)viewDidLoad {
     _MPcontroller = [[MPMusicPlayerController alloc] init];
@@ -96,9 +101,9 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 - (void)displayWelcome
 {
-    if([_defaults boolForKey:ILNoMusicPlayingScreenToggleKey] &&
+    if([self.defaults boolForKey:ILNoMusicPlayingScreenToggleKey] &&
        [self webView].request == nil &&
-       [_MPcontroller playbackState] != MPMusicPlaybackStatePlaying)
+       [self.MPcontroller playbackState] != MPMusicPlaybackStatePlaying)
     {
         ILWelcomeViewController * welcomeVC = [[ILWelcomeViewController alloc] initWithNibName:@"Welcome" bundle:nil];
         
@@ -110,7 +115,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (void)searchLyricsIfPlaying
 {
     
-    if ([_MPcontroller playbackState] == MPMusicPlaybackStatePlaying)
+    if ([self.MPcontroller playbackState] == MPMusicPlaybackStatePlaying)
     {
     
     [self searchLyricsWithOptions: SEARCH_OPTIONAL];
@@ -124,12 +129,15 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
         ILURLEntry* lastEntry = [self.urlmap lastEntry];
         
         // This generated URL is the same as last, so don't load
+        NSURL *generatedURL = [self generateSearchURLWithArtistTitle:at];
         if (options == SEARCH_OPTIONAL &&
-            [lastEntry.originUrl isEqual:[self generateSearchURLWithArtistTitle:at]])
+            [lastEntry.originUrl isEqual:generatedURL])
         {
             return;
+        } else {
+            [self loadURL:generatedURL];
+            [[self urlmap]addURL:generatedURL forArtistTitle:at];
         }
-        [self searchLyricsHelperWithArtistTitle:at];
     }
     else
     {
@@ -143,7 +151,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
 }
 - (BOOL)currentArtistTitle:(NSString**)result {
-    MPMediaItem *mediaItem = [_MPcontroller nowPlayingItem];
+    MPMediaItem *mediaItem = [self.MPcontroller nowPlayingItem];
     if (mediaItem)
     {
         NSMutableString* at = [[NSMutableString alloc] init];
@@ -162,16 +170,10 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
         return false;
     }
 }
-- (void)searchLyricsHelperWithArtistTitle:(NSString*) at
-{
-    NSURL* url = [self generateSearchURLWithArtistTitle:at];
-    [self loadURL:url];
-    [[self urlmap]addURL:url forArtistTitle:at];
-}
 - (NSURL *)generateSearchURLWithArtistTitle:(NSString *)at
 {
     NSMutableString* query = [at mutableCopy];
-    NSString* stringToPrepend = [_defaults objectForKey:ILPrependPrefsKey];
+    NSString* stringToPrepend = [self.defaults objectForKey:ILPrependPrefsKey];
     query = [NSMutableString stringWithFormat:@"%@ %@", stringToPrepend,query];
     NSMutableString *urlStr = [NSMutableString stringWithFormat:@"%@",
                                [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -186,7 +188,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     [urlStr replaceOccurrencesOfString:@"=" withString:@"%3D" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
     [urlStr replaceOccurrencesOfString:@"?" withString:@"%3F" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
     
-    NSString* searchEngineName = [_defaults objectForKey:ILSearchEnginePrefsKey];
+    NSString* searchEngineName = [self.defaults objectForKey:ILSearchEnginePrefsKey];
     NSString* baseURL = [searchEngineBaseURLs objectForKey:searchEngineName];
     urlStr = [NSMutableString stringWithFormat:@"%@%@", baseURL, urlStr];
     
@@ -196,6 +198,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    self.urlmap = nil;
 }
 - (void)loadURL: (NSURL*) url
 {
@@ -255,15 +258,15 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     [[UIApplication sharedApplication] openURL:self.webView.request.URL];
 }
 
-#pragma mark - search button
--(void)alertView:(nonnull UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1)
-    {
-        NSString* artistTitle = [NSMutableString stringWithFormat:@"%@",[alertView textFieldAtIndex:0].text];
-        [self searchLyricsHelperWithArtistTitle:artistTitle];
-    }
-}
+//#pragma mark - search button
+//-(void)alertView:(nonnull UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
+//{
+//    if (buttonIndex == 1)
+//    {
+//        NSString* artistTitle = [NSMutableString stringWithFormat:@"%@",[alertView textFieldAtIndex:0].text];
+//        [self searchLyricsHelperWithArtistTitle:artistTitle];
+//    }
+//}
 #pragma mark - back button
 - (IBAction)backButtonTapped:(id)sender {
     [[self webView]goBack];
@@ -293,7 +296,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                                                   object:nil];
-    [_MPcontroller endGeneratingPlaybackNotifications];
+    [self.MPcontroller endGeneratingPlaybackNotifications];
 }
 
 #pragma mark - state restoration
@@ -315,7 +318,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 #pragma mark - NJKWebViewProgressDelegate
 -(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
 {
-    [_progressView setProgress:progress animated:NO];
+    [self.progressView setProgress:progress animated:NO];
 }
 #pragma mark - UIPopoverControllerDelegate
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController
