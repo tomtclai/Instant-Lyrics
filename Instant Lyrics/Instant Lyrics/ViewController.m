@@ -14,10 +14,12 @@
 #import "ILWelcomeViewController.h"
 #import "ILSettingsMasterTableViewController.h"
 @import MediaPlayer;
+@import WebKit;
 @interface ViewController () <UIWebViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate, NJKWebViewProgressDelegate>
 @property (strong, nonatomic) ILURLLog *urlmap;
 @property (strong, nonatomic) MPMusicPlayerController *MPcontroller;
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet UIView *centerView;
+@property (strong, nonatomic) WKWebView *webkitWebview;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
@@ -31,18 +33,24 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     NJKWebViewProgress *_progressProxy;
 }
 
+- (WKWebView *)webkitWebview {
+    if (!_webkitWebview) {
+        _webkitWebview = [WKWebView new];
+        // for testing
+        NSURL *url = [NSURL URLWithString:@"https://www.google.com"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [_webkitWebview loadRequest:request];
+    }
+    return _webkitWebview;
+}
 #pragma mark - UIView
 - (void)viewDidLoad {
     _MPcontroller = [[MPMusicPlayerController alloc] init];
     _progressProxy = [[NJKWebViewProgress alloc] init];
-    _webView.delegate=_progressProxy;
+//    _webView.delegate=_progressProxy;
     [super viewDidLoad];
-    _webView.scrollView.scrollEnabled = YES;
-    _webView.scalesPageToFit =YES;
-    _webView.clipsToBounds = NO;
-    _webView.scrollView.clipsToBounds = NO;
-    _webView.allowsInlineMediaPlayback = NO;
-    _webView.mediaPlaybackRequiresUserAction = YES;
+    self.webkitWebview.frame = self.centerView.frame;
+    self.centerView = self.webkitWebview;
     _progressProxy.webViewProxyDelegate = self;
     _progressProxy.progressDelegate = self;
     _defaults = [NSUserDefaults standardUserDefaults];
@@ -97,7 +105,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (void)displayWelcome
 {
     if([_defaults boolForKey:ILNoMusicPlayingScreenToggleKey] &&
-       [self webView].request == nil &&
+//       [self webView].request == nil &&
        [_MPcontroller playbackState] != MPMusicPlaybackStatePlaying)
     {
         ILWelcomeViewController * welcomeVC = [[ILWelcomeViewController alloc] initWithNibName:@"Welcome" bundle:nil];
@@ -200,7 +208,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (void)loadURL: (NSURL*) url
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
+    [self.webkitWebview loadRequest:request];
 }
 #pragma mark - UIWebViewDelegate
 
@@ -222,21 +230,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
         [UIView animateWithDuration:0.2f animations:^{
             [[self progressView] setAlpha:0.0f];
         }];
-        UALog(@"%@",[self webView].request.URL);
-    }
-}
-#pragma mark - gestures
--(void)swipeForward:(UIScreenEdgePanGestureRecognizer *)regcognizer
-{
-    if (regcognizer.state == UIGestureRecognizerStateEnded) {
-        if (_webView.canGoForward) [[self webView]goForward];
-    }
-}
-
--(void)swipeBack:(UIScreenEdgePanGestureRecognizer *)regcognizer
-{
-    if (regcognizer.state == UIGestureRecognizerStateEnded) {
-        if (_webView.canGoBack) [[self webView]goBack];
+//        UALog(@"%@",[self webView].request.URL);
     }
 }
 
@@ -252,7 +246,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
     UALog(@"shareButton pressed");
 
-    [[UIApplication sharedApplication] openURL:self.webView.request.URL];
+//    [[UIApplication sharedApplication] openURL:self.webView.request.URL];
 }
 
 #pragma mark - search button
@@ -266,21 +260,21 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 }
 #pragma mark - back button
 - (IBAction)backButtonTapped:(id)sender {
-    [[self webView]goBack];
+//    [[self webView]goBack];
     [self updateBackForwardButtons];
 }
 
 #pragma mark - forward button
 - (IBAction)forwardButtonTapped:(id)sender {
-    [[self webView]goForward];
+//    [[self webView]goForward];
     [self updateBackForwardButtons];
 }
 
 #pragma mark - update back/foward buttons
 - (void)updateBackForwardButtons
 {
-    [[self backButton] setEnabled:[self.webView canGoBack]];
-    [[self forwardButton] setEnabled:[self.webView canGoForward]];
+//    [[self backButton] setEnabled:[self.webView canGoBack]];
+//    [[self forwardButton] setEnabled:[self.webView canGoForward]];
 
 }
 
