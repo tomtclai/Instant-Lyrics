@@ -7,21 +7,56 @@
 //
 
 #import "ILWebViewController.h"
-
+@import WebKit;
 @interface ILWebViewController ()
-
+@property (strong, nonatomic) WKWebView* webView;
+@property (strong, nonatomic) NSURLRequest *request;
 @end
-
 @implementation ILWebViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (WKWebView *)webView {
+    if (!_webView) {
+        _webView = [[WKWebView alloc] init];
+        _webView.scrollView.scrollEnabled = YES;
+        _webView.clipsToBounds = NO;
+        _webView.scrollView.clipsToBounds = NO;
+        _webView.allowsBackForwardNavigationGestures = YES;
+        _webView.backgroundColor = [UIColor redColor];
+        _webView.scrollView.backgroundColor = [UIColor blueColor];
+    }
+    return _webView;
+}
+- (void)setUrl:(NSURL *)url
+{
+    _url = url;
+    _request = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:self.request];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidLoad {
+//    NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
+    
+}
+
+- (void)loadView {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com"]];
+    [self.webView loadRequest:request];
+}
+
+- (BOOL)canGoBack {
+    return self.webView.canGoBack;
+}
+- (BOOL)canGoForward {
+    return self.webView.canGoForward;
+}
+- (void)goBack {
+    if (self.canGoBack) {
+        [self.webView goBack];
+    }
+}
+- (void)goForward {
+    if (self.canGoForward) {
+        [self.webView goForward];
+    }
 }
 
 /*

@@ -13,15 +13,16 @@
 #import "Prefix.pch"
 #import "ILWelcomeViewController.h"
 #import "ILSettingsMasterTableViewController.h"
+#import "ILWebViewController.h"
 @import MediaPlayer;
-@interface ViewController () <UIViewControllerRestoration, UIPopoverPresentationControllerDelegate, UIViewControllerRestoration, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate, NJKWebViewProgressDelegate, UIWebViewDelegate>
+@interface ViewController () <UIViewControllerRestoration, UIPopoverPresentationControllerDelegate, UIViewControllerRestoration, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate, NJKWebViewProgressDelegate>
 @property (strong, nonatomic) ILURLLog *urlmap;
 @property (strong, nonatomic) MPMusicPlayerController *MPcontroller;
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) ILWebViewController *webViewController;
 @property (strong, nonatomic) NSUserDefaults * defaults;
 @end
 NSString *const searchbarPlaceholder = @"Search Lyrics";
@@ -36,19 +37,18 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     }
     return _urlmap;
 }
+- (ILWebViewController *)webViewController {
+    if (!_webViewController) {
+        _webViewController  = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"webviewController"];
+    }
+    return _webViewController;
+}
 #pragma mark - UIView
 - (void)viewDidLoad {
     _MPcontroller = [[MPMusicPlayerController alloc] init];
     _progressProxy = [[NJKWebViewProgress alloc] init];
-    _webView.delegate=_progressProxy;
     [super viewDidLoad];
-    _webView.scrollView.scrollEnabled = YES;
-    _webView.scalesPageToFit =YES;
-    _webView.clipsToBounds = NO;
-    _webView.scrollView.clipsToBounds = NO;
-    _webView.allowsInlineMediaPlayback = NO;
-    _webView.mediaPlaybackRequiresUserAction = YES;
-    _progressProxy.webViewProxyDelegate = self;
+//    _progressProxy.webViewProxyDelegate = self;
     _progressProxy.progressDelegate = self;
     _defaults = [NSUserDefaults standardUserDefaults];
     UIScreenEdgePanGestureRecognizer
@@ -102,7 +102,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (void)displayWelcome
 {
     if([self.defaults boolForKey:ILNoMusicPlayingScreenToggleKey] &&
-       [self webView].request == nil &&
+       self.webViewController.url == nil &&
        [self.MPcontroller playbackState] != MPMusicPlaybackStatePlaying)
     {
         ILWelcomeViewController * welcomeVC = [[ILWelcomeViewController alloc] initWithNibName:@"Welcome" bundle:nil];
@@ -135,7 +135,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
         {
             return;
         } else {
-            [self loadURL:generatedURL];
+            self.webViewController.url = generatedURL;
             [[self urlmap]addURL:generatedURL forArtistTitle:at];
         }
     }
@@ -200,46 +200,41 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     // Dispose of any resources that can be recreated.
     self.urlmap = nil;
 }
-- (void)loadURL: (NSURL*) url
-{
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
-}
-#pragma mark - UIWebViewDelegate
-
--(void)webViewDidStartLoad:(nonnull UIWebView *)webView
-{
-
-    if (_progressView.progress > 0)
-    {
-        [UIView animateWithDuration:0.2f animations:^{
-            [[self progressView] setAlpha:1];
-        }];
-    }
-    [self updateBackForwardButtons];
-}
--(void)webViewDidFinishLoad:(nonnull UIWebView *)webView
-{
-    if (_progressView.progress >= 1)
-    {
-        [UIView animateWithDuration:0.2f animations:^{
-            [[self progressView] setAlpha:0.0f];
-        }];
-        UALog(@"%@",[self webView].request.URL);
-    }
-}
+//#pragma mark - UIWebViewDelegate
+//
+//-(void)webViewDidStartLoad:(nonnull UIWebView *)webView
+//{
+//
+//    if (_progressView.progress > 0)
+//    {
+//        [UIView animateWithDuration:0.2f animations:^{
+//            [[self progressView] setAlpha:1];
+//        }];
+//    }
+//    [self updateBackForwardButtons];
+//}
+//-(void)webViewDidFinishLoad:(nonnull UIWebView *)webView
+//{
+//    if (_progressView.progress >= 1)
+//    {
+//        [UIView animateWithDuration:0.2f animations:^{
+//            [[self progressView] setAlpha:0.0f];
+//        }];
+//        UALog(@"%@",self.webViewController.url);
+//    }
+//}
 #pragma mark - gestures
 -(void)swipeForward:(UIScreenEdgePanGestureRecognizer *)regcognizer
 {
     if (regcognizer.state == UIGestureRecognizerStateEnded) {
-        if (_webView.canGoForward) [[self webView]goForward];
+        [self.webViewController goForward];
     }
 }
 
 -(void)swipeBack:(UIScreenEdgePanGestureRecognizer *)regcognizer
 {
     if (regcognizer.state == UIGestureRecognizerStateEnded) {
-        if (_webView.canGoBack) [[self webView]goBack];
+        [self.webViewController goBack];
     }
 }
 
@@ -255,7 +250,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
     UALog(@"shareButton pressed");
 
-    [[UIApplication sharedApplication] openURL:self.webView.request.URL];
+    [[UIApplication sharedApplication] openURL:self.webViewController.url];
 }
 
 //#pragma mark - search button
@@ -269,22 +264,21 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 //}
 #pragma mark - back button
 - (IBAction)backButtonTapped:(id)sender {
-    [[self webView]goBack];
+    [self.webViewController goBack];
     [self updateBackForwardButtons];
 }
 
 #pragma mark - forward button
 - (IBAction)forwardButtonTapped:(id)sender {
-    [[self webView]goForward];
+    [self.webViewController goForward];
     [self updateBackForwardButtons];
 }
 
 #pragma mark - update back/foward buttons
 - (void)updateBackForwardButtons
 {
-    [[self backButton] setEnabled:[self.webView canGoBack]];
-    [[self forwardButton] setEnabled:[self.webView canGoForward]];
-
+    self.backButton.enabled = self.webViewController.canGoBack;
+    self.forwardButton.enabled = self.webViewController.canGoForward;
 }
 
 #pragma mark - dealloc

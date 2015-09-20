@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		745E92D56AA37028AD8ECF1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9F73CEE69FE50D6C1491EF /* libPods.a */; };
+		77345E311BAF30B30048E25A /* ILWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77345E301BAF30B30048E25A /* ILWebViewController.m */; settings = {ASSET_TAGS = (); }; };
 		7770A1501B3C7D3000D790AB /* ILURLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A14F1B3C7D3000D790AB /* ILURLLog.m */; };
 		7770A1541B3C80B300D790AB /* ILURLEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A1531B3C80B300D790AB /* ILURLEntry.m */; };
 		7774D7A11B37A40400DA0068 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A01B37A40400DA0068 /* main.m */; };
@@ -25,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		770004041B4474CE0074CC05 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		77345E2F1BAF30B30048E25A /* ILWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILWebViewController.h; sourceTree = "<group>"; };
+		77345E301BAF30B30048E25A /* ILWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILWebViewController.m; sourceTree = "<group>"; };
 		7770A14E1B3C7D3000D790AB /* ILURLLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLLog.h; sourceTree = "<group>"; };
 		7770A14F1B3C7D3000D790AB /* ILURLLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLLog.m; sourceTree = "<group>"; };
 		7770A1521B3C80B300D790AB /* ILURLEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLEntry.h; sourceTree = "<group>"; };
@@ -92,9 +95,19 @@
 			name = Welcome;
 			sourceTree = "<group>";
 		};
+		77345E321BAF30B90048E25A /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				77345E2F1BAF30B30048E25A /* ILWebViewController.h */,
+				77345E301BAF30B30048E25A /* ILWebViewController.m */,
+			);
+			name = Web;
+			sourceTree = "<group>";
+		};
 		7770A14D1B3C7CD100D790AB /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				77345E321BAF30B90048E25A /* Web */,
 				770004111B4481290074CC05 /* Welcome */,
 				77D45C421B431EE200B5A06A /* Settings */,
 				7700040A1B4480F00074CC05 /* Main */,
@@ -307,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77345E311BAF30B30048E25A /* ILWebViewController.m in Sources */,
 				7770A1501B3C7D3000D790AB /* ILURLLog.m in Sources */,
 				7774D7A71B37A40400DA0068 /* ViewController.m in Sources */,
 				7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */,
