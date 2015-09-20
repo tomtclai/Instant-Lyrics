@@ -7,396 +7,379 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DFBE83B6154C9046B643009 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2B4284440199FB4EFEA142 /* NJKWebViewProgress.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		10C6BF7A7E1A1F6F27E7DD58 /* NJKWebViewProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 192A4440505439C42954FAEF /* NJKWebViewProgress.h */; };
-		1111743CD1D3FDE83DD25BFB /* NJKWebViewProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 42367A3F014C46AB4B5FCE2A /* NJKWebViewProgressView.h */; };
-		15C440A039D9268B380EB5D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54726067539ADFE37FB0A49 /* Foundation.framework */; };
-		26181C10B84AD718D8879B9E /* Pods-UALogger-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F55712D052ACB2CA50304798 /* Pods-UALogger-dummy.m */; };
-		4E0C62D43F9592D2A65AD520 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F301883617AD649EEA6E03 /* NJKWebViewProgressView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		50E66951F6505FB5C0279FCF /* UALogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B1FCB28FF5795A4C707C477 /* UALogger.h */; };
-		782926B905A36F765DD99691 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54544869602E621F8CAC5F42 /* Pods-dummy.m */; };
-		BF87CCFE093D5E5CBB0AC9E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54726067539ADFE37FB0A49 /* Foundation.framework */; };
-		EB7498892CE20B844148A7DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54726067539ADFE37FB0A49 /* Foundation.framework */; };
-		F17EEB2041E18587DC6AABA6 /* UALogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A4983FBE0BC761CF22B8B2 /* UALogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FC60E8ACE13FD3A1BC3083F0 /* Pods-NJKWebViewProgress-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CD5E21E71A4FDF3CA793ED /* Pods-NJKWebViewProgress-dummy.m */; };
+		214265F415EFDA8062B60CC5987020F6 /* UALogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2FA60B9DA31631B9823909D8551F66 /* UALogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		344309E9EC03E060FF9374F71364D55A /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DCBB402BC4D1F96A51196EFAB0ABD9 /* Pods-dummy.m */; };
+		657C9B798FF97BB24C985ABAC3B151EB /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337A16D5B7B8570B83F76BDCF10B55A /* NJKWebViewProgress.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		72A6C13C15FFC88620D08546C4F0DA3C /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B964070752C415D857BCDB0659EB46 /* NJKWebViewProgressView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8AB2B7559ACE46BC1CA7EA4083199544 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4B46703DBFB1D3D44460E26FC997B4 /* Foundation.framework */; };
+		964F2B4548042E9F9CC38A8D98E418DB /* NJKWebViewProgress-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D336C8684B25CFA6256C6E106FA7B7 /* NJKWebViewProgress-dummy.m */; };
+		9D6960390FC1741CD642EA2FE92B1A1C /* NJKWebViewProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = FE64AA12E57F9CF8A1DCD9EC85AA1009 /* NJKWebViewProgressView.h */; };
+		9E15A8D94CB8F2155194601923AA6D67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4B46703DBFB1D3D44460E26FC997B4 /* Foundation.framework */; };
+		ACE55267F359711288B338C09FDF7ECE /* UALogger-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1626C78BA1168C54B295D198503368 /* UALogger-dummy.m */; };
+		BC04524F805C4260501EB77397B08ECE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4B46703DBFB1D3D44460E26FC997B4 /* Foundation.framework */; };
+		CBBCC31842E035ECC36AA853504D72DC /* UALogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 39B03FBB4EE5F17FD207AB7B7DE3B031 /* UALogger.h */; };
+		D37AA8595F81B7373ECDEFE8232E12F4 /* NJKWebViewProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 862080616F797BFAD3540DF4DAA3FE0B /* NJKWebViewProgress.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		01502C8227FDCB33A929295D /* PBXContainerItemProxy */ = {
+		284B8666750C77415A28FF48BECA9045 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 70E2695BE37C55C2B957566E /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B64E448FA0A12A57AB7A614D;
-			remoteInfo = "Pods-NJKWebViewProgress";
+			remoteGlobalIDString = A19B464C5D54E11344945E9A119851A3;
+			remoteInfo = NJKWebViewProgress;
 		};
-		0A2F08BDF61CF09E1F673DC1 /* PBXContainerItemProxy */ = {
+		FEB13FDBF4510B3C7A8CD0632948409C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 70E2695BE37C55C2B957566E /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EFD06EEDCCC69A949857B1D7;
-			remoteInfo = "Pods-UALogger";
+			remoteGlobalIDString = E211FBAA5159311218FEAC12EB18C277;
+			remoteInfo = UALogger;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		192A4440505439C42954FAEF /* NJKWebViewProgress.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgress.h; path = NJKWebViewProgress/NJKWebViewProgress.h; sourceTree = "<group>"; };
-		20B5DF6A3CF5269FA46C5496 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		36350A900CA3AF5B9429C725 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		374B5BD947870621B7900419 /* Pods-NJKWebViewProgress.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NJKWebViewProgress.xcconfig"; sourceTree = "<group>"; };
-		3B1FCB28FF5795A4C707C477 /* UALogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UALogger.h; sourceTree = "<group>"; };
-		3C9D8F6377FF1D54E1A0D88D /* Pods-UALogger.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UALogger.xcconfig"; sourceTree = "<group>"; };
-		42367A3F014C46AB4B5FCE2A /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgressView.h; path = NJKWebViewProgress/NJKWebViewProgressView.h; sourceTree = "<group>"; };
-		44ECD6DC778C1027A5633C23 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		47B91CF2BFEB0DFAC4295516 /* libPods-NJKWebViewProgress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NJKWebViewProgress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		54544869602E621F8CAC5F42 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		6E0536EABE2D9C1DCEA92799 /* Pods-NJKWebViewProgress-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NJKWebViewProgress-prefix.pch"; sourceTree = "<group>"; };
-		75694BF7C90C4A910F88218D /* Pods-UALogger-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UALogger-Private.xcconfig"; sourceTree = "<group>"; };
-		78D87B8FB27BC8379868FBF7 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		7C9F477AA8627EA6AAB8AF14 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		7E2B4284440199FB4EFEA142 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJKWebViewProgress.m; path = NJKWebViewProgress/NJKWebViewProgress.m; sourceTree = "<group>"; };
-		86F301883617AD649EEA6E03 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJKWebViewProgressView.m; path = NJKWebViewProgress/NJKWebViewProgressView.m; sourceTree = "<group>"; };
-		9DAC00E5C916D9C410B9AF30 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		A1F135C3BF92A626E2BAD0B1 /* libPods-UALogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UALogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE2A5CC251785509928CD11D /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C54726067539ADFE37FB0A49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		C56D299366CEA33F7F1555E4 /* Pods-NJKWebViewProgress-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NJKWebViewProgress-Private.xcconfig"; sourceTree = "<group>"; };
-		CA024A7D2D1DF2241EB90701 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		D3CD5E21E71A4FDF3CA793ED /* Pods-NJKWebViewProgress-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NJKWebViewProgress-dummy.m"; sourceTree = "<group>"; };
-		F55712D052ACB2CA50304798 /* Pods-UALogger-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UALogger-dummy.m"; sourceTree = "<group>"; };
-		F8A4983FBE0BC761CF22B8B2 /* UALogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UALogger.m; sourceTree = "<group>"; };
-		FC9239850F5B503418AE8783 /* Pods-UALogger-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UALogger-prefix.pch"; sourceTree = "<group>"; };
+		09F2269701A223A1B61B462E20FFF360 /* NJKWebViewProgress-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NJKWebViewProgress-prefix.pch"; sourceTree = "<group>"; };
+		12A45931CA7F903AFB9BF74AC6A12C9B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2337A16D5B7B8570B83F76BDCF10B55A /* NJKWebViewProgress.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJKWebViewProgress.m; path = NJKWebViewProgress/NJKWebViewProgress.m; sourceTree = "<group>"; };
+		39B03FBB4EE5F17FD207AB7B7DE3B031 /* UALogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UALogger.h; sourceTree = "<group>"; };
+		40D336C8684B25CFA6256C6E106FA7B7 /* NJKWebViewProgress-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NJKWebViewProgress-dummy.m"; sourceTree = "<group>"; };
+		56B60D1BDFAFA5E7742DBA1179412538 /* NJKWebViewProgress-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "NJKWebViewProgress-Private.xcconfig"; sourceTree = "<group>"; };
+		5F2FA60B9DA31631B9823909D8551F66 /* UALogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UALogger.m; sourceTree = "<group>"; };
+		6329C91C245184F0691796E94B32316A /* libNJKWebViewProgress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNJKWebViewProgress.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		68F3E6C3A51A09CB7FAF9F3FBBEE4B8D /* UALogger-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UALogger-Private.xcconfig"; sourceTree = "<group>"; };
+		6CC679497014D4CB01FD8299D13919AA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		862080616F797BFAD3540DF4DAA3FE0B /* NJKWebViewProgress.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgress.h; path = NJKWebViewProgress/NJKWebViewProgress.h; sourceTree = "<group>"; };
+		8ED4EE830B10481DE9CD0AC3D3106487 /* UALogger-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UALogger-prefix.pch"; sourceTree = "<group>"; };
+		9F4B46703DBFB1D3D44460E26FC997B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A0B964070752C415D857BCDB0659EB46 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJKWebViewProgressView.m; path = NJKWebViewProgress/NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		ADF1753B5ADF5776E446E978038CD432 /* NJKWebViewProgress.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NJKWebViewProgress.xcconfig; sourceTree = "<group>"; };
+		B34014360DEA0A4B3F6B400947B09C7D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B556B0C59EA2B6065DDB3960E82B52CF /* UALogger.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UALogger.xcconfig; sourceTree = "<group>"; };
+		B9DCBB402BC4D1F96A51196EFAB0ABD9 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB1626C78BA1168C54B295D198503368 /* UALogger-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UALogger-dummy.m"; sourceTree = "<group>"; };
+		BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		F9C14899BA57E33116B8E6513E11F115 /* libUALogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUALogger.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE64AA12E57F9CF8A1DCD9EC85AA1009 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgressView.h; path = NJKWebViewProgress/NJKWebViewProgressView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7948C80D6A9A800B4240F941 /* Frameworks */ = {
+		70C79A8121CA2E4789175494338A96A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB7498892CE20B844148A7DC /* Foundation.framework in Frameworks */,
+				9E15A8D94CB8F2155194601923AA6D67 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96B62FE91EEEA71BAC9D5E0B /* Frameworks */ = {
+		721F953B84ACEE717832CBED861C2BB6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15C440A039D9268B380EB5D0 /* Foundation.framework in Frameworks */,
+				BC04524F805C4260501EB77397B08ECE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A7BB4979C3D590849336DB5B /* Frameworks */ = {
+		C3107B3A24A205B300ADCD7600CB554A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF87CCFE093D5E5CBB0AC9E3 /* Foundation.framework in Frameworks */,
+				8AB2B7559ACE46BC1CA7EA4083199544 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11620E8F1DDBF18C460837C2 /* Frameworks */ = {
+		1389F1A11C7AB3C742DFEA0972A44AA5 /* NJKWebViewProgress */ = {
 			isa = PBXGroup;
 			children = (
-				930BE80035AFE09D3681CBFF /* iOS */,
+				A920AE02930DBF75850AA4833D51F891 /* Core */,
+				306B2DD8F99F579DDA1715A95AF902A8 /* ProgressView */,
+				7C2D16CDD8940C22EF49E86C6BF2D88F /* Support Files */,
 			);
-			name = Frameworks;
+			path = NJKWebViewProgress;
 			sourceTree = "<group>";
 		};
-		1E94E86C6970FE3A123A8A42 /* UALogger */ = {
+		13DE283D144BC61AF68DED07C2FEA394 /* UALogger */ = {
 			isa = PBXGroup;
 			children = (
-				3B1FCB28FF5795A4C707C477 /* UALogger.h */,
-				F8A4983FBE0BC761CF22B8B2 /* UALogger.m */,
-				3093B426B62F251B0A92B944 /* Support Files */,
+				39B03FBB4EE5F17FD207AB7B7DE3B031 /* UALogger.h */,
+				5F2FA60B9DA31631B9823909D8551F66 /* UALogger.m */,
+				8D2349D2868C99798004C665DAE08905 /* Support Files */,
 			);
 			path = UALogger;
 			sourceTree = "<group>";
 		};
-		24C1170D6E910E487F880E77 /* Products */ = {
+		306B2DD8F99F579DDA1715A95AF902A8 /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
-				20B5DF6A3CF5269FA46C5496 /* libPods.a */,
-				47B91CF2BFEB0DFAC4295516 /* libPods-NJKWebViewProgress.a */,
-				A1F135C3BF92A626E2BAD0B1 /* libPods-UALogger.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2F52F6AA5464BAEA0076D0F0 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				192A4440505439C42954FAEF /* NJKWebViewProgress.h */,
-				7E2B4284440199FB4EFEA142 /* NJKWebViewProgress.m */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		3093B426B62F251B0A92B944 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3C9D8F6377FF1D54E1A0D88D /* Pods-UALogger.xcconfig */,
-				75694BF7C90C4A910F88218D /* Pods-UALogger-Private.xcconfig */,
-				F55712D052ACB2CA50304798 /* Pods-UALogger-dummy.m */,
-				FC9239850F5B503418AE8783 /* Pods-UALogger-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-UALogger";
-			sourceTree = "<group>";
-		};
-		3CD1EF3A0B29BAED49DDE7DA /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B1724D5C42A1E7E69D6073EE /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		48352FAC0E84C181E20F40E8 /* ProgressView */ = {
-			isa = PBXGroup;
-			children = (
-				42367A3F014C46AB4B5FCE2A /* NJKWebViewProgressView.h */,
-				86F301883617AD649EEA6E03 /* NJKWebViewProgressView.m */,
+				FE64AA12E57F9CF8A1DCD9EC85AA1009 /* NJKWebViewProgressView.h */,
+				A0B964070752C415D857BCDB0659EB46 /* NJKWebViewProgressView.m */,
 			);
 			name = ProgressView;
 			sourceTree = "<group>";
 		};
-		5E11AF9DE4FD7F2095442458 /* Support Files */ = {
+		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				374B5BD947870621B7900419 /* Pods-NJKWebViewProgress.xcconfig */,
-				C56D299366CEA33F7F1555E4 /* Pods-NJKWebViewProgress-Private.xcconfig */,
-				D3CD5E21E71A4FDF3CA793ED /* Pods-NJKWebViewProgress-dummy.m */,
-				6E0536EABE2D9C1DCEA92799 /* Pods-NJKWebViewProgress-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-NJKWebViewProgress";
-			sourceTree = "<group>";
-		};
-		930BE80035AFE09D3681CBFF /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C54726067539ADFE37FB0A49 /* Foundation.framework */,
+				9F4B46703DBFB1D3D44460E26FC997B4 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		A19680E5C6E066850F1838A3 = {
+		672582B2949E3253AA58F0542ABDA9E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				44ECD6DC778C1027A5633C23 /* Podfile */,
-				11620E8F1DDBF18C460837C2 /* Frameworks */,
-				D49CFDBBB1040CCA874C38FB /* Pods */,
-				24C1170D6E910E487F880E77 /* Products */,
-				3CD1EF3A0B29BAED49DDE7DA /* Targets Support Files */,
+				1389F1A11C7AB3C742DFEA0972A44AA5 /* NJKWebViewProgress */,
+				13DE283D144BC61AF68DED07C2FEA394 /* UALogger */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7C2D16CDD8940C22EF49E86C6BF2D88F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADF1753B5ADF5776E446E978038CD432 /* NJKWebViewProgress.xcconfig */,
+				56B60D1BDFAFA5E7742DBA1179412538 /* NJKWebViewProgress-Private.xcconfig */,
+				40D336C8684B25CFA6256C6E106FA7B7 /* NJKWebViewProgress-dummy.m */,
+				09F2269701A223A1B61B462E20FFF360 /* NJKWebViewProgress-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/NJKWebViewProgress";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				672582B2949E3253AA58F0542ABDA9E8 /* Pods */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		B1724D5C42A1E7E69D6073EE /* Pods */ = {
+		8D2349D2868C99798004C665DAE08905 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE2A5CC251785509928CD11D /* Pods-acknowledgements.markdown */,
-				36350A900CA3AF5B9429C725 /* Pods-acknowledgements.plist */,
-				54544869602E621F8CAC5F42 /* Pods-dummy.m */,
-				78D87B8FB27BC8379868FBF7 /* Pods-environment.h */,
-				7C9F477AA8627EA6AAB8AF14 /* Pods-resources.sh */,
-				CA024A7D2D1DF2241EB90701 /* Pods.debug.xcconfig */,
-				9DAC00E5C916D9C410B9AF30 /* Pods.release.xcconfig */,
+				B556B0C59EA2B6065DDB3960E82B52CF /* UALogger.xcconfig */,
+				68F3E6C3A51A09CB7FAF9F3FBBEE4B8D /* UALogger-Private.xcconfig */,
+				BB1626C78BA1168C54B295D198503368 /* UALogger-dummy.m */,
+				8ED4EE830B10481DE9CD0AC3D3106487 /* UALogger-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UALogger";
+			sourceTree = "<group>";
+		};
+		952EEBFAF8F7E620423C9F156F25A506 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */,
+				BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */,
+				B9DCBB402BC4D1F96A51196EFAB0ABD9 /* Pods-dummy.m */,
+				641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */,
+				6CC679497014D4CB01FD8299D13919AA /* Pods.debug.xcconfig */,
+				12A45931CA7F903AFB9BF74AC6A12C9B /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		D49CFDBBB1040CCA874C38FB /* Pods */ = {
+		A920AE02930DBF75850AA4833D51F891 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				E82876ECF8C1D5932C7D33C4 /* NJKWebViewProgress */,
-				1E94E86C6970FE3A123A8A42 /* UALogger */,
+				862080616F797BFAD3540DF4DAA3FE0B /* NJKWebViewProgress.h */,
+				2337A16D5B7B8570B83F76BDCF10B55A /* NJKWebViewProgress.m */,
 			);
-			name = Pods;
+			name = Core;
 			sourceTree = "<group>";
 		};
-		E82876ECF8C1D5932C7D33C4 /* NJKWebViewProgress */ = {
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2F52F6AA5464BAEA0076D0F0 /* Core */,
-				48352FAC0E84C181E20F40E8 /* ProgressView */,
-				5E11AF9DE4FD7F2095442458 /* Support Files */,
+				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
 			);
-			path = NJKWebViewProgress;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6329C91C245184F0691796E94B32316A /* libNJKWebViewProgress.a */,
+				B34014360DEA0A4B3F6B400947B09C7D /* libPods.a */,
+				F9C14899BA57E33116B8E6513E11F115 /* libUALogger.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				952EEBFAF8F7E620423C9F156F25A506 /* Pods */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A85917B16787BB3373982AE2 /* Headers */ = {
+		B165F3A8DB79B75E7165BF5EA433C0C2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50E66951F6505FB5C0279FCF /* UALogger.h in Headers */,
+				CBBCC31842E035ECC36AA853504D72DC /* UALogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDCFDEE3B64011BBBC6A2D46 /* Headers */ = {
+		D3B5D0B88379AD1ECA219FB28659E0AF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10C6BF7A7E1A1F6F27E7DD58 /* NJKWebViewProgress.h in Headers */,
-				1111743CD1D3FDE83DD25BFB /* NJKWebViewProgressView.h in Headers */,
+				D37AA8595F81B7373ECDEFE8232E12F4 /* NJKWebViewProgress.h in Headers */,
+				9D6960390FC1741CD642EA2FE92B1A1C /* NJKWebViewProgressView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		269406347E2C1C98501CC3E4 /* Pods */ = {
+		6DE8B3C7EB9DDCC11A6BC360D68F101D /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 633F053893A4AB5151E1B9A4 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = 64CDB1CAE788986B081019BBBD84A1C8 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				F8D911809AF8001387B6F71D /* Sources */,
-				7948C80D6A9A800B4240F941 /* Frameworks */,
+				2B92671F1836C70A1BE8981808B7E5A3 /* Sources */,
+				C3107B3A24A205B300ADCD7600CB554A /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				46A59DCA374E5D7FBCA87368 /* PBXTargetDependency */,
-				4EEEB21273BEACFF324CEDB5 /* PBXTargetDependency */,
+				E45FB33AE444A5BEA61940A3E7DD29B6 /* PBXTargetDependency */,
+				C1BE23467D4B330D066CA565D7F4CFDF /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 20B5DF6A3CF5269FA46C5496 /* libPods.a */;
+			productReference = B34014360DEA0A4B3F6B400947B09C7D /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		B64E448FA0A12A57AB7A614D /* Pods-NJKWebViewProgress */ = {
+		A19B464C5D54E11344945E9A119851A3 /* NJKWebViewProgress */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA7B16E5A6F8881819C0E1A9 /* Build configuration list for PBXNativeTarget "Pods-NJKWebViewProgress" */;
+			buildConfigurationList = 20234E7A2EDCD9A505E90F2D0F4FC1EF /* Build configuration list for PBXNativeTarget "NJKWebViewProgress" */;
 			buildPhases = (
-				8FE5E0BE97B7891829F90178 /* Sources */,
-				96B62FE91EEEA71BAC9D5E0B /* Frameworks */,
-				DDCFDEE3B64011BBBC6A2D46 /* Headers */,
+				95CE1BD8B4864E89F4A33B03F1ADCD38 /* Sources */,
+				721F953B84ACEE717832CBED861C2BB6 /* Frameworks */,
+				D3B5D0B88379AD1ECA219FB28659E0AF /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-NJKWebViewProgress";
-			productName = "Pods-NJKWebViewProgress";
-			productReference = 47B91CF2BFEB0DFAC4295516 /* libPods-NJKWebViewProgress.a */;
+			name = NJKWebViewProgress;
+			productName = NJKWebViewProgress;
+			productReference = 6329C91C245184F0691796E94B32316A /* libNJKWebViewProgress.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		EFD06EEDCCC69A949857B1D7 /* Pods-UALogger */ = {
+		E211FBAA5159311218FEAC12EB18C277 /* UALogger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D26218F3E7B367F0093546B /* Build configuration list for PBXNativeTarget "Pods-UALogger" */;
+			buildConfigurationList = E4478E5C2E11BBDEB96DE893AEF07845 /* Build configuration list for PBXNativeTarget "UALogger" */;
 			buildPhases = (
-				1A6A50D8106311662957B19D /* Sources */,
-				A7BB4979C3D590849336DB5B /* Frameworks */,
-				A85917B16787BB3373982AE2 /* Headers */,
+				12FF8185070D438B110416BFB1EAC0EC /* Sources */,
+				70C79A8121CA2E4789175494338A96A3 /* Frameworks */,
+				B165F3A8DB79B75E7165BF5EA433C0C2 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-UALogger";
-			productName = "Pods-UALogger";
-			productReference = A1F135C3BF92A626E2BAD0B1 /* libPods-UALogger.a */;
+			name = UALogger;
+			productName = UALogger;
+			productReference = F9C14899BA57E33116B8E6513E11F115 /* libUALogger.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		70E2695BE37C55C2B957566E /* Project object */ = {
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 4D3A37F1235C0AB0C22FE139 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = A19680E5C6E066850F1838A3;
-			productRefGroup = 24C1170D6E910E487F880E77 /* Products */;
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				269406347E2C1C98501CC3E4 /* Pods */,
-				B64E448FA0A12A57AB7A614D /* Pods-NJKWebViewProgress */,
-				EFD06EEDCCC69A949857B1D7 /* Pods-UALogger */,
+				A19B464C5D54E11344945E9A119851A3 /* NJKWebViewProgress */,
+				6DE8B3C7EB9DDCC11A6BC360D68F101D /* Pods */,
+				E211FBAA5159311218FEAC12EB18C277 /* UALogger */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1A6A50D8106311662957B19D /* Sources */ = {
+		12FF8185070D438B110416BFB1EAC0EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26181C10B84AD718D8879B9E /* Pods-UALogger-dummy.m in Sources */,
-				F17EEB2041E18587DC6AABA6 /* UALogger.m in Sources */,
+				ACE55267F359711288B338C09FDF7ECE /* UALogger-dummy.m in Sources */,
+				214265F415EFDA8062B60CC5987020F6 /* UALogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8FE5E0BE97B7891829F90178 /* Sources */ = {
+		2B92671F1836C70A1BE8981808B7E5A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DFBE83B6154C9046B643009 /* NJKWebViewProgress.m in Sources */,
-				4E0C62D43F9592D2A65AD520 /* NJKWebViewProgressView.m in Sources */,
-				FC60E8ACE13FD3A1BC3083F0 /* Pods-NJKWebViewProgress-dummy.m in Sources */,
+				344309E9EC03E060FF9374F71364D55A /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8D911809AF8001387B6F71D /* Sources */ = {
+		95CE1BD8B4864E89F4A33B03F1ADCD38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				782926B905A36F765DD99691 /* Pods-dummy.m in Sources */,
+				964F2B4548042E9F9CC38A8D98E418DB /* NJKWebViewProgress-dummy.m in Sources */,
+				657C9B798FF97BB24C985ABAC3B151EB /* NJKWebViewProgress.m in Sources */,
+				72A6C13C15FFC88620D08546C4F0DA3C /* NJKWebViewProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		46A59DCA374E5D7FBCA87368 /* PBXTargetDependency */ = {
+		C1BE23467D4B330D066CA565D7F4CFDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-NJKWebViewProgress";
-			target = B64E448FA0A12A57AB7A614D /* Pods-NJKWebViewProgress */;
-			targetProxy = 01502C8227FDCB33A929295D /* PBXContainerItemProxy */;
+			name = UALogger;
+			target = E211FBAA5159311218FEAC12EB18C277 /* UALogger */;
+			targetProxy = FEB13FDBF4510B3C7A8CD0632948409C /* PBXContainerItemProxy */;
 		};
-		4EEEB21273BEACFF324CEDB5 /* PBXTargetDependency */ = {
+		E45FB33AE444A5BEA61940A3E7DD29B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-UALogger";
-			target = EFD06EEDCCC69A949857B1D7 /* Pods-UALogger */;
-			targetProxy = 0A2F08BDF61CF09E1F673DC1 /* PBXContainerItemProxy */;
+			name = NJKWebViewProgress;
+			target = A19B464C5D54E11344945E9A119851A3 /* NJKWebViewProgress */;
+			targetProxy = 284B8666750C77415A28FF48BECA9045 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2B68A1F2D1EA9D4413594324 /* Debug */ = {
+		008FB38D17DBEE7DA25C39771410F826 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75694BF7C90C4A910F88218D /* Pods-UALogger-Private.xcconfig */;
+			baseConfigurationReference = 12A45931CA7F903AFB9BF74AC6A12C9B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-UALogger/Pods-UALogger-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		30298FBB83AE8B9FA4021E6D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA024A7D2D1DF2241EB90701 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -404,15 +387,15 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
-		5553685E76B1692E9583D294 /* Debug */ = {
+		45C71369531577D9BF4F02DEDB802DC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C56D299366CEA33F7F1555E4 /* Pods-NJKWebViewProgress-Private.xcconfig */;
+			baseConfigurationReference = 56B60D1BDFAFA5E7742DBA1179412538 /* NJKWebViewProgress-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-NJKWebViewProgress/Pods-NJKWebViewProgress-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				GCC_PREFIX_HEADER = "Target Support Files/NJKWebViewProgress/NJKWebViewProgress-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -422,41 +405,23 @@
 			};
 			name = Debug;
 		};
-		703B63F38D66FC4A2F371F71 /* Release */ = {
+		57ACA6AC95D1D35891828C11B30AF481 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68F3E6C3A51A09CB7FAF9F3FBBEE4B8D /* UALogger-Private.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UALogger/UALogger-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
-		908FC02FDFE6478B9185C14B /* Debug */ = {
+		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -488,36 +453,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		910983CD89D8504D13A095EE /* Release */ = {
+		7159D3F678B1C04D3DA2362681BD4A17 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75694BF7C90C4A910F88218D /* Pods-UALogger-Private.xcconfig */;
+			baseConfigurationReference = 6CC679497014D4CB01FD8299D13919AA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-UALogger/Pods-UALogger-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		9197A48050631F28212BD7F4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DAC00E5C916D9C410B9AF30 /* Pods.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -525,15 +474,65 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
+			name = Debug;
+		};
+		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
 			name = Release;
 		};
-		9AA9CD467EBEDFB34FEFFA1C /* Release */ = {
+		767F37333FD53E82CD1618804C0B02B1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C56D299366CEA33F7F1555E4 /* Pods-NJKWebViewProgress-Private.xcconfig */;
+			baseConfigurationReference = 68F3E6C3A51A09CB7FAF9F3FBBEE4B8D /* UALogger-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-NJKWebViewProgress/Pods-NJKWebViewProgress-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				GCC_PREFIX_HEADER = "Target Support Files/UALogger/UALogger-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FC27FBD51394F79DB6E37E8ADB586986 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56B60D1BDFAFA5E7742DBA1179412538 /* NJKWebViewProgress-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/NJKWebViewProgress/NJKWebViewProgress-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -546,43 +545,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4D3A37F1235C0AB0C22FE139 /* Build configuration list for PBXProject "Pods" */ = {
+		20234E7A2EDCD9A505E90F2D0F4FC1EF /* Build configuration list for PBXNativeTarget "NJKWebViewProgress" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				908FC02FDFE6478B9185C14B /* Debug */,
-				703B63F38D66FC4A2F371F71 /* Release */,
+				45C71369531577D9BF4F02DEDB802DC2 /* Debug */,
+				FC27FBD51394F79DB6E37E8ADB586986 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D26218F3E7B367F0093546B /* Build configuration list for PBXNativeTarget "Pods-UALogger" */ = {
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2B68A1F2D1EA9D4413594324 /* Debug */,
-				910983CD89D8504D13A095EE /* Release */,
+				5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */,
+				74857149DC1E0D599B8A01A78349A926 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		633F053893A4AB5151E1B9A4 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		64CDB1CAE788986B081019BBBD84A1C8 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30298FBB83AE8B9FA4021E6D /* Debug */,
-				9197A48050631F28212BD7F4 /* Release */,
+				7159D3F678B1C04D3DA2362681BD4A17 /* Debug */,
+				008FB38D17DBEE7DA25C39771410F826 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA7B16E5A6F8881819C0E1A9 /* Build configuration list for PBXNativeTarget "Pods-NJKWebViewProgress" */ = {
+		E4478E5C2E11BBDEB96DE893AEF07845 /* Build configuration list for PBXNativeTarget "UALogger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5553685E76B1692E9583D294 /* Debug */,
-				9AA9CD467EBEDFB34FEFFA1C /* Release */,
+				57ACA6AC95D1D35891828C11B30AF481 /* Debug */,
+				767F37333FD53E82CD1618804C0B02B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 70E2695BE37C55C2B957566E /* Project object */;
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 }

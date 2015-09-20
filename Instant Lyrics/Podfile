@@ -1,4 +1,4 @@
 platform :ios, '8.0'
 pod 'NJKWebViewProgress'
-pod 'UALogger', '~> 0.3'
+pod 'UALogger'
 xcodeproj 'Instant Lyrics'
