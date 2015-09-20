@@ -13,6 +13,7 @@
 #import "Prefix.pch"
 #import "ILWelcomeViewController.h"
 #import "ILSettingsMasterTableViewController.h"
+#import "NJKWebViewProgress.h"
 @import MediaPlayer;
 @import WebKit;
 @interface ViewController () <UIViewControllerRestoration, UIPopoverPresentationControllerDelegate, UIViewControllerRestoration, UIWebViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UISearchBarDelegate>
@@ -30,7 +31,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 @implementation ViewController
 {
     // This is a global variable
-//    NJKWebViewProgress *_progressProxy;
+    NJKWebViewProgress *_progressProxy;
 }
 - (NSUserDefaults *)defaults {
     return [NSUserDefaults standardUserDefaults];
@@ -39,21 +40,26 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 - (MPMusicPlayerController *)MPcontroller {
     if (!_MPcontroller) {
         _MPcontroller = [[MPMusicPlayerController alloc] init];
-//        _webView.delegate=_progressProxy;
+//        _webView.UIDelegate=_progressProxy;
     }
     return _MPcontroller;
 }
-
-//- (NJKWebViewProgress *)progressProxy {
-//    if (!_progressProxy) {
-//        _progressProxy = [[NJKWebViewProgress alloc] init];
-//    }
-//    return _progressProxy;
-//}
+- (WKWebView *)webView {
+    if (!_webView) {
+        _webView = [WKWebView new];
+    }
+    return _webView;
+}
+- (NJKWebViewProgress *)progressProxy {
+    if (!_progressProxy) {
+        _progressProxy = [[NJKWebViewProgress alloc] init];
+    }
+    return _progressProxy;
+}
 #pragma mark - UIView
 - (void)loadView {
     [super loadView];
-    self.webView = [WKWebView new];
+
     self.centerView = self.webView;
 }
 
@@ -198,17 +204,17 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     NSString* stringToPrepend = [self.defaults objectForKey:ILPrependPrefsKey];
     query = [NSMutableString stringWithFormat:@"%@ %@", stringToPrepend,query];
     NSMutableString *urlStr = [NSMutableString stringWithFormat:@"%@",
-                               [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                               [query stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]];
     
-    [urlStr replaceOccurrencesOfString:@"$" withString:@"%24" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
-    [urlStr replaceOccurrencesOfString:@"&" withString:@"%26" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
-    [urlStr replaceOccurrencesOfString:@"+" withString:@"%2B" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
-    [urlStr replaceOccurrencesOfString:@"," withString:@"%2C" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
-    [urlStr replaceOccurrencesOfString:@"/" withString:@"%2F" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
-    [urlStr replaceOccurrencesOfString:@":" withString:@"%3A" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
-    [urlStr replaceOccurrencesOfString:@";" withString:@"%3B" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
-    [urlStr replaceOccurrencesOfString:@"=" withString:@"%3D" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
-    [urlStr replaceOccurrencesOfString:@"?" withString:@"%3F" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
+//    [urlStr replaceOccurrencesOfString:@"$" withString:@"%24" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
+//    [urlStr replaceOccurrencesOfString:@"&" withString:@"%26" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
+//    [urlStr replaceOccurrencesOfString:@"+" withString:@"%2B" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
+//    [urlStr replaceOccurrencesOfString:@"," withString:@"%2C" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
+//    [urlStr replaceOccurrencesOfString:@"/" withString:@"%2F" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
+//    [urlStr replaceOccurrencesOfString:@":" withString:@"%3A" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
+//    [urlStr replaceOccurrencesOfString:@";" withString:@"%3B" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
+//    [urlStr replaceOccurrencesOfString:@"=" withString:@"%3D" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
+//    [urlStr replaceOccurrencesOfString:@"?" withString:@"%3F" options:NSCaseInsensitiveSearch range: NSMakeRange(0, [urlStr length])];
     
     NSString* searchEngineName = [self.defaults objectForKey:ILSearchEnginePrefsKey];
     NSString* baseURL = [searchEngineBaseURLs objectForKey:searchEngineName];
@@ -280,7 +286,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
     UALog(@"shareButton pressed");
 
-//    [[UIApplication sharedApplication] openURL:self.webView.request.URL];
+    [[UIApplication sharedApplication] openURL:self.webView.URL];
 }
 
 #pragma mark - search button
@@ -295,22 +301,22 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 #pragma mark - back button
 - (IBAction)backButtonTapped:(id)sender {
     [[self webView]goBack];
-//    [self updateBackForwardButtons];
+    [self updateBackForwardButtons];
 }
 
 #pragma mark - forward button
 - (IBAction)forwardButtonTapped:(id)sender {
     [[self webView]goForward];
-//    [self updateBackForwardButtons];
+    [self updateBackForwardButtons];
 }
 
-//#pragma mark - update back/foward buttons
-//- (void)updateBackForwardButtons
-//{
-//    [[self backButton] setEnabled:[self.webView canGoBack]];
-//    [[self forwardButton] setEnabled:[self.webView canGoForward]];
-//
-//}
+#pragma mark - update back/foward buttons
+- (void)updateBackForwardButtons
+{
+    [[self backButton] setEnabled:[self.webView canGoBack]];
+    [[self forwardButton] setEnabled:[self.webView canGoForward]];
+
+}
 
 #pragma mark - dealloc
 - (void) dealloc
@@ -327,52 +333,23 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 #pragma mark - state restoration
 + (UIViewController *)viewControllerWithRestorationIdentifierPath:(nonnull NSArray *)path coder:(nonnull NSCoder *)coder
 {
-    UALog(@"%@", NSStringFromSelector(_cmd));
-    ViewController *vc = nil;
-    UIStoryboard *storyboard = [coder decodeObjectForKey: UIStateRestorationViewControllerStoryboardKey];
-    if (storyboard)
-    {
-        vc = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"viewController"];
-        
-        vc.restorationIdentifier = [path lastObject];
-        vc.restorationClass = [self class];
-    }
-    return [[self alloc]init];
+    return nil;
 }
 
-//#pragma mark - NJKWebViewProgressDelegate
-//-(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
-//{
-//    [self.progressView setProgress:progress animated:NO];
-//}
+#pragma mark - NJKWebViewProgressDelegate
+-(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
+{
+
+}
 #pragma mark - UIPopoverControllerDelegate
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController
 {
-        [self searchLyricsIfPlaying]; //uncomment after screenshot taking
-//    [self searchLyricsHelperWithArtistTitle:@"U2 Song for Someone"]; //remove after screenshot taking
+
 }
 #pragma mark - UI story board
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"popoverPresent"])
-    {
-        if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-        {
-            ILSettingsMasterTableViewController *smtvc =  segue.destinationViewController;
-            smtvc.vc = self;
-            smtvc.modalPresentationStyle = UIModalPresentationPopover;
-            UIPopoverPresentationController *popoverPresentationController = smtvc.popoverPresentationController;
-            popoverPresentationController.delegate = self;
-        }
-        else if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-        {
-            UINavigationController* nc =  segue.destinationViewController;
-            ILSettingsMasterTableViewController *smtvc = (ILSettingsMasterTableViewController *)
-            [nc visibleViewController];
-            smtvc.vc = self;
-        }
-    }
-    
+
     
 }
 
