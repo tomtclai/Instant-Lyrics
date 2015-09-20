@@ -110,11 +110,11 @@
                                                            forIndexPath:indexPath];
                     cell.textLabel.text = @"Search Term";
                     NSString* prependText = [defaults objectForKey:ILPrependPrefsKey];
-                    NSString* artistTitle;
+                    NSString* artistTitle = [_vc currentArtistTitle];
                     
                     // use current artist title if exists
                     // use last artist title if not
-                    if (![_vc currentArtistTitle:&artistTitle])
+                    if (artistTitle)
                     {
                         ILURLEntry * last = [[ILURLLog sharedLog]lastEntry];
                         artistTitle = last? last.artistTitle : @"";

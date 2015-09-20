@@ -33,13 +33,16 @@
 }
 
 - (void)viewDidLoad {
-//    NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
     
 }
 
 - (void)loadView {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com"]];
-    [self.webView loadRequest:request];
+    if (self.url)
+    {
+        NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
+        [self.webView loadRequest:request];
+    }
+    self.view = self.webView;
 }
 
 - (BOOL)canGoBack {

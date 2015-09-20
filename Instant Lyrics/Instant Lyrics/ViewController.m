@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
-@property (weak, nonatomic) ILWebViewController *webViewController;
+@property (strong, nonatomic) ILWebViewController *webViewController;
 @property (strong, nonatomic) NSUserDefaults * defaults;
 @end
 NSString *const searchbarPlaceholder = @"Search Lyrics";
@@ -37,18 +37,13 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     }
     return _urlmap;
 }
-- (ILWebViewController *)webViewController {
-    if (!_webViewController) {
-        _webViewController  = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"webviewController"];
-    }
-    return _webViewController;
-}
+
 #pragma mark - UIView
 - (void)viewDidLoad {
     _MPcontroller = [[MPMusicPlayerController alloc] init];
     _progressProxy = [[NJKWebViewProgress alloc] init];
     [super viewDidLoad];
-//    _progressProxy.webViewProxyDelegate = self;
+    _webViewController  = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"webviewController"];
     _progressProxy.progressDelegate = self;
     _defaults = [NSUserDefaults standardUserDefaults];
     UIScreenEdgePanGestureRecognizer
@@ -123,14 +118,15 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
 
 }
 - (void)searchLyricsWithOptions:(searchOptions)options {
-    NSString* at = nil;
-    if ([self currentArtistTitle:&at])
+    NSString* at = [self currentArtistTitle];
+    if (at)
     {
         ILURLEntry* lastEntry = [self.urlmap lastEntry];
         
         // This generated URL is the same as last, so don't load
         NSURL *generatedURL = [self generateSearchURLWithArtistTitle:at];
-        if (options == SEARCH_OPTIONAL &&
+        if (generatedURL &&
+            options == SEARCH_OPTIONAL &&
             [lastEntry.originUrl isEqual:generatedURL])
         {
             return;
@@ -150,7 +146,7 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
     }
 
 }
-- (BOOL)currentArtistTitle:(NSString**)result {
+- (NSString *)currentArtistTitle {
     MPMediaItem *mediaItem = [self.MPcontroller nowPlayingItem];
     if (mediaItem)
     {
@@ -162,12 +158,11 @@ NSString *const searchbarPlaceholder = @"Search Lyrics";
         if (artist && title) [at appendString:@" "];
         if (title) [at appendString:title];
         
-        *result =  [at copy];
-        return true;
+        return at;
     }
     else
     {
-        return false;
+        return nil;
     }
 }
 - (NSURL *)generateSearchURLWithArtistTitle:(NSString *)at

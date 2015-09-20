@@ -81,8 +81,8 @@
     {
         // add the artist title to the text if currently playing
         // if not, use last artist title
-        NSString* artistTitle;
-        if (![_vc currentArtistTitle:&artistTitle])
+        NSString* artistTitle = [_vc currentArtistTitle];
+        if (!artistTitle)
         {
             // add last artist title
             ILURLEntry * last = [[ILURLLog sharedLog]lastEntry];

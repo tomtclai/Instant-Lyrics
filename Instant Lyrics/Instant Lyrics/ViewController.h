@@ -10,7 +10,7 @@
 #import "NJKWebViewProgress.h"
 @interface ViewController : UIViewController
 
-- (BOOL)currentArtistTitle:(NSString *__nullable *__nullable)result;
+- (NSString *)currentArtistTitle;
 typedef enum searchOptions
 {
     SEARCH_OPTIONAL,
