@@ -164,16 +164,16 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
-                        <outlet property="backButton" destination="df1-g7-7pW" id="qjj-HO-KCa"/>
-                        <outlet property="forwardButton" destination="vdW-gT-6dL" id="zYZ-Zb-jPa"/>
-                        <outlet property="progressView" destination="CH5-mB-jhC" id="46w-fI-MGy"/>
-                        <outlet property="toolbar" destination="0Dq-g2-0E5" id="9L0-TA-dze"/>
-                        <outlet property="webView" destination="2sk-uT-h54" id="9GJ-Re-qXv"/>
+                        <outlet property="backButton" destination="df1-g7-7pW" id="6dF-kb-hIN"/>
+                        <outlet property="forwardButton" destination="vdW-gT-6dL" id="1KP-nY-fFV"/>
+                        <outlet property="progressView" destination="CH5-mB-jhC" id="eAC-5V-xux"/>
+                        <outlet property="toolbar" destination="0Dq-g2-0E5" id="dcT-PS-y18"/>
+                        <outlet property="webView" destination="2sk-uT-h54" id="A5b-OD-K3R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-280" y="-445"/>
+            <point key="canvasLocation" x="-228" y="-441"/>
         </scene>
         <!--Settings-->
         <scene sceneID="EYR-n3-ZQM">

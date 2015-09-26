@@ -10,7 +10,6 @@
 		745E92D56AA37028AD8ECF1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9F73CEE69FE50D6C1491EF /* libPods.a */; };
 		7770A1501B3C7D3000D790AB /* ILURLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A14F1B3C7D3000D790AB /* ILURLLog.m */; };
 		7770A1541B3C80B300D790AB /* ILURLEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770A1531B3C80B300D790AB /* ILURLEntry.m */; };
-		7771CFCD1BB65443000508CB /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7771CFCC1BB65443000508CB /* BrowserViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		7774D7A11B37A40400DA0068 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A01B37A40400DA0068 /* main.m */; };
 		7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A31B37A40400DA0068 /* AppDelegate.m */; };
 		7774D7A71B37A40400DA0068 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D7A61B37A40400DA0068 /* ViewController.m */; };
@@ -30,8 +29,6 @@
 		7770A14F1B3C7D3000D790AB /* ILURLLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLLog.m; sourceTree = "<group>"; };
 		7770A1521B3C80B300D790AB /* ILURLEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLEntry.h; sourceTree = "<group>"; };
 		7770A1531B3C80B300D790AB /* ILURLEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLEntry.m; sourceTree = "<group>"; };
-		7771CFCB1BB65443000508CB /* Instant Lyrics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instant Lyrics-Bridging-Header.h"; sourceTree = "<group>"; };
-		7771CFCC1BB65443000508CB /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		7774D79C1B37A40400DA0068 /* Instant Lyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instant Lyrics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7774D7A01B37A40400DA0068 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7774D7A21B37A40400DA0068 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,8 +79,6 @@
 			children = (
 				7774D7A51B37A40400DA0068 /* ViewController.h */,
 				7774D7A61B37A40400DA0068 /* ViewController.m */,
-				7771CFCC1BB65443000508CB /* BrowserViewController.swift */,
-				7771CFCB1BB65443000508CB /* Instant Lyrics-Bridging-Header.h */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -218,7 +213,6 @@
 		7774D7941B37A40400DA0068 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Tom;
 				TargetAttributes = {
@@ -314,7 +308,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7770A1501B3C7D3000D790AB /* ILURLLog.m in Sources */,
-				7771CFCD1BB65443000508CB /* BrowserViewController.swift in Sources */,
 				7774D7A71B37A40400DA0068 /* ViewController.m in Sources */,
 				7774D7A41B37A40400DA0068 /* AppDelegate.m in Sources */,
 				777989B41B4489E7003E5906 /* ILWelcomeViewController.m in Sources */,
@@ -424,15 +417,12 @@
 			baseConfigurationReference = F87E9D5A3062B6D158531B5A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Instant Lyrics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsz-Chun-Lai.Instant-Lyrics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Instant Lyrics/Instant Lyrics-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -442,14 +432,12 @@
 			baseConfigurationReference = D7AC207AADAD918CDB99516B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Instant Lyrics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsz-Chun-Lai.Instant-Lyrics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Instant Lyrics/Instant Lyrics-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
