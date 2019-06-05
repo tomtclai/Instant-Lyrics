@@ -3,7 +3,7 @@ Do you want to see the lyrics for the song you're listening to, but typing the s
 
 Utilizing ID3 tags that is on your audio files, Instant Lyrics knows what you're listening to. Instant Lyrics brings you the lyrics for any and every song that you are currently playing with the stock Music app. 
 
-##TL;DR
+## TL;DR
  - Look up lyrics automatically based on ID3 tags
  - No more typing
  - Works with ios music app
